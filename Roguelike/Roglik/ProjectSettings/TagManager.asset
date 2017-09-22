@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Walls
+  - 
+  - 
+  - 
+  - 
+  - Light Sources
+  - Ambient Light
+  - Light Obstacles
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 2855622033
+    locked: 0
+  - name: Walls
+    uniqueID: 1079924941
+    locked: 0
+  - name: Player/Enemy
+    uniqueID: 3183951757
+    locked: 0
+  - name: Items
+    uniqueID: 801158517
+    locked: 0
+  - name: UI
+    uniqueID: 3715453237
+    locked: 0
