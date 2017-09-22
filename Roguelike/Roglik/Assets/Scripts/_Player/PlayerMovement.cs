@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Tilemaps;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -9,50 +6,48 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 3.5f;
     public LayerMask wallLayer;
 
-    private float raycastDistance = 1f;
-    public Vector2 dir;
+    private const float RAYCAST_DISTANCE = 1f; // One cell
     private Vector3 pos;
-    private Transform tr;
     private Rigidbody2D rb;
 
     // Use this for initialization
     void Start () {
         pos = transform.position;
-        tr = transform;
         rb = GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKey(KeyCode.D) && tr.position == pos && !RayWallUpdate(Vector3.right))
+        if (Input.GetKey(KeyCode.D) && transform.position == pos && !RayWallUpdate(Vector3.right))
         {
             pos += Vector3.right;
             stepSound.Play();
         }
-        else if (Input.GetKey(KeyCode.A) && tr.position == pos && !RayWallUpdate(Vector3.left))
+        else if (Input.GetKey(KeyCode.A) && transform.position == pos && !RayWallUpdate(Vector3.left))
         {
             pos += Vector3.left;
             stepSound.Play();
         }
-        else if (Input.GetKey(KeyCode.W) && tr.position == pos && !RayWallUpdate(Vector3.up))
+        else if (Input.GetKey(KeyCode.W) && transform.position == pos && !RayWallUpdate(Vector3.up))
         {
             pos += Vector3.up;
             stepSound.Play();
         }
-        else if (Input.GetKey(KeyCode.S) && tr.position == pos && !RayWallUpdate(Vector3.down))
+        else if (Input.GetKey(KeyCode.S) && transform.position == pos && !RayWallUpdate(Vector3.down))
         {
             pos += Vector3.down;
             stepSound.Play();
         }
 
-        //rb.velocity = Vector3.ClampMagnitude(pos, 1f) * speed;
         transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
     }
 
+
+    //Raycast for wall collision
     bool RayWallUpdate(Vector2 rayDirection)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, raycastDistance, wallLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, RAYCAST_DISTANCE, wallLayer);
         Debug.DrawRay(transform.position, rayDirection, Color.green, 1f);
         
         if (hit.collider != null)
