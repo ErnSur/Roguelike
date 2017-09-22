@@ -1,90 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour {
 
     public AudioSource stepSound;
     public float speed = 3.5f;
+    public LayerMask wallLayer;
+
+    private float raycastDistance = 1f;
+    public Vector2 dir;
     private Vector3 pos;
     private Transform tr;
-
-    Rigidbody2D rb;
-    public float raycastMaxDistance = 2f;
-    public Vector2 dir;
-
+    private Rigidbody2D rb;
 
     // Use this for initialization
     void Start () {
-        rb = GetComponent<Rigidbody2D>();
         pos = transform.position;
         tr = transform;
+        rb = GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
 
-
-        if (Input.GetKey(KeyCode.D) && tr.position == pos)
+        if (Input.GetKey(KeyCode.D) && tr.position == pos && !RayWallUpdate(Vector3.right))
         {
             pos += Vector3.right;
             stepSound.Play();
         }
-        else if (Input.GetKey(KeyCode.A) && tr.position == pos)
+        else if (Input.GetKey(KeyCode.A) && tr.position == pos && !RayWallUpdate(Vector3.left))
         {
             pos += Vector3.left;
             stepSound.Play();
         }
-        else if (Input.GetKey(KeyCode.W) && tr.position == pos)
+        else if (Input.GetKey(KeyCode.W) && tr.position == pos && !RayWallUpdate(Vector3.up))
         {
             pos += Vector3.up;
             stepSound.Play();
         }
-        else if (Input.GetKey(KeyCode.S) && tr.position == pos)
+        else if (Input.GetKey(KeyCode.S) && tr.position == pos && !RayWallUpdate(Vector3.down))
         {
-            if (RaycastCheckUpdate(pos + Vector3.down))
-            {
-                
             pos += Vector3.down;
-                stepSound.Play();
-            }
+            stepSound.Play();
         }
-        
+
         //rb.velocity = Vector3.ClampMagnitude(pos, 1f) * speed;
         transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
     }
 
-    public RaycastHit2D CheckRaycast(Vector2 direction)
+    bool RayWallUpdate(Vector2 rayDirection)
     {
-        Vector2 startingPosition = new Vector2(transform.position.x, transform.position.y);
-        return Physics2D.Raycast(startingPosition, direction, raycastMaxDistance, 8);
-    }
-
-    private bool RaycastCheckUpdate(Vector3 dir)
-    {
-            Debug.DrawRay(transform.position, dir, Color.green, 1f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, raycastDistance, wallLayer);
+        Debug.DrawRay(transform.position, rayDirection, Color.green, 1f);
         
-            Vector2 direction = dir;
-
-            RaycastHit2D hit = CheckRaycast(direction);
-
-            if (hit.collider)
-            {
-                Debug.Log("hit "+ hit.collider.name);
-                return true;
-            }
-            return false;
-        
-    }
-
-    private bool WallCheck(Vector3 dir)
-    {
-        if (RaycastCheckUpdate(dir))
+        if (hit.collider != null)
         {
+            //Debug.Log("hit " + hit.collider.name);
             return true;
         }
-        stepSound.Play();
         return false;
     }
 }
