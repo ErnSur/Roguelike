@@ -16,6 +16,8 @@ public class ItemPickup : Interactable {
 
     void PickUp()
     {
+        Vector3 worldpos = transform.TransformVector(transform.position);
+        Debug.Log("x: "+ worldpos.x + "y: " + worldpos.y);
         Debug.Log("Picking up " + item.name);
         if (Inventory.instance.Add(item))
         {

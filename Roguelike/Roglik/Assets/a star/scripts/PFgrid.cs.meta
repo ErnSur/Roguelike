@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 845d4d579bcd36e49a4cf63d6a8051cc
+timeCreated: 1506329098
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - greenPrefab: {fileID: 4571356777266178, guid: 3a4deab6acfa64c46ae07f42779ed606,
+      type: 2}
+  - redPrefab: {fileID: 4797334059241854, guid: 41b2e317a25454d4493d66085cf246eb,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

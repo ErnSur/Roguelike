@@ -8,12 +8,12 @@ public class PlayerMovement : MonoBehaviour {
 
     private const float RAYCAST_DISTANCE = 1f; // One cell
     private Vector3 pos;
-    private Rigidbody2D rb;
+    //private Rigidbody2D rb;
 
     // Use this for initialization
     void Start () {
         pos = transform.position;
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
     bool RayWallUpdate(Vector2 rayDirection)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, RAYCAST_DISTANCE, wallLayer);
-        Debug.DrawRay(transform.position, rayDirection, Color.green, 1f);
+        Debug.DrawRay(transform.position, rayDirection, Color.green, RAYCAST_DISTANCE);
         
         if (hit.collider != null)
         {
