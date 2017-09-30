@@ -6,25 +6,39 @@ public class Follower : MonoBehaviour {
 
     public PFaStar pathfinding;
     public float speed = 3.5f;
-    private const float RAYCAST_DISTANCE = 2f; // One cell
-    public Transform player;
+    public float noticeRange = 6f; // 1f = One cell
 
-    public Vector3 pos;
-    public LayerMask wallLayer;
+    public Transform player;
+    public LayerMask playerLayer;
+
+    private Vector3 pos;
+    public List<PFnode> myPath;
+
 
     void MoveOneCell()
     {
+        Vector3 playerDir = player.transform.position - transform.position;
 
-        if(transform.position == pos)
+        if(transform.position == pos && RayPlayerUpdate(playerDir))
         {
-            
-            List<PFnode> myPath = pathfinding.FindPath(transform, player);
+            /*List<PFnode>*/ myPath = pathfinding.FindPath(transform, player);
 
-            if (myPath != null)
+            if (myPath.Count > 0 && myPath.Count != 1)
             {
                 PFnode cell = myPath[0];
-
+                myPath.Remove(cell);
+                
                 pos = new Vector3(cell.x,cell.y,0);
+            }
+        }
+        else if (transform.position == pos) // if npc loses player from eyes it goes to the place where he saw him last time.
+        {
+            if(myPath.Count > 0)
+            {
+                PFnode cell = myPath[0];
+                myPath.Remove(cell);
+
+                pos = new Vector3(cell.x, cell.y, 0);
             }
         }
 
@@ -35,10 +49,10 @@ public class Follower : MonoBehaviour {
     bool RayPlayerUpdate(Vector3 dir)
     {
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, RAYCAST_DISTANCE, wallLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, noticeRange, playerLayer);
         Debug.DrawRay(transform.position, dir, Color.green, 0.1f);
 
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
             Debug.Log("hit " + hit.collider.name);
             return true;
@@ -47,15 +61,10 @@ public class Follower : MonoBehaviour {
     }
 
     void Update () {
-        Vector3 playerDir = player.transform.position - transform.position;
-        if (!RayPlayerUpdate(playerDir))
-        {
-            MoveOneCell();
-        }
+        MoveOneCell();
 	}
 
 	void Start () {
         pos = transform.position;
-
     }
 }

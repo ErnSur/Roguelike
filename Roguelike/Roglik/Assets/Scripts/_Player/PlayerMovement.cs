@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
             pos += Vector3.down;
             stepSound.Play();
         }
+        //delegate to npc's to raycast player in order to reduce thier update function weight 
 
         transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
     }

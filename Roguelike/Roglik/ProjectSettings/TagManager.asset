@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 801158517
+    locked: 0
+  - name: Attacks
+    uniqueID: 1749756081
     locked: 0
   - name: UI
     uniqueID: 3715453237
