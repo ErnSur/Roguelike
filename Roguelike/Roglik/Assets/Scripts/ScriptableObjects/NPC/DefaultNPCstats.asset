@@ -8,7 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea165371318943e41b045c1e3b0d92e6, type: 3}
-  m_Name: New Simple Audio Event
+  m_Script: {fileID: 11500000, guid: c97befcfd1e95a842ae7edeb221ae9cd, type: 3}
+  m_Name: DefaultNPCstats
   m_EditorClassIdentifier: 
-  clips: []
+  maxHp: 50
+  currentHp: 50
+  attackDamage: 10
+  visionRange: 6
