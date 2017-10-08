@@ -10,11 +10,12 @@ public class PFgrid : MonoBehaviour {
     public int gridSizeX;
     public int gridSizeY;
 
-    PFnode[,] grid;
+    public static PFnode[,] grid;
 
     public Transform pfCellsParent;
     public SpriteRenderer cellSpriteRenderer;
 
+#region Make Grid
     private void Awake()
     {
         grid = new PFnode[gridSizeX+1, gridSizeY+1];
@@ -84,5 +85,24 @@ public class PFgrid : MonoBehaviour {
         }
 
         return neighbours;
+    }
+#endregion
+
+    //new functions 1. screen to grid, world to grid, vector3 -> vector2
+    public static Vector3 ScreenToGridCell (Vector3 ScreenPointerPos)
+    {
+        ScreenPointerPos = Camera.main.ScreenToWorldPoint(ScreenPointerPos);
+        ScreenPointerPos = Vector3Int.RoundToInt(ScreenPointerPos);
+
+        Vector3 gridPos = new Vector3( (int)ScreenPointerPos.x, (int)ScreenPointerPos.y, 0f);
+        return gridPos;
+    }
+
+    public static Vector2Int WorldToGridCell(Vector3 worldPos)
+    {
+        worldPos = Vector3Int.RoundToInt(worldPos);
+        Vector2Int gridPos = new Vector2Int((int)worldPos.x, (int)worldPos.y);
+
+        return gridPos;
     }
 }

@@ -8,7 +8,7 @@ public class ItemGenerator : MonoBehaviour {
     public struct Spawnable
     {
         public Transform prefab;
-        public float chance;
+        [Range(0,1)] public float chance;
     }
 
     public Spawnable[] spawnItemsPrefabs;
@@ -24,7 +24,7 @@ public class ItemGenerator : MonoBehaviour {
         {
             if (roll <= spawnItemsPrefabs[i].chance + tempChance) 
             {
-                Instantiate(spawnItemsPrefabs[i].prefab, transform.position, transform.rotation);
+                Instantiate(spawnItemsPrefabs[i].prefab, transform.position, transform.rotation, spawnItemsPrefabs[i].prefab.parent);
                 Destroy(gameObject);
                 return;
             }
@@ -32,7 +32,7 @@ public class ItemGenerator : MonoBehaviour {
         }
         
         //Default spawn
-        Instantiate(spawnItemsPrefabs[0].prefab, transform.position, transform.rotation);
+        Instantiate(spawnItemsPrefabs[0].prefab, transform.position, transform.rotation, spawnItemsPrefabs[0].prefab.parent);
         Destroy(gameObject);
     }
 }

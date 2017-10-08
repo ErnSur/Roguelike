@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "NPC/Stats")]
-public class NPCstats : ScriptableObject {
 
-    public int maxHp;
-    public int currentHp;
+public class NPCStats : CharacterStats {
 
-    public int attackDamage;
-    public int visionRange;
-
+    public List<PFnode> myPath = new List<PFnode>();
 }

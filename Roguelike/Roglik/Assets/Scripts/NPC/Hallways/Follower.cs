@@ -15,13 +15,13 @@ public class Follower : MonoBehaviour {
     public List<PFnode> myPath;
 
 
-    void MoveOneCell()
+    void ChasePlayer()
     {
         Vector3 playerDir = player.transform.position - transform.position;
 
         if(transform.position == pos && RayPlayerUpdate(playerDir))
         {
-            /*List<PFnode>*/ myPath = pathfinding.FindPath(transform, player);
+            /*List<PFnode>*/ myPath = PFaStar.FindPath(transform, player);
 
             if (myPath.Count > 0 && myPath.Count != 1)
             {
@@ -42,7 +42,12 @@ public class Follower : MonoBehaviour {
             }
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
+        //transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
+    }
+
+    void Patrol()
+    {
+
     }
 
     //Raycast FoV
@@ -61,10 +66,12 @@ public class Follower : MonoBehaviour {
     }
 
     void Update () {
-        MoveOneCell();
-	}
+        transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
 
-	void Start () {
+    }
+
+    void Start () {
         pos = transform.position;
+        TurnSystem.enemyTurn += ChasePlayer;
     }
 }

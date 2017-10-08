@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class StateController : MonoBehaviour {
 
+    public NPCStats npcStats;
+    public State[] npcStates;
     public State currentState;
-    public NPCstats npcStats;
-    public PFaStar pathfinding;
 
-    private bool aiActive;
+    private void Start()
+    {
+        //ScriptableObject.CreateInstance<NPCstats>();
+        currentState.enabled = true;
+        TurnSystem.enemyTurn += OneTimeAction;
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    private void Update()
+    {
+        if(currentState.enabled != true) { currentState.enabled = true; }
+    }
 
-        if (!aiActive)
-            return;
+    void OneTimeAction()
+    {
+        currentState.Act();
+    }
 
-        currentState.UpdateState(this);
-	}
+    private void OnDisable()
+    {
+        TurnSystem.enemyTurn -= OneTimeAction;
+    }
 }

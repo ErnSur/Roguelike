@@ -8,7 +8,7 @@ public class Droppable : MonoBehaviour, IDropHandler {
     public bool consumeItem;
     public List<Item> accetableItems;
 
-    public Item item;
+    Item item;
     Inventory inventory;
     Prisoner001 me;
 
@@ -20,14 +20,16 @@ public class Droppable : MonoBehaviour, IDropHandler {
 
     public void OnDrop(PointerEventData eventData)
     {
+        item = eventData.pointerDrag.GetComponent<InventorySlot>().item;
         Debug.Log(eventData.pointerDrag.name + " was Dropped on " + gameObject.name);
 
-        if(consumeItem && accetableItems.Contains(eventData.pointerDrag.GetComponent<InventorySlot>().item) ){
+        if(consumeItem && accetableItems.Contains(item)){
 
-            item = eventData.pointerDrag.GetComponent<InventorySlot>().item;
             me.holdItem = item;
             me.UpdateState();
             inventory.Remove(item);
+            return;
         }
+        item = null;
     }
 }

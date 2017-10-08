@@ -39,5 +39,4 @@ public class Prisoner001 : MonoBehaviour {
         textBox.textFile = myText[myAnswer];
         textBox.UpdateTextData();
     }
-
 }

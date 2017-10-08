@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PFaStar : MonoBehaviour {
 
-    PFgrid grid;
+    static PFgrid grid;
+    public static List<PFnode> completePath;
 
-    public List<PFnode> completePath;
-
+    #region Astar
     private void Awake()
     {
         grid = GetComponent<PFgrid>();
     }
 
-    public List<PFnode> FindPath(Transform startingCell, Transform targetCell)
+    public static List<PFnode> FindPath(Transform startingCell, Transform targetCell)
     {
 
         List<PFnode> openSet = new List<PFnode>();
@@ -45,7 +45,7 @@ public class PFaStar : MonoBehaviour {
 
             if(winnerNode == targetNode) // DONE!
             {
-                print("found path");
+                //print("found path");
                 RetracePath(startNode, targetNode);
                 return completePath;
             }
@@ -75,7 +75,7 @@ public class PFaStar : MonoBehaviour {
         return null;
     }
 
-    int GetDistance(PFnode nodeA, PFnode nodeB) //heuristic guess
+    static int GetDistance(PFnode nodeA, PFnode nodeB) //heuristic guess
     {
         int dstX = Mathf.Abs((int)nodeA.x - (int)nodeB.x);
         int dstY = Mathf.Abs((int)nodeA.y - (int)nodeB.y);
@@ -85,7 +85,7 @@ public class PFaStar : MonoBehaviour {
         return 14 * dstX + 10 * (dstY - dstX);
     }
 
-    void RetracePath(PFnode startNode, PFnode endNode) //after geting to end node retrace a path that lead there
+    static void RetracePath(PFnode startNode, PFnode endNode) //after geting to end node retrace a path that lead there
     {
         List<PFnode> path = new List<PFnode>();
         PFnode currentNode = endNode;
@@ -107,6 +107,5 @@ public class PFaStar : MonoBehaviour {
         }
         */
     }
-
-    /// MOVING ///
+    #endregion
 }
