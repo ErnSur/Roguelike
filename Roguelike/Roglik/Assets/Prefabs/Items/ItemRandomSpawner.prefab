@@ -40,8 +40,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnItemsPrefabs:
-  - {fileID: 4546743599963588, guid: f5bc502ee264eb049a79b1b8ae521130, type: 2}
-  - {fileID: 4717177849120290, guid: ea4ae97485352a74fb7a434dab7c8272, type: 2}
+  - prefab: {fileID: 4590752960377484, guid: 8b7a359697c475d4099034b9d10ddacd, type: 2}
+    chance: 0.5
+  - prefab: {fileID: 4262846682950448, guid: 8b7a359697c475d4099034b9d10ddacd, type: 2}
+    chance: 0.5
 --- !u!212 &212703423729661492
 SpriteRenderer:
   m_ObjectHideFlags: 1

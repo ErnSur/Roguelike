@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class CharacterStats : MonoBehaviour {
 
@@ -8,15 +9,18 @@ public class CharacterStats : MonoBehaviour {
     public float visionRange = 6;
     public Vector3 position;
 
-
+    private SpriteRenderer sprite;
 
     public void TakeDamage(int damage)
     {
         //damage -= armor.GetValue();
 
         currentHealth -= damage;
+        StartCoroutine("ColorFlicker");
+        //change of colors
 
-        if(currentHealth <= 0)
+
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -28,9 +32,30 @@ public class CharacterStats : MonoBehaviour {
         Debug.Log(transform.name + " died.");
     }
 
+    IEnumerator ColorFlicker()
+    {
+        bool changed = false;
+        float t = 0;
+
+        while (!changed)
+        {
+            t += 0.1f;
+            //sprite.color = Color.Lerp(Color.white, Color.red, (ElapsedTime / TotalTime));
+            sprite.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(t,1)); //Mathf.PingPong(Time.time * 1f, 1.0f)
+
+            if (sprite.color == Color.white)
+            {
+                changed = true;
+                Debug.Log("changed");
+            }
+            yield return null;
+        }
+    }
+
     private void Awake()
     {
         currentHealth = maxHealth;
         position = transform.position;
+        sprite = GetComponent<SpriteRenderer>();
     }
 }

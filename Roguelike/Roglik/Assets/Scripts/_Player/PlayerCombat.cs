@@ -4,39 +4,68 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour {
 
-    public bool attackMode;
+    private PlayerStats stats; // add requirement for player stats
 
-    public PlayerStats stats;
+    //new combat
+    public LayerMask NpcLayer;
+    private static LayerMask statNpcLayer;
+    public float raycastDistance;
+    Transform npc;
 
-    public Attack attackPrefab;
-
-	// Use this for initialization
-	void Start () {
+    void Start () {
         stats = GetComponent<PlayerStats>();
+        statNpcLayer = NpcLayer;
+        npc = null;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && RayNpcUpdate(Vector3.right, raycastDistance) != null)
+        {
+            npc = RayNpcUpdate(Vector3.right, raycastDistance);
+            if (npc != null)
             {
-                Attack att = Instantiate(attackPrefab, gameObject.transform.position + Vector3.right, Quaternion.identity);
-                att.attackPower = stats.dmg;
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            npc = RayNpcUpdate(Vector3.left, raycastDistance);
+            if (npc != null)
             {
-                Attack att = Instantiate(attackPrefab, gameObject.transform.position + Vector3.left, Quaternion.identity);
-                att.attackPower = stats.dmg;
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && RayNpcUpdate(Vector3.up, raycastDistance) != null)
+        {
+            npc = RayNpcUpdate(Vector3.up, raycastDistance);
+            if (npc != null)
             {
-                Attack att = Instantiate(attackPrefab, gameObject.transform.position + Vector3.up, Quaternion.identity);
-                att.attackPower = stats.dmg;
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && RayNpcUpdate(Vector3.down, raycastDistance) != null)
+        {
+            npc = RayNpcUpdate(Vector3.down, raycastDistance);
+            if (npc != null)
             {
-                Attack att = Instantiate(attackPrefab, gameObject.transform.position + Vector3.down, Quaternion.identity);
-                att.attackPower = stats.dmg;
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
             }
+        }
+    }
+
+    //Raycast for enemy collision
+    public static Transform RayNpcUpdate(Vector3 rayDirection, float raycastDistance)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(PlayerMovement.PlayerPos3, rayDirection, raycastDistance, statNpcLayer);
+        Debug.DrawRay(PlayerMovement.PlayerPos3, rayDirection, Color.green, 1f);
+
+        if (hit.collider != null)
+        {
+            Debug.Log("hit " + hit.collider.name);
+            
+            return hit.collider.transform;
+        }
+        return null;
     }
 }

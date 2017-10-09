@@ -50,13 +50,12 @@ public class PatrolState : State {
         Patrol();
     }
 
-    // Use this for initialization
     void Start () {
-        Debug.Log("find Patrol");
+        //Debug.Log("find Patrol");
         FindPatrol();
     }
 
-    private void Update()
+    private void Update() //Change of state
     {
         transform.position = Vector3.MoveTowards(transform.position, stats.position, Time.deltaTime * speed);
 

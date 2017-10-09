@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         pos = transform.position;
         statWallLayer = wallLayer;
-        Debug.Log(wallLayer.value);
-        Debug.Log(statWallLayer.value);
     }
 	
 	void Update () {
