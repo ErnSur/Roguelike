@@ -37,12 +37,11 @@ public class PFgrid : MonoBehaviour {
         }
     }
 
-    public PFnode NodeFromWorldPoint(Transform objectsTransform)
+    public PFnode NodeFromWorldPoint(Vector3 objectsPosition)
     {
-        Vector3 worldpos = transform.TransformVector(objectsTransform.position);
-        int x = (int) worldpos.x;
-        int y = (int) worldpos.y;
-        //print(x+" "+y);
+        int x = (int) objectsPosition.x;
+        int y = (int) objectsPosition.y;
+
         return grid[x, y];
     }
 

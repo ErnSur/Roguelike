@@ -7,22 +7,15 @@ public class ChaseState : State {
     public LayerMask playerAndWall;
     public float noticeRange = 6f;
     public float speed = 2.5f;
-    public Transform playerTransform;
-    public NPCStats stats;
-
-    //private Vector3 pos;
-    //private List<PFnode> myPath = new List<PFnode>();
-
 
     #region ChasePlayer
     void Chase()
     {
-        Vector3 playerDir = playerTransform.position - transform.position;
+        Vector3 playerDir = PlayerMovement.PlayerPos3 - stats.position;
         
         if (transform.position == stats.position && RayPlayerUpdate(playerDir))
         {
-            Debug.Log("see player");
-            stats.myPath = PFaStar.FindPath(transform, playerTransform);
+            stats.myPath = PFaStar.FindPath(stats.position, PlayerMovement.PlayerPos3);
 
             if (stats.myPath.Count > 0 && stats.myPath.Count != 1)
             {
@@ -52,7 +45,7 @@ public class ChaseState : State {
 
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            Debug.Log("hit " + hit.collider.name);
+            Debug.Log("Saw " + hit.collider.name);
             return true;
         }
         return false;
@@ -62,10 +55,16 @@ public class ChaseState : State {
     public override void Act()
     {
         Chase();
+        StartCoroutine("MoveToPosition");
+        UpdateState();
     }
 
-    void Update()//requaire component stats
+    IEnumerator MoveToPosition()
     {
-        transform.position = Vector3.MoveTowards(transform.position, stats.position, Time.deltaTime * speed);
+        while (transform.position != stats.position)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, stats.position, Time.deltaTime * speed);
+            yield return null;
+        }
     }
 }

@@ -6,7 +6,7 @@ public class TriggerPlayerSight : Trigger {
 
     public LayerMask playerAndWall;
     public float noticeRange;
-    public State tiggerState;
+
 
     public override State TriggerEvent(Vector3 watcher, Vector3 target)
     {
@@ -17,8 +17,8 @@ public class TriggerPlayerSight : Trigger {
 
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            Debug.Log("hit " + hit.collider.name);
-            return tiggerState;
+            //Debug.Log("saw " + hit.collider.name);
+            return stateToReturn;
         }
         return null;
     }

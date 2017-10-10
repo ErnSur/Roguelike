@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStats : MonoBehaviour {
+public class PlayerStats : CharacterStats {
 
-    public int maxHp;
-    public int currentHp;
+    #region Singleton
+    public static PlayerStats instance;
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("Too much PlayerStats");
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion
+
     public float percentageHp //1 = 100%
     {
-        get { return (float)currentHp / (float)maxHp; }
+        get { return (float)currentHealth / (float)maxHealth; }
     }
-
-    public float actionSpeed;
-    public int dmg;
 
     public Image hpBar;
     float width;
 
-    void UpdateHpStatus() // add to dmged delegate
+    void UpdateHpBar() // add to TakeDamage delegate
     {
         float newWidth = percentageHp * width;
         hpBar.rectTransform.sizeDelta = new Vector2(newWidth, hpBar.rectTransform.sizeDelta.y);
@@ -26,7 +35,7 @@ public class PlayerStats : MonoBehaviour {
 
     private void Update()
     {
-        UpdateHpStatus();
+        UpdateHpBar();
     }
 
     private void Start()

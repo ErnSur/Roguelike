@@ -13,7 +13,7 @@ public class PFaStar : MonoBehaviour {
         grid = GetComponent<PFgrid>();
     }
 
-    public static List<PFnode> FindPath(Transform startingCell, Transform targetCell)
+    public static List<PFnode> FindPath(Vector3 startingCell, Vector3 targetCell)
     {
 
         List<PFnode> openSet = new List<PFnode>();

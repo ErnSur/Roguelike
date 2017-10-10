@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class PatrolState : State {
 
-    public StateController controller;
-
     public Transform[] patrolWaypoints;
-    public Transform randomWaypoint;
     public float speed = 2.5f;
-    public NPCStats stats;
-    //private List<PFnode> myPath;
 
-    public Trigger trigger;
+    private Transform randomWaypoint;
 
-
+    void Start () {
+        FindPatrol();
+    }
     public void FindPatrol()
     {
         randomWaypoint = patrolWaypoints[Random.Range(0, patrolWaypoints.Length - 1)];
@@ -28,11 +25,11 @@ public class PatrolState : State {
             FindPatrol();
         }
 
-        stats.position = transform.position;
+        //stats.position = transform.position;
 
         if (transform.position == stats.position)
         {
-            stats.myPath = PFaStar.FindPath(transform, randomWaypoint);
+            stats.myPath = PFaStar.FindPath(stats.position, randomWaypoint.position);
 
             if (stats.myPath.Count > 0)
             {
@@ -48,22 +45,16 @@ public class PatrolState : State {
     public override void Act()
     {
         Patrol();
+        StartCoroutine("MoveToPosition");
+        UpdateState();
     }
 
-    void Start () {
-        //Debug.Log("find Patrol");
-        FindPatrol();
-    }
-
-    private void Update() //Change of state
+    IEnumerator MoveToPosition()
     {
-        transform.position = Vector3.MoveTowards(transform.position, stats.position, Time.deltaTime * speed);
-
-        State newState = trigger.TriggerEvent(stats.position, PlayerMovement.PlayerPos3);
-        if (newState != null && transform.position == stats.position)
+        while (transform.position != stats.position)
         {
-            controller.currentState = newState;
-            this.enabled = false;
+            transform.position = Vector3.MoveTowards(transform.position, stats.position, Time.deltaTime * speed);
+            yield return null;
         }
     }
 }

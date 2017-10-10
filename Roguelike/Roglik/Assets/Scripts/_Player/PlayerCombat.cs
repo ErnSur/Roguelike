@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.right, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.attackDamage);
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -33,7 +33,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.left, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.attackDamage);
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) && RayNpcUpdate(Vector3.up, raycastDistance) != null)
@@ -41,7 +41,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.up, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.attackDamage);
             }
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) && RayNpcUpdate(Vector3.down, raycastDistance) != null)
@@ -49,7 +49,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.down, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<CharacterStats>().TakeDamage(stats.dmg);
+                npc.GetComponent<CharacterStats>().TakeDamage(stats.attackDamage);
             }
         }
     }

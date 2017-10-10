@@ -4,10 +4,9 @@ using System.Collections;
 public class CharacterStats : MonoBehaviour {
 
     public int maxHealth = 60;
-    public int currentHealth { get; private set; }
+    public int currentHealth;
     public int attackDamage;
     public float visionRange = 6;
-    public Vector3 position;
 
     private SpriteRenderer sprite;
 
@@ -55,7 +54,6 @@ public class CharacterStats : MonoBehaviour {
     private void Awake()
     {
         currentHealth = maxHealth;
-        position = transform.position;
         sprite = GetComponent<SpriteRenderer>();
     }
 }
