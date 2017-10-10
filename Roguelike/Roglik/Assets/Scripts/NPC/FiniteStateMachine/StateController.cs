@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class StateController : MonoBehaviour {
 
-    //public NPCStats npcStats;
-    //public State[] npcStates;
     public State currentState;
 
     private void Start()
     {
-        //ScriptableObject.CreateInstance<NPCstats>();
         currentState.enabled = true;
         TurnSystem.enemyTurn += OneTimeAction;
     }

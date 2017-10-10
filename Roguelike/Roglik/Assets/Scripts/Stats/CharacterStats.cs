@@ -8,16 +8,19 @@ public class CharacterStats : MonoBehaviour {
     public int attackDamage;
     public float visionRange = 6;
 
+    public AudioClip[] hurtSound;
+
+    private AudioSource audioSrc;
     private SpriteRenderer sprite;
 
     public void TakeDamage(int damage)
     {
         //damage -= armor.GetValue();
+        audioSrc.clip = hurtSound[Random.Range(0,hurtSound.Length)];
+        audioSrc.Play();
 
         currentHealth -= damage;
         StartCoroutine("ColorFlicker");
-        //change of colors
-
 
         if (currentHealth <= 0)
         {
@@ -38,7 +41,7 @@ public class CharacterStats : MonoBehaviour {
 
         while (!changed)
         {
-            t += 0.1f;
+            t += 0.2f;
             //sprite.color = Color.Lerp(Color.white, Color.red, (ElapsedTime / TotalTime));
             sprite.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(t,1)); //Mathf.PingPong(Time.time * 1f, 1.0f)
 
@@ -51,9 +54,10 @@ public class CharacterStats : MonoBehaviour {
         }
     }
 
-    private void Awake()
+    public void Awake()
     {
         currentHealth = maxHealth;
         sprite = GetComponent<SpriteRenderer>();
+        audioSrc = GetComponent<AudioSource>();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Trigger/On Player Sight")]
 public class TriggerPlayerSight : Trigger {
 
     public LayerMask playerAndWall;

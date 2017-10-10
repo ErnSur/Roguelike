@@ -3,7 +3,6 @@
 public class PlayerMovement : MonoBehaviour {
 
 
-    public AudioSource stepSound;
     public float speed = 3.5f;
     public LayerMask wallLayer;
 
@@ -11,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     private const float RAYCAST_DISTANCE = 1f; // One cell
     private static Vector3 pos;
     private static LayerMask statWallLayer;
+    private AudioSource audioSrc;
+    public AudioClip stepSound;
 
     public static Vector3 PlayerPos3 { get { return pos; } }
     public static Vector2Int PlayerPos2 { get { return new Vector2Int((int)pos.x, (int)pos.y); } }
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         pos = transform.position;
         statWallLayer = wallLayer;
+        audioSrc = GetComponent<AudioSource>();
     }
 	
 	void Update () {
@@ -25,25 +27,29 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.D) && transform.position == pos && !RayWallUpdate(Vector3.right, RAYCAST_DISTANCE))
         {
             pos += Vector3.right;
-            stepSound.Play();
+            audioSrc.clip = stepSound;
+            audioSrc.Play();
             TurnSystem.enemyTurn();
         }
         else if (Input.GetKey(KeyCode.A) && transform.position == pos && !RayWallUpdate(Vector3.left, RAYCAST_DISTANCE))
         {
             pos += Vector3.left;
-            stepSound.Play();
+            audioSrc.clip = stepSound;
+            audioSrc.Play();
             TurnSystem.enemyTurn();
         }
         else if (Input.GetKey(KeyCode.W) && transform.position == pos && !RayWallUpdate(Vector3.up, RAYCAST_DISTANCE))
         {
             pos += Vector3.up;
-            stepSound.Play();
+            audioSrc.clip = stepSound;
+            audioSrc.Play();
             TurnSystem.enemyTurn();
         }
         else if (Input.GetKey(KeyCode.S) && transform.position == pos && !RayWallUpdate(Vector3.down, RAYCAST_DISTANCE))
         {
             pos += Vector3.down;
-            stepSound.Play();
+            audioSrc.clip = stepSound;
+            audioSrc.Play();
             TurnSystem.enemyTurn();
         }
         //delegate to npc's to raycast player in order to reduce thier update function weight 

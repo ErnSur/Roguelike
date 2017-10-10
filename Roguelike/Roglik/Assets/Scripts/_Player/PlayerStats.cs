@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerStats : CharacterStats {
 
-    #region Singleton
+    #region Singleton & Awake
     public static PlayerStats instance;
-    void Awake()
+    new void Awake()
     {
         if (instance != null)
         {
@@ -16,6 +16,7 @@ public class PlayerStats : CharacterStats {
         }
 
         instance = this;
+        base.Awake();
     }
     #endregion
 

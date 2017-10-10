@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName ="Trigger/On Melee Distance")]
-public class TriggerMeleeDistance : Trigger {
+[CreateAssetMenu(menuName = "Trigger/Out Of Range")]
+public class TriggerOutOfRange : Trigger {
+
+    public float range;
+
 
     public override State TriggerEvent(Vector3 watcher, Vector3 target)
     {
         float distance = Vector3.Distance(target, watcher);
 
-        if(distance <= 1f) // 1f is one cell means melee distance
+        if (distance > range) // 1f is one cell means melee distance
         {
             return stateToReturn;
         }
         return null;
     }
 }
-
