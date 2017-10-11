@@ -9,7 +9,7 @@ public class TriggerPlayerSight : Trigger {
     public float noticeRange;
 
 
-    public override State TriggerEvent(Vector3 watcher, Vector3 target)
+    public override State TriggerEvent(Vector3 watcher, Vector3 target, bool isStateDone)
     {
         Vector3 dir = target - watcher;
 

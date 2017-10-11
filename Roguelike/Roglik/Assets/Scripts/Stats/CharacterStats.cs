@@ -12,6 +12,18 @@ public class CharacterStats : MonoBehaviour {
 
     private AudioSource audioSrc;
     private SpriteRenderer sprite;
+	private Vector3 position;
+	public Vector3 Position{
+		get{ return position; }
+		set{ position = value;
+			previousNode = node;
+			previousNode.walkable = true;
+			node = PFgrid.grid[(int)position.x,(int)position.y];
+			node.walkable = false;
+		}
+	}
+	public PFnode node;
+	PFnode previousNode;
 
     public void TakeDamage(int damage)
     {
@@ -28,10 +40,11 @@ public class CharacterStats : MonoBehaviour {
         }
     }
 
-    public virtual void Die()
+    public virtual void Die()//Player object cannot be destroyed, light and audio systems are attached
     {
         //die in some way
         Debug.Log(transform.name + " died.");
+		//Destroy(gameObject);
     }
 
     IEnumerator ColorFlicker()
@@ -48,15 +61,16 @@ public class CharacterStats : MonoBehaviour {
             if (sprite.color == Color.white)
             {
                 changed = true;
-                Debug.Log("changed");
             }
             yield return null;
         }
     }
 
-    public void Awake()
+    public void Start()
     {
         currentHealth = maxHealth;
+		position = transform.position;
+		node = PFgrid.grid[(int)position.x,(int)position.y];
         sprite = GetComponent<SpriteRenderer>();
         audioSrc = GetComponent<AudioSource>();
     }

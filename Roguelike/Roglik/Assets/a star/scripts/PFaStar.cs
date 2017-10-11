@@ -15,13 +15,19 @@ public class PFaStar : MonoBehaviour {
 
     public static List<PFnode> FindPath(Vector3 startingCell, Vector3 targetCell)
     {
-
+		bool targetIsUnwalkable = false; // Testing system for NPC collision
         List<PFnode> openSet = new List<PFnode>();
         List<PFnode> closedSet = new List<PFnode>();
 
         //assign start and goal
         PFnode startNode = grid.NodeFromWorldPoint(startingCell);
         PFnode targetNode = grid.NodeFromWorldPoint(targetCell);
+
+		if(!targetNode.walkable)
+		{
+			targetIsUnwalkable = true;
+			targetNode.walkable = true;//trick
+		}
 
         openSet.Add(startNode);
 
@@ -47,6 +53,11 @@ public class PFaStar : MonoBehaviour {
             {
                 //print("found path");
                 RetracePath(startNode, targetNode);
+				if(targetIsUnwalkable)
+				{
+					targetNode.walkable = false;//trick
+					targetIsUnwalkable = false;
+				}
                 return completePath;
             }
 
@@ -72,6 +83,11 @@ public class PFaStar : MonoBehaviour {
             }
         }
 
+		if(targetIsUnwalkable)
+		{
+			targetNode.walkable = false;//trick
+			targetIsUnwalkable = false;
+		}
         return null;
     }
 

@@ -9,10 +9,10 @@ public abstract class State : MonoBehaviour {
     }
 
 
+	[HideInInspector]public bool isStateDone;
     [HideInInspector]public StateController controller;
     [HideInInspector]public NPCStats stats;
     public Triggers[] triggers;
-
 
 
     public abstract void Act();
@@ -23,11 +23,12 @@ public abstract class State : MonoBehaviour {
         {
             triggers[i].trigger.stateToReturn = triggers[i].StateToTrigger;
 
-            State newState = triggers[i].trigger.TriggerEvent(stats.position, PlayerMovement.PlayerPos3);
+            State newState = triggers[i].trigger.TriggerEvent(stats.Position, PlayerStats.instance.Position, isStateDone);
             if (newState != null)
             {
                 controller.currentState = newState;
                 this.enabled = false;
+				return;
             }
         }
     }

@@ -8,7 +8,7 @@ public class TriggerOutOfRange : Trigger {
     public float range;
 
 
-    public override State TriggerEvent(Vector3 watcher, Vector3 target)
+    public override State TriggerEvent(Vector3 watcher, Vector3 target, bool isStateDone)
     {
         float distance = Vector3.Distance(target, watcher);
 

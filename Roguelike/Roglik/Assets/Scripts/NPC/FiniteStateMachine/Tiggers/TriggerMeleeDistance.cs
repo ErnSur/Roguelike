@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName ="Trigger/On Melee Distance")]
 public class TriggerMeleeDistance : Trigger {
 
-    public override State TriggerEvent(Vector3 watcher, Vector3 target)
+    public override State TriggerEvent(Vector3 watcher, Vector3 target, bool isStateDone)
     {
         float distance = Vector3.Distance(target, watcher);
 

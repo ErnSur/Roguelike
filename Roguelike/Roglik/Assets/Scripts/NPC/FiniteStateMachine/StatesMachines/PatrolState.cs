@@ -25,18 +25,18 @@ public class PatrolState : State {
             FindPatrol();
         }
 
-        //stats.position = transform.position;
+        //stats.Position = transform.position;
 
-        if (transform.position == stats.position)
+        if (transform.position == stats.Position)
         {
-            stats.myPath = PFaStar.FindPath(stats.position, randomWaypoint.position);
+            stats.myPath = PFaStar.FindPath(stats.Position, randomWaypoint.position);
 
             if (stats.myPath.Count > 0)
             {
                 PFnode cell = stats.myPath[0];
                 stats.myPath.Remove(cell);
 
-                stats.position = new Vector3(cell.x, cell.y, 0);
+                stats.Position = new Vector3(cell.x, cell.y, 0);
 
             }
         }
@@ -51,9 +51,9 @@ public class PatrolState : State {
 
     IEnumerator MoveToPosition()
     {
-        while (transform.position != stats.position)
+        while (transform.position != stats.Position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, stats.position, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, stats.Position, Time.deltaTime * speed);
             yield return null;
         }
     }

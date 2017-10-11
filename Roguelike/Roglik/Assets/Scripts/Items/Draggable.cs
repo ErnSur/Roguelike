@@ -30,11 +30,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         Vector3 dropPos = PFgrid.ScreenToGridCell(eventData.position);
-        Vector3 dropDirection = dropPos - PlayerMovement.PlayerPos3;
-        float dropDistance = Vector3.Distance(dropPos, PlayerMovement.PlayerPos3);
+        Vector3 dropDirection = dropPos - PlayerStats.instance.Position;
+        float dropDistance = Vector3.Distance(dropPos, PlayerStats.instance.Position);
 
         //using item
-        if (dropPos == PlayerMovement.PlayerPos3)
+        if (dropPos == PlayerStats.instance.Position)
         {
             Debug.Log("consumed " + item.name);
             item.OnUsePlayer();

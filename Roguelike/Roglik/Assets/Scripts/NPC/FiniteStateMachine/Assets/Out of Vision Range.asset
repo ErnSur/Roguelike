@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 013dbb0c8d0fbed45a0be1a1c62dec66, type: 3}
-  m_Name: New Trigger Out Of Range
+  m_Name: Out of Vision Range
   m_EditorClassIdentifier: 
   stateToReturn: {fileID: 0}
-  range: 1
+  range: 6

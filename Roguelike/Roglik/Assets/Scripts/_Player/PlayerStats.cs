@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class PlayerStats : CharacterStats {
 
     #region Singleton & Awake
+
     public static PlayerStats instance;
-    new void Awake()
+    void Awake()
     {
         if (instance != null)
         {
@@ -16,7 +17,6 @@ public class PlayerStats : CharacterStats {
         }
 
         instance = this;
-        base.Awake();
     }
     #endregion
 
@@ -34,13 +34,15 @@ public class PlayerStats : CharacterStats {
         hpBar.rectTransform.sizeDelta = new Vector2(newWidth, hpBar.rectTransform.sizeDelta.y);
     }
 
-    private void Update()
+    void Update()
     {
+
         UpdateHpBar();
     }
 
-    private void Start()
+    new void Start()
     {
+		base.Start();
         width = hpBar.rectTransform.sizeDelta.x;
     }
 }

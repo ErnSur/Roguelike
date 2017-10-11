@@ -15,12 +15,12 @@ public class PlayerCombat : MonoBehaviour {
     void Start () {
         stats = GetComponent<PlayerStats>();
         statNpcLayer = NpcLayer;
-        npc = null;
+		npc = null;
 	}
-	
+
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && RayNpcUpdate(Vector3.right, raycastDistance) != null)
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             npc = RayNpcUpdate(Vector3.right, raycastDistance);
             if (npc != null)
@@ -36,7 +36,7 @@ public class PlayerCombat : MonoBehaviour {
                 npc.GetComponent<NPCStats>().TakeDamage(stats.attackDamage);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && RayNpcUpdate(Vector3.up, raycastDistance) != null)
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             npc = RayNpcUpdate(Vector3.up, raycastDistance);
             if (npc != null)
@@ -44,7 +44,7 @@ public class PlayerCombat : MonoBehaviour {
                 npc.GetComponent<NPCStats>().TakeDamage(stats.attackDamage);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && RayNpcUpdate(Vector3.down, raycastDistance) != null)
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             npc = RayNpcUpdate(Vector3.down, raycastDistance);
             if (npc != null)
@@ -57,13 +57,13 @@ public class PlayerCombat : MonoBehaviour {
     //Raycast for enemy collision
     public static Transform RayNpcUpdate(Vector3 rayDirection, float raycastDistance)
     {
-        RaycastHit2D hit = Physics2D.Raycast(PlayerMovement.PlayerPos3, rayDirection, raycastDistance, statNpcLayer);
-        Debug.DrawRay(PlayerMovement.PlayerPos3, rayDirection, Color.green, 1f);
+        RaycastHit2D hit = Physics2D.Raycast(PlayerStats.instance.Position, rayDirection, raycastDistance, statNpcLayer);
+        Debug.DrawRay(PlayerStats.instance.Position, rayDirection, Color.green, 1f);
 
         if (hit.collider != null)
         {
             Debug.Log("hit " + hit.collider.name);
-            
+
             return hit.collider.transform;
         }
         return null;

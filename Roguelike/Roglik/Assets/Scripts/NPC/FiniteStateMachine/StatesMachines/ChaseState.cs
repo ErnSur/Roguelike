@@ -9,31 +9,39 @@ public class ChaseState : State {
     public float speed = 2.5f;
 
     #region ChasePlayer
-    void Chase()
+    bool Chase()
     {
-        Vector3 playerDir = PlayerMovement.PlayerPos3 - stats.position;
-        
-        if (transform.position == stats.position && RayPlayerUpdate(playerDir))
-        {
-            stats.myPath = PFaStar.FindPath(stats.position, PlayerMovement.PlayerPos3);
+        Vector3 playerDir = PlayerStats.instance.Position - stats.Position;
 
-            if (stats.myPath.Count > 0 && stats.myPath.Count != 1)
+        if (transform.position == stats.Position && RayPlayerUpdate(playerDir))
+        {
+            stats.myPath = PFaStar.FindPath(stats.Position, PlayerStats.instance.Position);
+			stats.myPath.Remove(stats.myPath[stats.myPath.Count-1]); //Removes last entry which is Player or..
+
+            if (stats.myPath.Count > 0 /*&& stats.myPath.Count != 1*/) //...if it is 1 it means npc stands next to player
             {
                 PFnode cell = stats.myPath[0];
                 stats.myPath.Remove(cell);
 
-                stats.position = new Vector3(cell.x, cell.y, 0);
-                
+                stats.Position = new Vector3(cell.x, cell.y, 0); //move
+
             }
         }//*
-        else if (stats.myPath.Count > 0 && transform.position == stats.position) // if npc loses player from eyes it goes to the place where he saw him last time.
+        else if (stats.myPath.Count > 0 && transform.position == stats.Position) // if npc loses player from eyes it goes to the place where he saw him last time.
         {
             PFnode cell = stats.myPath[0];
             stats.myPath.Remove(cell);
 
-            stats.position = new Vector3(cell.x, cell.y, 0);
+            stats.Position = new Vector3(cell.x, cell.y, 0);
         }//*/
-        
+
+		if(stats.myPath.Count == 0 )
+		{
+			return true;
+		}else
+		{
+			return false;
+		}
     }
 
     //Raycast FoV
@@ -54,16 +62,16 @@ public class ChaseState : State {
 
     public override void Act()
     {
-        Chase();
+        isStateDone = Chase();
         StartCoroutine("MoveToPosition");
         UpdateState();
     }
 
     IEnumerator MoveToPosition()
     {
-        while (transform.position != stats.position)
+        while (transform.position != stats.Position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, stats.position, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, stats.Position, Time.deltaTime * speed);
             yield return null;
         }
     }
