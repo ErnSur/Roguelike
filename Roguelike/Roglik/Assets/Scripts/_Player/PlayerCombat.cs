@@ -62,7 +62,7 @@ public class PlayerCombat : MonoBehaviour {
 
         if (hit.collider != null)
         {
-            Debug.Log("hit " + hit.collider.name);
+            //Debug.Log("hit " + hit.collider.name);
 
             return hit.collider.transform;
         }

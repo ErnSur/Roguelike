@@ -53,7 +53,7 @@ public class ChaseState : State {
 
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            Debug.Log("Saw " + hit.collider.name);
+            //Debug.Log("Saw " + hit.collider.name);
             return true;
         }
         return false;

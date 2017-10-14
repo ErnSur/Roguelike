@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - NPC
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -54,6 +55,9 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 801158517
+    locked: 0
+  - name: Particles
+    uniqueID: 723740855
     locked: 0
   - name: Attacks
     uniqueID: 1749756081

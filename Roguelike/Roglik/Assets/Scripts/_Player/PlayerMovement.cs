@@ -20,36 +20,48 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 
-        if (Input.GetKey(KeyCode.D) && transform.position == PlayerStats.instance.Position && !RayWallUpdate(Vector3.right, RAYCAST_DISTANCE))
+        if (Input.GetKey(KeyCode.D) && transform.position == PlayerStats.instance.Position)
         {
-            PlayerStats.instance.Position += Vector3.right;
-            audioSrc.clip = stepSound;
-            audioSrc.Play();
-            TurnSystem.enemyTurn();
+			if(PFgrid.grid[(int)PlayerStats.instance.Position.x+1,(int)PlayerStats.instance.Position.y].walkable == true)
+			{
+				PlayerStats.instance.Position += Vector3.right;
+				audioSrc.clip = stepSound;
+				audioSrc.Play();
+				TurnSystem.nextTurn();
+			}
         }
-        else if (Input.GetKey(KeyCode.A) && transform.position == PlayerStats.instance.Position && !RayWallUpdate(Vector3.left, RAYCAST_DISTANCE))
+        else if (Input.GetKey(KeyCode.A) && transform.position == PlayerStats.instance.Position)
         {
-            PlayerStats.instance.Position += Vector3.left;
-            audioSrc.clip = stepSound;
-            audioSrc.Play();
-            TurnSystem.enemyTurn();
+			if(PFgrid.grid[(int)PlayerStats.instance.Position.x-1,(int)PlayerStats.instance.Position.y].walkable == true)
+			{
+				PlayerStats.instance.Position += Vector3.left;
+				audioSrc.clip = stepSound;
+				audioSrc.Play();
+				TurnSystem.nextTurn();
+			}
         }
-        else if (Input.GetKey(KeyCode.W) && transform.position == PlayerStats.instance.Position && !RayWallUpdate(Vector3.up, RAYCAST_DISTANCE))
+        else if (Input.GetKey(KeyCode.W) && transform.position == PlayerStats.instance.Position)
         {
-            PlayerStats.instance.Position += Vector3.up;
-            audioSrc.clip = stepSound;
-            audioSrc.Play();
-            TurnSystem.enemyTurn();
+			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y+1].walkable == true)
+			{
+				PlayerStats.instance.Position += Vector3.up;
+				audioSrc.clip = stepSound;
+				audioSrc.Play();
+				TurnSystem.nextTurn();
+			}
         }
-        else if (Input.GetKey(KeyCode.S) && transform.position == PlayerStats.instance.Position && !RayWallUpdate(Vector3.down, RAYCAST_DISTANCE))
+        else if (Input.GetKey(KeyCode.S) && transform.position == PlayerStats.instance.Position)
         {
-            PlayerStats.instance.Position += Vector3.down;
-            audioSrc.clip = stepSound;
-            audioSrc.Play();
-            TurnSystem.enemyTurn();
+			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y-1].walkable == true)
+			{
+				PlayerStats.instance.Position += Vector3.down;
+				audioSrc.clip = stepSound;
+				audioSrc.Play();
+				TurnSystem.nextTurn();
+			}
         }else if (Input.GetButtonDown("Cancel"))
 		{
-			TurnSystem.enemyTurn();
+			TurnSystem.nextTurn();
 		}
         //delegate to npc's to raycast player in order to reduce thier update function weight
 

@@ -9,7 +9,7 @@ public class StateController : MonoBehaviour {
     private void Start()
     {
         currentState.enabled = true;
-        TurnSystem.enemyTurn += OneTimeAction;
+        TurnSystem.nextTurn += OneTimeAction;
     }
 
     private void Update()
@@ -24,6 +24,6 @@ public class StateController : MonoBehaviour {
 
     private void OnDisable()
     {
-        TurnSystem.enemyTurn -= OneTimeAction;
+        TurnSystem.nextTurn -= OneTimeAction;
     }
 }

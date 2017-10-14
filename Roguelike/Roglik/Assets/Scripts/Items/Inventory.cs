@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour {
     {
         if(instance != null)
         {
-            Debug.Log("More than one instance of inventory found!");
+            //Debug.Log("More than one instance of inventory found!");
             return;
         }
 
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour {
     {
         if(items.Count >= space)
         {
-            Debug.Log("Inventory is Full!");
+            //Debug.Log("Inventory is Full!");
             return false;
         }
 

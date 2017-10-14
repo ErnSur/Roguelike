@@ -21,7 +21,7 @@ public class PatrolState : State {
     {
         if (transform.position == randomWaypoint.position)
         {
-            Debug.Log("done patroling");
+            //Debug.Log("done patroling");
             FindPatrol();
         }
 
@@ -31,7 +31,7 @@ public class PatrolState : State {
         {
             stats.myPath = PFaStar.FindPath(stats.Position, randomWaypoint.position);
 
-            if (stats.myPath.Count > 0)
+            if (stats.myPath != null && stats.myPath.Count > 0)
             {
                 PFnode cell = stats.myPath[0];
                 stats.myPath.Remove(cell);

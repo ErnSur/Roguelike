@@ -36,7 +36,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         //using item
         if (dropPos == PlayerStats.instance.Position)
         {
-            Debug.Log("consumed " + item.name);
+            //Debug.Log("consumed " + item.name);
             item.OnUsePlayer();
             inventory.Remove(item);
         }

@@ -11,12 +11,12 @@ public class Item : ScriptableObject {
 
     public virtual void OnUsePlayer()
     {
-        Debug.Log(name + " used on player");
+        //Debug.Log(name + " used on player");
     }
 
     public virtual void OnUseGround(Vector3 groundPos)
     {
-        Debug.Log(name + " used on ground");
+        //Debug.Log(name + " used on ground");
         Instantiate(prefab, groundPos, Quaternion.identity);
     }
 }
