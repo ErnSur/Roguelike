@@ -12,9 +12,6 @@ public class PFgrid : MonoBehaviour {
 
     public static PFnode[,] grid;
 
-    public Transform pfCellsParent;
-    public SpriteRenderer cellSpriteRenderer;
-
 #region Make Grid
     private void Awake()
     {
@@ -26,11 +23,11 @@ public class PFgrid : MonoBehaviour {
                 #region creater
                 if(Physics2D.OverlapBox(new Vector2(x, y), new Vector2 (0.5f,0.5f), 0, wallLayermask) != null)
                 {
-                    grid[x, y] = new PFnode(x,y,false,pfCellsParent,cellSpriteRenderer);
+                    grid[x, y] = new PFnode(x,y,false);
                 }
                 else
                 {
-                    grid[x, y] = new PFnode(x, y, true, pfCellsParent, cellSpriteRenderer);
+                    grid[x, y] = new PFnode(x, y, true);
                 }
                 #endregion
             }

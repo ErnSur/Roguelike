@@ -114,14 +114,6 @@ public class PFaStar : MonoBehaviour {
         path.Reverse();
 
         completePath = path;
-        /*
-        foreach (PFnode node in completePath)
-        {
-            Color color = Color.black;
-            color.a = 0.4f;
-            node.myCell.color = color;
-        }
-        */
     }
     #endregion
 }

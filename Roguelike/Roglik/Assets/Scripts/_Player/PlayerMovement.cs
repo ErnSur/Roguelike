@@ -61,9 +61,8 @@ public class PlayerMovement : MonoBehaviour {
 			}
         }else if (Input.GetButtonDown("Cancel"))
 		{
-			TurnSystem.nextTurn();
+			SkipTurn();
 		}
-        //delegate to npc's to raycast player in order to reduce thier update function weight
 
         transform.position = Vector3.MoveTowards(transform.position, PlayerStats.instance.Position, Time.deltaTime * speed);
         //transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime * speed);
@@ -83,4 +82,9 @@ public class PlayerMovement : MonoBehaviour {
         }
         return false;
     }
+
+	public void SkipTurn()
+	{
+		TurnSystem.nextTurn();
+	}
 }

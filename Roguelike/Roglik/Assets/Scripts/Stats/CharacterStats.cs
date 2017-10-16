@@ -11,9 +11,11 @@ public class CharacterStats : MonoBehaviour {
 #endregion
 #region /// Coordination ///
 	private Vector3 position;
+	public Vector3 previousPosition;
 	public Vector3 Position{
 		get{ return position; }
-		set{ position = value;
+		set{ previousPosition = position;
+			position = value;
 			previousNode = node;
 			previousNode.walkable = true;
 			node = PFgrid.grid[(int)position.x,(int)position.y];
@@ -132,6 +134,7 @@ public class CharacterStats : MonoBehaviour {
     {
         currentHealth = maxHealth;
 		position = transform.position;
+		previousPosition = transform.position;
 		node = PFgrid.grid[(int)position.x,(int)position.y];
         sprite = GetComponent<SpriteRenderer>();
         audioSrc = GetComponent<AudioSource>();

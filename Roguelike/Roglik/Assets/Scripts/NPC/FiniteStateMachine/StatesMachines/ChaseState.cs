@@ -11,14 +11,13 @@ public class ChaseState : State {
     #region ChasePlayer
     bool Chase()
     {
-        Vector3 playerDir = PlayerStats.instance.Position - stats.Position;
+        Vector3 playerDir = PlayerStats.instance.previousPosition - stats.Position;
 
-        if (transform.position == stats.Position && RayPlayerUpdate(playerDir))
+        if (transform.position == stats.Position && RayPlayerUpdate(playerDir)) //If NPC Saw player on his old position
         {
-            stats.myPath = PFaStar.FindPath(stats.Position, PlayerStats.instance.Position);
-			stats.myPath.Remove(stats.myPath[stats.myPath.Count-1]); //Removes last entry which is Player or..
+            stats.myPath = PFaStar.FindPath(stats.Position, PlayerStats.instance.Position); //Go to the position that he went to
 
-            if (stats.myPath.Count > 0 /*&& stats.myPath.Count != 1*/) //...if it is 1 it means npc stands next to player
+            if (stats.myPath.Count > 0 && stats.myPath.Count != 1) //if it is 1 it means npc stands next to player
             {
                 PFnode cell = stats.myPath[0];
                 stats.myPath.Remove(cell);
@@ -27,13 +26,16 @@ public class ChaseState : State {
 
             }
         }//*
-        else if (stats.myPath.Count > 0 && transform.position == stats.Position) // if npc loses player from eyes it goes to the place where he saw him last time.
+        else if (stats.myPath.Count > 0 && transform.position == stats.Position && stats.myPath[0].walkable) // if npc loses player from eyes it goes to the place where he saw him last time.
         {
             PFnode cell = stats.myPath[0];
             stats.myPath.Remove(cell);
 
             stats.Position = new Vector3(cell.x, cell.y, 0);
-        }//*/
+        }else if (!stats.myPath[0].walkable)
+		{
+			return true;
+		}
 
 		if(stats.myPath.Count == 0 )
 		{

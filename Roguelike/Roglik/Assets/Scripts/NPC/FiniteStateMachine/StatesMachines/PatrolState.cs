@@ -25,8 +25,6 @@ public class PatrolState : State {
             FindPatrol();
         }
 
-        //stats.Position = transform.position;
-
         if (transform.position == stats.Position)
         {
             stats.myPath = PFaStar.FindPath(stats.Position, randomWaypoint.position);

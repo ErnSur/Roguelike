@@ -16,19 +16,24 @@ public class InventoryUI : MonoBehaviour {
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
-	
+
 	// Update is called once per frame
 	void Update () {
         if (Input.GetButtonDown("Inventory"))
         {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-            inspectorBox.SetActive(false);
+			ToggleInventory();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("Game");
         }
+	}
+
+	public void ToggleInventory()
+	{
+		inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+        inspectorBox.SetActive(false);
 	}
 
     void UpdateUI()

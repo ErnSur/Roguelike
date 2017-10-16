@@ -66,7 +66,7 @@ namespace Light2D
         public float LightObstaclesDistance = 10;
 
         /// <summary>
-        /// Billinear for blurred lights, Point for pixelated lights. 
+        /// Billinear for blurred lights, Point for pixelated lights.
         /// </summary>
         public FilterMode LightTexturesFilterMode = FilterMode.Bilinear;
 

@@ -20,10 +20,7 @@ public class PlayerStats : CharacterStats {
     }
     #endregion
 
-    public float percentageHp //1 = 100%
-    {
-        get { return (float)currentHealth / (float)maxHealth; }
-    }
+    public float percentageHp{ get { return (float)currentHealth / (float)maxHealth; } }
 
     public Image hpBar;
     float width;
@@ -36,7 +33,6 @@ public class PlayerStats : CharacterStats {
 
     void Update()
     {
-
         UpdateHpBar();
     }
 

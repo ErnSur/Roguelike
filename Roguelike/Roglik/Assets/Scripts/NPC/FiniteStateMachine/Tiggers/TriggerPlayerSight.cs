@@ -11,6 +11,10 @@ public class TriggerPlayerSight : Trigger {
 
     public override State TriggerEvent(Vector3 watcher, Vector3 target, bool isStateDone)
     {
+		if(!PlayerTorch.torch)
+		{
+			return null;
+		}
         Vector3 dir = target - watcher;
 		//if((dir.x * dir.x)+(dir.y * dir.y) <= 36)
 		//{
