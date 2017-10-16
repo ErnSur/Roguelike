@@ -36,8 +36,6 @@ public class InventorySlot : MonoBehaviour {
             inspectorBoxGO.GetComponent<InspectorBox>().itemImage.sprite = item.icon;
             inspectorBoxGO.GetComponent<InspectorBox>().itemName.text = item.name;
             inspectorBoxGO.GetComponent<InspectorBox>().itemDescription.text = item.description;
-            print("inspect");
-            //print()
         }
     }
 
