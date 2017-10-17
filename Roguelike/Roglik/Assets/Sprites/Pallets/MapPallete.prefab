@@ -6834,7 +6834,7 @@ Tilemap:
   - m_RefCount: 512
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.9845393, g: 0.5731404, b: 0.63618755, a: 1}
+    m_Data: {r: 0.983543, g: 0.49638596, b: 0.61140317, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -5, y: -27, z: 0}
@@ -6862,7 +6862,7 @@ Tilemap:
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
-    m_DirtyIndex: 2
+    m_DirtyIndex: 0
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
