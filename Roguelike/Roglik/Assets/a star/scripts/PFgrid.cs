@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 
 public class PFgrid : MonoBehaviour {
+
+	public Text debugCounterText;
+	public int debugCounter = 0;
 
     public LayerMask wallLayermask;
 
@@ -24,6 +28,7 @@ public class PFgrid : MonoBehaviour {
                 if(Physics2D.OverlapBox(new Vector2(x, y), new Vector2 (0.5f,0.5f), 0, wallLayermask) != null)
                 {
                     grid[x, y] = new PFnode(x,y,false);
+					debugCounter++;
                 }
                 else
                 {
@@ -32,6 +37,7 @@ public class PFgrid : MonoBehaviour {
                 #endregion
             }
         }
+		debugCounterText.text = debugCounter.ToString();
     }
 
     public PFnode NodeFromWorldPoint(Vector3 objectsPosition)

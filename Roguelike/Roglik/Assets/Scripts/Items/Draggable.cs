@@ -42,6 +42,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         else if(!PlayerMovement.RayWallUpdate(dropDirection, dropDistance)) // raycast to see if it does not collide with wall
         {
+			Debug.Log("endDrag");
             item.OnUseGround(dropPos);
             inventory.Remove(item);
         }

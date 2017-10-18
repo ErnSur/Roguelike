@@ -9,6 +9,7 @@ Light is computed by path tracking with fixed number of steps (PATH_TRACKING_SAM
 */
 
 
+
 #ifndef LIGHT_BASE_INCLUDED
 #define LIGHT_BASE_INCLUDED
 
@@ -93,14 +94,14 @@ half4 light2_fixed_frag (light2d_fixed_v2f i) : COLOR
 	half sub = 1.0/PATH_TRACKING_SAMPLES;
 	half len = length((thisPos - centerPos)*i.aspect);
 	half m = _ObstacleMul*sub*len;
-			
+
 	half4 col = i.color*tex*tex.a*i.color.a;
 
 	half pos = 0;
-	
+
 	for(int i = 0; i < PATH_TRACKING_SAMPLES; i++)
 	{
-		pos += sub; 
+		pos += sub;
 		half4 obstacle = tex2D(_ObstacleTex, lerp(centerPos, thisPos, pos));
 		col *= saturate(1 - (1 - obstacle)*obstacle.a*m);
 	}

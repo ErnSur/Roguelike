@@ -2,14 +2,14 @@
 
 public class Interactable : MonoBehaviour {
 
-    bool hasInteracted = false;
+    //bool hasInteracted = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.name == "Player")
         {
             Interact();
-            hasInteracted = true;
+            //hasInteracted = true;
         }
     }
 

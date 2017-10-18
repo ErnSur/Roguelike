@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PFnode : ScriptableObject {
+public class PFnode {
 
     public int gCost = 0;
     public int hCost = 0;

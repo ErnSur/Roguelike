@@ -726,7 +726,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: d6dde4807cc71964bb84f3c0b50cbd19, type: 3}
   myAnswer: 0
   holdItem: {fileID: 0}
-  poison: {fileID: 0}
+  poison: {fileID: 11400000, guid: 8173485179918a742ae60de11585fe27, type: 2}
   cure: {fileID: 11400000, guid: e849a1602259b434482b969f70d33c34, type: 2}
 --- !u!114 &114294346749627702
 MonoBehaviour:
@@ -757,7 +757,7 @@ MonoBehaviour:
   consumeItem: 1
   accetableItems:
   - {fileID: 11400000, guid: e849a1602259b434482b969f70d33c34, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8173485179918a742ae60de11585fe27, type: 2}
 --- !u!114 &114351491222937848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1495,7 +1495,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1232155443663288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 2.5, z: 0}
+  m_LocalPosition: {x: 8.5, y: 11.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4910527741417148}
@@ -1503,7 +1503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.5, y: 2.5}
+  m_AnchoredPosition: {x: 8.5, y: 11.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!19719996 &2113883506384677342

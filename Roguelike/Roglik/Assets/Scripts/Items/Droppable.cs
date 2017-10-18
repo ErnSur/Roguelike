@@ -21,7 +21,7 @@ public class Droppable : MonoBehaviour, IDropHandler {
     public void OnDrop(PointerEventData eventData)
     {
         item = eventData.pointerDrag.GetComponent<InventorySlot>().item;
-        //Debug.Log(eventData.pointerDrag.name + " was Dropped on " + gameObject.name);
+        Debug.Log(eventData.pointerDrag.name + " was Dropped on " + gameObject.name);
 
         if(consumeItem && accetableItems.Contains(item)){
 
