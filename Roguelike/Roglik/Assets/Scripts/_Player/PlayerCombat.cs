@@ -26,6 +26,7 @@ public class PlayerCombat : MonoBehaviour {
             if (npc != null)
             {
                 npc.GetComponent<NPCStats>().TakeDamage(stats.attackDamage);
+				TurnSystem.nextTurn();
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -34,6 +35,7 @@ public class PlayerCombat : MonoBehaviour {
             if (npc != null)
             {
                 npc.GetComponent<NPCStats>().TakeDamage(stats.attackDamage);
+				TurnSystem.nextTurn();
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -42,6 +44,7 @@ public class PlayerCombat : MonoBehaviour {
             if (npc != null)
             {
                 npc.GetComponent<NPCStats>().TakeDamage(stats.attackDamage);
+				TurnSystem.nextTurn();
             }
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -50,6 +53,7 @@ public class PlayerCombat : MonoBehaviour {
             if (npc != null)
             {
                 npc.GetComponent<NPCStats>().TakeDamage(stats.attackDamage);
+				TurnSystem.nextTurn();
             }
         }
     }

@@ -25,6 +25,15 @@ public class PlayerStats : CharacterStats {
     public Image hpBar;
     float width;
 
+	public override void Die()
+	{
+		GetComponent<PlayerMovement>().enabled = false;
+		GetComponent<PlayerCombat>().enabled = false;
+		PlayerTorch.torch = false;
+
+		GameOverScreen.instance.ShowScreen();
+	}
+
     void UpdateHpBar() // add to TakeDamage delegate
     {
         float newWidth = percentageHp * width;

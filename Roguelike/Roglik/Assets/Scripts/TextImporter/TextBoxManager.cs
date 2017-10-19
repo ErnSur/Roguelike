@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class TextBoxManager : MonoBehaviour {
 
     public GameObject textBox;
+	public GameObject upArrow;
+	public GameObject downArrow;
 
     public Text theText;
 
-    public TextAsset textFile;
+    [HideInInspector]public TextAsset textFile;
     public string[] textLines;
 
     public int currentLine;
@@ -17,7 +19,8 @@ public class TextBoxManager : MonoBehaviour {
 
     public bool isActive;
 
-    // Use this for initialization
+
+
     public void Start()
     {
         UpdateTextData();
@@ -44,10 +47,29 @@ public class TextBoxManager : MonoBehaviour {
         if (!isActive) { return; }
         theText.text = textLines[currentLine];
 
-        if (Input.GetKeyDown(KeyCode.DownArrow)) { currentLine = Mathf.Clamp(++currentLine,0,endAtLine); }
-        if (Input.GetKeyDown(KeyCode.UpArrow)) { currentLine = Mathf.Clamp(--currentLine, 0, endAtLine); }
-        if (Input.GetKeyDown(KeyCode.Return)) { DisableTextBox(); }
+        if (Input.GetKeyDown(KeyCode.DownArrow)) { NextTextLine(); }
+        if (Input.GetKeyDown(KeyCode.UpArrow)) { PreviousTextLine(); }
+        if (Input.GetButtonDown("Cancel")) { DisableTextBox(); }
+
+		if (currentLine != 0 )
+		{
+			upArrow.SetActive(true);
+		}else { upArrow.SetActive(false); }
+
+		if( endAtLine > currentLine )
+		{
+			downArrow.SetActive(true);
+		}else { downArrow.SetActive(false); }
     }
+
+	public void NextTextLine()
+	{
+		currentLine = Mathf.Clamp(++currentLine,0,endAtLine);
+	}
+	public void PreviousTextLine()
+	{
+		currentLine = Mathf.Clamp(--currentLine, 0, endAtLine);
+	}
 
     public void EnableTextBox()
     {

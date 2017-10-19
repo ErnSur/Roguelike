@@ -15,6 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300142, guid: d6bddb6f6bd7b54488170f5f723158ee, type: 3}
   description: Smells wanderfull
   prefab: {fileID: 4782995499031170, guid: 1095b462d890c8a4e8d5b69a0d07a8d7, type: 2}
+  consumable: 1
   poisonFieldPrefab: {fileID: 4181206534503692, guid: 21e38248269cbef4d84882eacad46002,
     type: 2}
   poisonDuration: 10

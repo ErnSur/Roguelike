@@ -38,16 +38,21 @@ public class CharacterStats : MonoBehaviour {
     private SpriteRenderer sprite;
 #endregion
 
+	public void Heal ( int amount )
+	{
+		currentHealth = Mathf.Clamp(currentHealth+amount,0,maxHealth);
+		StartCoroutine("ColorFlicker", Color.green);
+	}
 
 	/// TAKING DAMAGE TYPES ///
     public void TakeDamage(int damage)
     {
         //damage -= armor.GetValue();
-        audioSrc.clip = hurtSound[Random.Range(0,hurtSound.Length)];
+        audioSrc.clip = hurtSound[Random.Range(0,hurtSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
         audioSrc.Play();
 
         currentHealth -= damage;
-        StartCoroutine("ColorFlicker");
+		StartCoroutine("ColorFlicker", Color.red);
 
         if (currentHealth <= 0)
         {
@@ -108,10 +113,10 @@ public class CharacterStats : MonoBehaviour {
     {
         //die in some way
         //Debug.Log(transform.name + " died.");
-		//Destroy(gameObject);
+		Destroy(gameObject);
     }
 
-    IEnumerator ColorFlicker()
+    IEnumerator ColorFlicker(Color toColor)
     {
         bool changed = false;
         float t = 0;
@@ -120,7 +125,7 @@ public class CharacterStats : MonoBehaviour {
         {
             t += 0.2f;
             //sprite.color = Color.Lerp(Color.white, Color.red, (ElapsedTime / TotalTime));
-            sprite.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(t,1)); //Mathf.PingPong(Time.time * 1f, 1.0f)
+            sprite.color = Color.Lerp(Color.white, toColor, Mathf.PingPong(t,1)); //Mathf.PingPong(Time.time * 1f, 1.0f)
 
             if (sprite.color == Color.white)
             {

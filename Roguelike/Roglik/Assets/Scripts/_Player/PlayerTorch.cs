@@ -37,4 +37,8 @@ public class PlayerTorch : MonoBehaviour {
 	{
 		torch = !torch;
 	}
+	void OnEnable()
+	{
+		torch = true;
+	}
 }

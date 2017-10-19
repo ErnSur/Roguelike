@@ -23,6 +23,11 @@ public class InventoryUI : MonoBehaviour {
         {
 			ToggleInventory();
         }
+		if (Input.GetButtonDown("Cancel"))
+		{
+			inventoryPanel.SetActive(false);
+        	inspectorBox.SetActive(false);
+		}
 
         if (Input.GetKeyDown(KeyCode.R))
         {

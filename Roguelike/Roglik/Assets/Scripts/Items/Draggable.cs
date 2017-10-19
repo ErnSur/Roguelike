@@ -29,20 +29,25 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
+		if(!inventory.items.Contains(item))
+		{
+			return;
+		}
+
         Vector3 dropPos = PFgrid.ScreenToGridCell(eventData.position);
         Vector3 dropDirection = dropPos - PlayerStats.instance.Position;
         float dropDistance = Vector3.Distance(dropPos, PlayerStats.instance.Position);
 
         //using item
-        if (dropPos == PlayerStats.instance.Position)
+        if (dropPos == PlayerStats.instance.Position && item.consumable) // On player
         {
             //Debug.Log("consumed " + item.name);
             item.OnUsePlayer();
             inventory.Remove(item);
         }
-        else if(!PlayerMovement.RayWallUpdate(dropDirection, dropDistance)) // raycast to see if it does not collide with wall
+        else if(!PlayerMovement.RayWallUpdate(dropDirection, dropDistance)) // On Ground ,raycast to see if it does not collide with wall
         {
-			Debug.Log("endDrag");
+			//Debug.Log("endDrag");
             item.OnUseGround(dropPos);
             inventory.Remove(item);
         }

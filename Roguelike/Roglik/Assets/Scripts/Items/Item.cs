@@ -8,6 +8,7 @@ public class Item : ScriptableObject {
     public Sprite icon = null;
     public string description = null;
     public Transform prefab; // prefab to use when item drops
+	public bool consumable;
 
     public virtual void OnUsePlayer()
     {

@@ -15,3 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 59bca95ea1fe0cd46bef84337ffcb768, type: 3}
   description: This Elixirs smell is very intensive.
   prefab: {fileID: 4546743599963588, guid: f5bc502ee264eb049a79b1b8ae521130, type: 2}
+  consumable: 1
