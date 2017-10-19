@@ -12,7 +12,7 @@ public class Prisoner001 : MonoBehaviour {
 
     public Item poison;
     public Item cure;
-    
+
 
     public void UpdateState()
     {
@@ -32,6 +32,10 @@ public class Prisoner001 : MonoBehaviour {
     {
         UpdateText();
     }
+	void OnTriggerExit2D(Collider2D other)
+	{
+		textBox.DisableTextBox();
+	}
 
     void UpdateText()
     {

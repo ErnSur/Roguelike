@@ -29,10 +29,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
-		if(!inventory.items.Contains(item))
-		{
-			return;
-		}
 
         Vector3 dropPos = PFgrid.ScreenToGridCell(eventData.position);
         Vector3 dropDirection = dropPos - PlayerStats.instance.Position;

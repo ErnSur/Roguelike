@@ -14,6 +14,6 @@ MonoBehaviour:
   name: Parmezan
   icon: {fileID: 21300186, guid: d6bddb6f6bd7b54488170f5f723158ee, type: 3}
   description: It's still quite fresh!
-  prefab: {fileID: 0}
+  prefab: {fileID: 4848607460726086, guid: 8f8930c9ecd5fac44821ff0bc6325e84, type: 2}
   consumable: 1
   healAmount: 10
