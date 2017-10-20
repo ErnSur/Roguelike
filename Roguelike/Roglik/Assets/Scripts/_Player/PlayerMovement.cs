@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     private const float RAYCAST_DISTANCE = 1f; // One cell
     private static LayerMask statWallLayer;
     private AudioSource audioSrc;
-    public AudioClip stepSound;
+    public AudioClip[] stepSound;
 
 
     void Start () {
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x+1,(int)PlayerStats.instance.Position.y].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.right;
-				audioSrc.clip = stepSound;
+				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable state
 				audioSrc.Play();
 				TurnSystem.nextTurn();
 			}
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x-1,(int)PlayerStats.instance.Position.y].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.left;
-				audioSrc.clip = stepSound;
+				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
 				audioSrc.Play();
 				TurnSystem.nextTurn();
 			}
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y+1].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.up;
-				audioSrc.clip = stepSound;
+				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
 				audioSrc.Play();
 				TurnSystem.nextTurn();
 			}
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y-1].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.down;
-				audioSrc.clip = stepSound;
+				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
 				audioSrc.Play();
 				TurnSystem.nextTurn();
 			}
