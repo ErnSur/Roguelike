@@ -2,6 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour {
 
+	public Sprite[] directionSprites; //0up,1down,2left,3right
+	public SpriteRenderer spriteRender;
 
     public float speed = 3.5f;
     public LayerMask wallLayer;
@@ -16,12 +18,14 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
         statWallLayer = wallLayer;
         audioSrc = GetComponent<AudioSource>();
+		spriteRender = GetComponent<SpriteRenderer>();
     }
 
 	void Update () {
 
         if (Input.GetKey(KeyCode.D) && transform.position == PlayerStats.instance.Position)
         {
+			spriteRender.sprite = directionSprites[3];
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x+1,(int)PlayerStats.instance.Position.y].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.right;
@@ -32,6 +36,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.A) && transform.position == PlayerStats.instance.Position)
         {
+			spriteRender.sprite = directionSprites[2];
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x-1,(int)PlayerStats.instance.Position.y].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.left;
@@ -42,6 +47,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.W) && transform.position == PlayerStats.instance.Position)
         {
+			spriteRender.sprite = directionSprites[0];
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y+1].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.up;
@@ -52,6 +58,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.S) && transform.position == PlayerStats.instance.Position)
         {
+			spriteRender.sprite = directionSprites[1];
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y-1].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.down;

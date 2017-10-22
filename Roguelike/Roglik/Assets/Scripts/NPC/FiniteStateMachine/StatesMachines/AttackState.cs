@@ -7,8 +7,8 @@ public class AttackState : State {
 
     public override void Act()
     {
-        PlayerStats.instance.TakeDamage(stats.attackDamage);
-        //Debug.Log("attacked player for: " + stats.attackDamage);
+        PlayerStats.instance.TakeDamage(stats.AttackDamage);
+        //Debug.Log("attacked player for: " + stats.AttackDamage);
         UpdateState();
     }
 }

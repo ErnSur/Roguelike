@@ -6,8 +6,22 @@ public class CharacterStats : MonoBehaviour {
 #region /// Basic Statistics ///
     public int maxHealth = 60;
     public int currentHealth;
-    public int attackDamage;
     public float visionRange = 6;
+    public int attackDamage = 2;
+    public int AttackDamage
+	{
+		get{
+			if (weapon != null)
+			{
+				int att = Random.Range(weapon.minDamage, weapon.maxDamage) + attackDamage;
+				Log.Write(this.name + " attacked For: " + att);
+				return att;
+			} else { Log.Write(this.name + " attacked For: " + attackDamage); return attackDamage; }
+		}
+	}
+#endregion
+#region /// Weapon & Hit Effects ///
+	public Weapon weapon;
 #endregion
 #region /// Coordination ///
 	private Vector3 position;
@@ -113,6 +127,7 @@ public class CharacterStats : MonoBehaviour {
     {
         //die in some way
         //Debug.Log(transform.name + " died.");
+		node.walkable = true;
 		Destroy(gameObject);
     }
 
@@ -141,6 +156,7 @@ public class CharacterStats : MonoBehaviour {
 		position = transform.position;
 		previousPosition = transform.position;
 		node = PFgrid.grid[(int)position.x,(int)position.y];
+		node.walkable = false;
         sprite = GetComponent<SpriteRenderer>();
         audioSrc = GetComponent<AudioSource>();
     }

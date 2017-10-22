@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d9ff4eaed136f4142afad8d2ec907e84
+timeCreated: 1508593575
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - icon: {instanceID: 0}
+  - prefab: {instanceID: 0}
+  - breakSound: {fileID: 8300000, guid: e09caea2f2dce7649bcf5b1ecb359081, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

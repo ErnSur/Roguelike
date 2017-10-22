@@ -7,6 +7,7 @@ public class PoisonElixir : Item {
 
 	public Transform poisonFieldPrefab;
 	public int poisonDuration = 10;
+	public AudioClip[] breakSounds;
 
 	public override void OnUsePlayer()
     {
@@ -24,8 +25,11 @@ public class PoisonElixir : Item {
 
     public override void OnUseGround(Vector3 groundPos)
     {
-        //Debug.Log(name + " used on ground");
-        Instantiate(poisonFieldPrefab, groundPos, Quaternion.identity);
+		AudioSource fieldAudio;
+        fieldAudio = Instantiate(poisonFieldPrefab, groundPos, Quaternion.identity).GetComponent<AudioSource>();
+
+		fieldAudio.clip = breakSounds[Random.Range(0,breakSounds.Length)]; // add sounds at field prefab
+		fieldAudio.Play();
     }
 
 }

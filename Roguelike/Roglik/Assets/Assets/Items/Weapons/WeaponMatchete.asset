@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a4a7dcb787cf1419639f20ab5d8d88, type: 3}
+  m_Name: WeaponMatchete
+  m_EditorClassIdentifier: 
+  name: Matchete
+  icon: {fileID: 21300074, guid: d6bddb6f6bd7b54488170f5f723158ee, type: 3}
+  description: I could easly cut off a head with this.
+  prefab: {fileID: 4186534158567220, guid: 77605b1941e912246bd60d22ff9597bf, type: 2}
+  consumable: 1
+  minDamage: 5
+  maxDamage: 10

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class InventoryUI : MonoBehaviour {
@@ -6,6 +7,7 @@ public class InventoryUI : MonoBehaviour {
     public GameObject inventoryPanel;
     public GameObject inspectorBox; //to remove later
     public Transform itemsParent;
+	public Image weaponImage;
     Inventory inventory;
     InventorySlot[] slots;
 
@@ -44,6 +46,10 @@ public class InventoryUI : MonoBehaviour {
     void UpdateUI()
     {
         //Debug.Log("updateUI");
+		if ( PlayerStats.instance.weapon != null)
+		{
+			weaponImage.sprite = PlayerStats.instance.weapon.icon;
+		}
 
         for (int i =0; i < slots.Length; i++)
         {

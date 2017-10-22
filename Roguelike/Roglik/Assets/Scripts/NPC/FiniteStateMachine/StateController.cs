@@ -14,7 +14,7 @@ public class StateController : MonoBehaviour {
 
     private void Update()
     {
-        if(currentState.enabled != true) { currentState.enabled = true; }
+        //if(currentState.enabled != true) { currentState.enabled = true; }
     }
 
     void OneTimeAction()
