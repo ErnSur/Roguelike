@@ -40,8 +40,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215589480085684}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 6.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.5, y: 6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -180,10 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97befcfd1e95a842ae7edeb221ae9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 30
   currentHealth: 0
-  attackDamage: 5
   visionRange: 6
+  attackDamage: 10
+  weapon: {fileID: 0}
   previousPosition: {x: 0, y: 0, z: 0}
   poisonDuration: 0
   poisonDamage: 5
@@ -279,7 +280,7 @@ SpriteRenderer:
   m_SortingLayerID: -1111015539
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300322, guid: eaeb1de5edd856e4c8c7c6489f81dd1a, type: 3}
+  m_Sprite: {fileID: 21300210, guid: fb18645037d19d54ebab78007366d7ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

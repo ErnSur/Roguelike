@@ -7,12 +7,11 @@ public class Weapon : Item {
 
 	public int minDamage;
 	public int maxDamage;
-	//public Upgrade upgrade;
+	public WeaponEffect onHitEffect;
 	//public UseEffect effect;
 
 	public override void OnUsePlayer()
 	{
 		PlayerStats.instance.weapon = this;
-		//destroy;
 	}
 }

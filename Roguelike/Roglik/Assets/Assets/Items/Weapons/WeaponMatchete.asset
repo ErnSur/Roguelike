@@ -18,3 +18,4 @@ MonoBehaviour:
   consumable: 1
   minDamage: 5
   maxDamage: 10
+  onHitEffect: {fileID: 11400000, guid: fabc471f16d5ce343bd120538e386a6c, type: 2}

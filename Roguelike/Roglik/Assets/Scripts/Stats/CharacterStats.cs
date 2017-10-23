@@ -14,9 +14,9 @@ public class CharacterStats : MonoBehaviour {
 			if (weapon != null)
 			{
 				int att = Random.Range(weapon.minDamage, weapon.maxDamage) + attackDamage;
-				Log.Write(this.name + " attacked For: " + att);
+				//Log.Write(this.name + " attacked For: " + att);
 				return att;
-			} else { Log.Write(this.name + " attacked For: " + attackDamage); return attackDamage; }
+			} else { return attackDamage; }
 		}
 	}
 #endregion
@@ -42,8 +42,8 @@ public class CharacterStats : MonoBehaviour {
 #region /// Status Effects ///
 	public int poisonDuration = 0;
 	public int poisonDamage = 5;
-	public int fireDuration;
-	public int FireDamage;
+	public int fireDuration = 0;
+	public int fireDamage = 15;
 	public int paralyzeDuration;
 #endregion
 #region /// Audio & Visuals ///
@@ -58,9 +58,10 @@ public class CharacterStats : MonoBehaviour {
 		StartCoroutine("ColorFlicker", Color.green);
 	}
 
-	/// TAKING DAMAGE TYPES ///
-    public void TakeDamage(int damage)
+	/// TAKING DAMAGE TYPES /// //add TakeEffectDamage to fixedUpdate and just increese effectduration on npcs?
+    public void TakeDamage(int damage) // (int damage, upgrade effect)
     {
+		//effect.act();
         //damage -= armor.GetValue();
         audioSrc.clip = hurtSound[Random.Range(0,hurtSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
         audioSrc.Play();
@@ -85,6 +86,36 @@ public class CharacterStats : MonoBehaviour {
 		{
 			TurnSystem.nextTurn -= TakePoisonDamage;
 		}
+	}
+
+	public void TakeFireDamage()
+	{
+		if(fireDuration > 0 )
+		{
+			TakeDamage(fireDamage);
+			//Debug.Log(this.name + " took:" + poisonDamage + " poison damage.");
+			fireDuration--;
+		}else
+		{
+			TurnSystem.nextTurn -= TakeFireDamage;
+		}
+	}
+
+	/// DEAL DAMAGE ///
+	public void DealDamage(CharacterStats enemy) //effect eff
+	{
+		int blow = AttackDamage;
+
+		enemy.TakeDamage(blow);
+		Log.Write(this.name + " attacked For: " + blow);
+
+		if (weapon.onHitEffect != null)
+		{
+			weapon.onHitEffect.OnHitEffect(enemy);
+			Log.Write("Poisoned");
+		}
+
+		//if (eff != null) {	eff.function(enemy);	}
 	}
 
 /*

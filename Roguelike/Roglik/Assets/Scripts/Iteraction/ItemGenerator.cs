@@ -12,6 +12,7 @@ public class ItemGenerator : MonoBehaviour {
     }
 
     public Spawnable[] spawnItemsPrefabs;
+	public Transform defaultItemSpawn;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class ItemGenerator : MonoBehaviour {
         //
         for (int i = 0; i < spawnItemsPrefabs.Length; i++)
         {
-            if (roll <= spawnItemsPrefabs[i].chance + tempChance) 
+            if (roll <= spawnItemsPrefabs[i].chance + tempChance)
             {
                 Instantiate(spawnItemsPrefabs[i].prefab, transform.position, transform.rotation, spawnItemsPrefabs[i].prefab.parent);
                 Destroy(gameObject);
@@ -30,9 +31,12 @@ public class ItemGenerator : MonoBehaviour {
             }
             tempChance += spawnItemsPrefabs[i].chance;
         }
-        
+
         //Default spawn
-        Instantiate(spawnItemsPrefabs[0].prefab, transform.position, transform.rotation, spawnItemsPrefabs[0].prefab.parent);
+		if (defaultItemSpawn != null)
+		{
+        	Instantiate(defaultItemSpawn, transform.position, transform.rotation, spawnItemsPrefabs[0].prefab.parent);
+		}
         Destroy(gameObject);
     }
 }

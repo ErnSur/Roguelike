@@ -37,7 +37,7 @@ public class PFgrid : MonoBehaviour {
                 #endregion
             }
         }
-		debugCounterText.text = debugCounter.ToString();
+		//debugCounterText.text = debugCounter.ToString();
     }
 
     public PFnode NodeFromWorldPoint(Vector3 objectsPosition)

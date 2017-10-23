@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Book
   m_EditorClassIdentifier: 
   name: Page from Alchemy Book
-  icon: {fileID: 21300060, guid: d6bddb6f6bd7b54488170f5f723158ee, type: 3}
+  icon: {fileID: 21300014, guid: d6bddb6f6bd7b54488170f5f723158ee, type: 3}
   description: I brew my Cure potions magenta, that's how I like them.
   prefab: {fileID: 4717177849120290, guid: ea4ae97485352a74fb7a434dab7c8272, type: 2}
   consumable: 0

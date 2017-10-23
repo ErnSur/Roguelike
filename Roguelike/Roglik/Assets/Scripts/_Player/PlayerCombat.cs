@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.right, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<NPCStats>().TakeDamage(stats.AttackDamage);
+                stats.DealDamage(npc.GetComponent<NPCStats>());
 				TurnSystem.nextTurn();
             }
         }
@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.left, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<NPCStats>().TakeDamage(stats.AttackDamage);
+                stats.DealDamage(npc.GetComponent<NPCStats>());
 				TurnSystem.nextTurn();
             }
         }
@@ -43,7 +43,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.up, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<NPCStats>().TakeDamage(stats.AttackDamage);
+                stats.DealDamage(npc.GetComponent<NPCStats>());
 				TurnSystem.nextTurn();
             }
         }
@@ -52,7 +52,7 @@ public class PlayerCombat : MonoBehaviour {
             npc = RayNpcUpdate(Vector3.down, raycastDistance);
             if (npc != null)
             {
-                npc.GetComponent<NPCStats>().TakeDamage(stats.AttackDamage);
+                stats.DealDamage(npc.GetComponent<NPCStats>());
 				TurnSystem.nextTurn();
             }
         }
