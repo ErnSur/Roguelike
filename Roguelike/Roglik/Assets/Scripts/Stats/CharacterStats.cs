@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CharacterStats : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class CharacterStats : MonoBehaviour {
 #endregion
 #region /// Weapon & Hit Effects ///
 	public Weapon weapon;
+	public List<Stone> stones;
 #endregion
 #region /// Coordination ///
 	private Vector3 position;
@@ -114,6 +116,7 @@ public class CharacterStats : MonoBehaviour {
 			weapon.onHitEffect.OnHitEffect(enemy);
 			Log.Write("Poisoned");
 		}
+		// ADD RAYCASTING HERE TO MODIFY IT WITH RED GEM
 
 		//if (eff != null) {	eff.function(enemy);	}
 	}

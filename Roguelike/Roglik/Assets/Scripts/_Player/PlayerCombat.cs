@@ -22,6 +22,7 @@ public class PlayerCombat : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+				redStone.SpawnField(PlayerStats.instance.Position);
             npc = RayNpcUpdate(Vector3.right, raycastDistance);
             if (npc != null)
             {
@@ -72,4 +73,6 @@ public class PlayerCombat : MonoBehaviour {
         }
         return null;
     }
+
+	public RedStone redStone;
 }
