@@ -4,7 +4,7 @@ public class EffectField : MonoBehaviour {
 
 	public ParticleSystem ps;
 	public Collider2D colliderBox;
-	int lifetime = 5;
+	public int lifetime = 5;
 
 	public virtual void OnTriggerEnter2D(Collider2D other){
 		//code
@@ -32,6 +32,11 @@ public class EffectField : MonoBehaviour {
 
 	void Update()
 	{
+		if ( lifetime <= 0 )
+		{
+			transform.localScale =  Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime * 4);
+		}
+
 		if(!ps.IsAlive())
         {
              Destroy(gameObject);

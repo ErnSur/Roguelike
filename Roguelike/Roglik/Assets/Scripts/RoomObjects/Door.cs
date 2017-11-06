@@ -8,6 +8,7 @@ public class Door : MonoBehaviour {
 	public SpriteRenderer sprite;
 	public PFnode node;
 	public AudioSource audioSource;
+	Collider2D collision;
 	#endregion
 
 	#region MonoMethods
@@ -30,6 +31,7 @@ public class Door : MonoBehaviour {
 	{
 		node = PFgrid.grid[(int)transform.position.x,(int)transform.position.y];
 		audioSource = GetComponent<AudioSource>();
+		collision = GetComponent<Collider2D>();
 	}
 	#endregion
 }

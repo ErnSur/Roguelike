@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -8,17 +9,22 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 3.5f;
     public LayerMask wallLayer;
 
-
+	private PlayerStats stats;
     private const float RAYCAST_DISTANCE = 1f; // One cell
     private static LayerMask statWallLayer;
     private AudioSource audioSrc;
-    public AudioClip[] stepSound;
+    public AudioClip[] stepSound1;
+    public AudioClip[] stepSound2;
+    public AudioClip stepSoundOrginal;
+	[Range(0,1)]public float orginalStepVolume;
+	int foot = 1;
 
 
     void Start () {
         statWallLayer = wallLayer;
         audioSrc = GetComponent<AudioSource>();
 		spriteRender = GetComponent<SpriteRenderer>();
+		stats = PlayerStats.instance;
     }
 
 	void Update () {
@@ -29,9 +35,9 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x+1,(int)PlayerStats.instance.Position.y].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.right;
-				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable state
-				audioSrc.Play();
-				TurnSystem.nextTurn();
+				StartCoroutine("FootstepSound");
+				//StartCoroutine("MoveToPosition");
+				SkipTurn();
 			}
         }
         else if (Input.GetKey(KeyCode.A) && transform.position == PlayerStats.instance.Position)
@@ -40,9 +46,9 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x-1,(int)PlayerStats.instance.Position.y].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.left;
-				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
-				audioSrc.Play();
-				TurnSystem.nextTurn();
+				StartCoroutine("FootstepSound");
+				//StartCoroutine("MoveToPosition");
+				SkipTurn();
 			}
         }
         else if (Input.GetKey(KeyCode.W) && transform.position == PlayerStats.instance.Position)
@@ -51,9 +57,9 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y+1].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.up;
-				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
-				audioSrc.Play();
-				TurnSystem.nextTurn();
+				StartCoroutine("FootstepSound");
+				//StartCoroutine("MoveToPosition");
+				SkipTurn();
 			}
         }
         else if (Input.GetKey(KeyCode.S) && transform.position == PlayerStats.instance.Position)
@@ -62,9 +68,9 @@ public class PlayerMovement : MonoBehaviour {
 			if(PFgrid.grid[(int)PlayerStats.instance.Position.x,(int)PlayerStats.instance.Position.y-1].walkable == true)
 			{
 				PlayerStats.instance.Position += Vector3.down;
-				audioSrc.clip = stepSound[Random.Range(0,stepSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
-				audioSrc.Play();
-				TurnSystem.nextTurn();
+				StartCoroutine("FootstepSound");
+				//StartCoroutine("MoveToPosition");
+				SkipTurn();
 			}
         }else if (Input.GetButtonDown("Cancel"))
 		{
@@ -92,6 +98,36 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void SkipTurn()
 	{
-		TurnSystem.nextTurn();
+		if (TurnSystem.nextTurn != null)
+			TurnSystem.nextTurn();
 	}
+
+	IEnumerator FootstepSound()
+    {
+		if (foot == 1)
+		{
+			audioSrc.PlayOneShot(stepSound1[Random.Range(0,stepSound1.Length)]);
+			audioSrc.PlayOneShot(stepSoundOrginal, orginalStepVolume);
+			//audioSrc.clip = stepSound1[Random.Range(0,stepSound1.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable state
+			foot = 2;
+		} else
+		{
+			audioSrc.PlayOneShot(stepSound2[Random.Range(0,stepSound2.Length)]);
+			audioSrc.PlayOneShot(stepSoundOrginal, orginalStepVolume);
+			//audioSrc.clip = stepSound2[Random.Range(0,stepSound2.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable state
+			foot = 1;
+		}
+		yield return null;
+    }
+
+	IEnumerator MoveToPosition()
+    {
+        while (transform.position != PlayerStats.instance.Position)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, PlayerStats.instance.Position, Time.deltaTime * speed);
+            yield return null;
+        }
+		//Debug.Log("wewe");
+		SkipTurn();
+    }
 }

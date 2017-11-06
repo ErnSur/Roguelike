@@ -6,4 +6,5 @@ public abstract class TurnSystem  {
 
     public delegate void Turn();
     public static Turn nextTurn;
+	//errors might be shown when nothing is subscribed to delegate
 }

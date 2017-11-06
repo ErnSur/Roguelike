@@ -6,7 +6,7 @@ using UnityEngine;
 public class RedStone : Stone {
 
 	public Transform poisonFieldPrefab;
-	public Vector3 correction;
+	public Vector3 playerOnMiniGrid;
 
 	public int range = 5;
 	public bool[] cords;
@@ -26,19 +26,53 @@ public class RedStone : Stone {
 	}
 
 	int t = 0;
-	public void SpawnField(Vector3 playerPos)
+	public void SpawnField(Vector3 playerPos, string direction) // direction as enum
 	{
-		for (int x = 0; x < range; x++ )
+		for (int y = 0; y < range; y++ )
 		{
-			for (int y = 0; y < range; y++ )
+			for (int x = 0; x < range; x++ )
 			{
 				if (cords[t])
 				{
-					Vector3 spawnPos = new Vector3(x,-y,0);
+					/// TRANSLATION
+					int nx = x;
+					int ny = y;
+
+					/// ROTATION
+					switch(direction)
+					{
+						case "up":
+							nx = y;
+							ny = x;
+						break;
+						case "down":
+							nx = 2*(int)playerOnMiniGrid.y - y; //+ (int)playerOnMiniGrid.y;
+							ny = 2*(int)playerOnMiniGrid.x - x; //+ (int)playerOnMiniGrid.y;
+						break;
+						case "left":
+							nx = 2*(int)playerOnMiniGrid.x - x;
+							ny = 2*(int)playerOnMiniGrid.y - y;
+						break;
+						case "right":
+							nx = x;
+							ny = y;
+						break;
+						default:
+							nx = x;
+							ny = y;
+						break;
+					}
+
+					Vector3 spawnPos = new Vector3((nx - playerOnMiniGrid.x),(ny - playerOnMiniGrid.y),0);
 					spawnPos += playerPos;
-					spawnPos += correction;
 
 					Instantiate(poisonFieldPrefab, spawnPos, Quaternion.identity);
+
+					/*
+					Vector3 playerPos3 = PlayerStats.instance.Position;
+
+					Vector3 spawnPos = new Vector3((playerOnMiniGrid.x - nx)+playerPos3.x,playerPos3.y-(playerOnMiniGrid.y - ny),0);
+					*/
 				}
 				t++;
 			}

@@ -17,8 +17,9 @@ public class ChaseState : State {
         {
             stats.myPath = PFaStar.FindPath(stats.Position, PlayerStats.instance.Position); //Go to the position that he went to
 
-            if (stats.myPath.Count > 0 && stats.myPath.Count != 1) //if it is 1 it means npc stands next to player
+            if (stats.myPath.Count > 0 && stats.myPath.Count != 1) //if it is 1 it means npc stands next to player // error when has a path but something is blocking it
             {
+				Debug.Log("hehe");
                 PFnode cell = stats.myPath[0];
                 stats.myPath.Remove(cell);
 

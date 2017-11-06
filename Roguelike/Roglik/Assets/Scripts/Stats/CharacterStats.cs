@@ -50,8 +50,9 @@ public class CharacterStats : MonoBehaviour {
 #endregion
 #region /// Audio & Visuals ///
     public AudioClip[] hurtSound;
-    private AudioSource audioSrc;
+    public AudioSource audioSrc;
     private SpriteRenderer sprite;
+	public Transform corpses;
 #endregion
 
 	public void Heal ( int amount )
@@ -74,6 +75,7 @@ public class CharacterStats : MonoBehaviour {
         if (currentHealth <= 0)
         {
             Die();
+			//StartCoroutine("Die2");
         }
     }
 
@@ -121,49 +123,19 @@ public class CharacterStats : MonoBehaviour {
 		//if (eff != null) {	eff.function(enemy);	}
 	}
 
-/*
-	public void InflictPoison(int duration)
-	{
-		Poison.duration += duration;
-		TurnSystem.nextTurn += TakePoisonDamage;
-	}
-	public void TakeDamageType(DamageType damage, int duration)
-	{
-		DamageType dmg =
-		Poison.duration += duration;
-		TurnSystem.nextTurn += TakeTypeDamage<T>;
-	}
-
-	private void TakeTypeDamage<T>()
-	{
-		if(T.duration >0)
-		{
-			TakeDamage(Poison.dmg);
-			Poison.duration--;
-		}else
-		{
-			TurnSystem.nextTurn -= TakePoisonDamage;
-		}
-	}
-	private void TakePoisonDamage()
-	{
-		if(Poison.duration >0)
-		{
-			TakeDamage(Poison.dmg);
-			Poison.duration--;
-		}else
-		{
-			TurnSystem.nextTurn -= TakePoisonDamage;
-		}
-	}
-*/
     public virtual void Die()//Player object cannot be destroyed, light and audio systems are attached
     {
         //die in some way
         //Debug.Log(transform.name + " died.");
 		node.walkable = true;
+
+		if (poisonDuration > 0) { TurnSystem.nextTurn -= TakePoisonDamage; }
+		if (fireDuration > 0) { TurnSystem.nextTurn -= TakeFireDamage; }
+
+		Instantiate(corpses, transform.position, Quaternion.identity);
 		Destroy(gameObject);
     }
+
 
     IEnumerator ColorFlicker(Color toColor)
     {
@@ -194,4 +166,21 @@ public class CharacterStats : MonoBehaviour {
         sprite = GetComponent<SpriteRenderer>();
         audioSrc = GetComponent<AudioSource>();
     }
+
+	void OnEnable()
+	{
+        audioSrc = GetComponent<AudioSource>();
+	}
+
+	void OnDisable()
+	{
+		if ( poisonDuration > 0 )
+		{
+			TurnSystem.nextTurn -= TakePoisonDamage;
+		}
+		if ( fireDuration > 0 )
+		{
+			TurnSystem.nextTurn -= TakeFireDamage;
+		}
+	}
 }

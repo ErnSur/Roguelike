@@ -24,6 +24,7 @@ public class TriggerPlayerSight : Trigger {
 			if (hit.collider != null && hit.collider.CompareTag("Player"))
 			{
 				//Debug.Log("saw " + hit.collider.name);
+				FearSystem.IncreaseFear(10);
 				return stateToReturn;
 			}
 		//}

@@ -20,10 +20,20 @@ public class PlayerStats : CharacterStats {
     }
     #endregion
 
-	public float percentageHp{ get { return (float)currentHealth / (float)maxHealth; } }
+	[Header("Fear")]
+	public int currentFear;
+	public int maxFear = 100;
 
+	public float percentageHp{ get { return (float)currentHealth / (float)maxHealth; } }
+	public float percentageFear{ get { return (float)currentFear / (float)maxFear; } }
+
+	[Header("HP and Fear UI bars")]
     public Image hpBar;
-    float width;
+    float hpBarWidth;
+
+	public Image fearBar;
+	float fearBarWidth;
+
 
 	public override void Die()
 	{
@@ -31,23 +41,41 @@ public class PlayerStats : CharacterStats {
 		GetComponent<PlayerCombat>().enabled = false;
 		PlayerTorch.torch = false;
 
+		if (poisonDuration > 0)
+			TurnSystem.nextTurn -= TakePoisonDamage;
+
 		GameOverScreen.instance.ShowScreen();
 	}
 
     void UpdateHpBar() // add to TakeDamage delegate
     {
-        float newWidth = percentageHp * width;
+        float newWidth = percentageHp * hpBarWidth;
         hpBar.rectTransform.sizeDelta = new Vector2(newWidth, hpBar.rectTransform.sizeDelta.y);
+    }
+
+    void UpdateFearBar() // add to TakeDamage delegate
+    {
+        float newWidth = percentageFear * fearBarWidth;
+        fearBar.rectTransform.sizeDelta = new Vector2(newWidth, fearBar.rectTransform.sizeDelta.y);
     }
 
     void Update()
     {
         UpdateHpBar();
+        UpdateFearBar();
     }
 
     new void Start()
     {
 		base.Start();
-        width = hpBar.rectTransform.sizeDelta.x;
+		TurnSystem.nextTurn += FearSystem.IncreaseFearInDark;
+		currentFear = 0;
+        hpBarWidth = hpBar.rectTransform.sizeDelta.x;
+        fearBarWidth = fearBar.rectTransform.sizeDelta.x;
     }
+
+	void OnDisable()
+	{
+		TurnSystem.nextTurn -= FearSystem.IncreaseFearInDark;
+	}
 }

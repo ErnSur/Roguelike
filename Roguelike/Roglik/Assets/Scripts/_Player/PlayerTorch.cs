@@ -49,6 +49,7 @@ public class PlayerTorch : MonoBehaviour {
 			audioSourceTorch.volume = Mathf.Lerp(audioSourceTorch.volume, 0, Time.deltaTime * torchOffSpeed); //sound fade off
 		}
 	}
+
 	void Awake()
 	{
 		audioSourceTorch = GetComponents<AudioSource>()[0];
@@ -63,6 +64,9 @@ public class PlayerTorch : MonoBehaviour {
 		if(torch)
 		{
 			audioSourceFlint.Play();
+		}else
+		{
+			FearSystem.IncreaseFear(5);
 		}
 	}
 

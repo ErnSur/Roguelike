@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f751535465993b84faea9bc5e332232c, type: 3}
   m_Name: Red
   m_EditorClassIdentifier: 
-  poisonFieldPrefab: {fileID: 4181206534503692, guid: 21e38248269cbef4d84882eacad46002,
+  poisonFieldPrefab: {fileID: 4549039084447682, guid: 99d7f5aace55eb549bcc2288773cce50,
     type: 2}
-  correction: {x: -2, y: 2, z: 0}
+  playerOnMiniGrid: {x: 2, y: 2, z: 0}
   range: 5
-  cords: 00000000000000000000010100000000000100000000010000
+  cords: 00000000000000000000000000010100000000000000000000

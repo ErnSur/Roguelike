@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PoisonField : EffectField {
 
+	void Start()
+	{
+		lifetime = 3;
+	}
+
 	public override void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Player" || other.tag == "NPC")

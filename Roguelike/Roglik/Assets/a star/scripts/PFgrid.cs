@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 
 public class PFgrid : MonoBehaviour {
 
-	public Text debugCounterText;
 	public int debugCounter = 0;
 
     public LayerMask wallLayermask;
@@ -29,6 +27,7 @@ public class PFgrid : MonoBehaviour {
                 {
                     grid[x, y] = new PFnode(x,y,false);
 					debugCounter++;
+					Log.Write("x: " + x + " y:" + y);
                 }
                 else
                 {
@@ -37,7 +36,6 @@ public class PFgrid : MonoBehaviour {
                 #endregion
             }
         }
-		//debugCounterText.text = debugCounter.ToString();
     }
 
     public PFnode NodeFromWorldPoint(Vector3 objectsPosition)
@@ -89,6 +87,11 @@ public class PFgrid : MonoBehaviour {
         return neighbours;
     }
 #endregion
+
+	void Start()
+	{
+		Log.Write(debugCounter.ToString());
+	}
 
     //new functions 1. screen to grid, world to grid, vector3 -> vector2
     public static Vector3 ScreenToGridCell (Vector3 ScreenPointerPos)
