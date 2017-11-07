@@ -6,7 +6,7 @@
 # Mechanics:
 * Turn based combat
 * Customanizable spells
-* Fear system
+* Upgradeable weapons with different effects
 
 <break>
 
@@ -16,10 +16,7 @@
 # Code:
 * A* pathfinding algorith
 * moddable FSM AI
-* ScriptableObjects serialization 
-* custom editors
-* tilemaps
-i write
+###### Utylizing scriptableObjects serialization, custom inspectors and tilemaps
 
 # Demo
 
