@@ -15,8 +15,8 @@ public class PoisonElixir : Item {
 		if(PlayerStats.instance.poisonDuration == 0 )
 			{
 				PlayerStats.instance.poisonDuration += poisonDuration;
-				PlayerStats.instance.TakePoisonDamage();
-				TurnSystem.nextTurn += PlayerStats.instance.TakePoisonDamage;
+				//PlayerStats.instance.TakePoisonDamage();
+				//TurnSystem.nextTurn += PlayerStats.instance.TakePoisonDamage;
 			}else
 			{
 				PlayerStats.instance.poisonDuration += poisonDuration;

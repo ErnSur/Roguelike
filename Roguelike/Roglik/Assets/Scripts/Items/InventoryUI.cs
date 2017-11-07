@@ -31,10 +31,23 @@ public class InventoryUI : MonoBehaviour {
         	inspectorBox.SetActive(false);
 		}
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("0Labs");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("1Labs");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             SceneManager.LoadScene("Game");
         }
+
+		if ( PlayerStats.instance.weapon != null)
+		{
+			weaponImage.sprite = PlayerStats.instance.weapon.icon;
+		}
 	}
 
 	public void ToggleInventory()

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042b9417ac419c945a23d2b9e626e67b, type: 3}
+  m_Name: Default NPC
+  m_EditorClassIdentifier: 
+  maxHealth: 60
+  currentHealth: 0
+  visionRange: 6
+  attackDamage: 2
+  weapon: {fileID: 0}
+  stones: []
+  poisonDuration: 0
+  poisonDamage: 5
+  fireDuration: 0
+  fireDamage: 15
+  paralyzeDuration: 0
+  hurtSound:
+  - {fileID: 8300000, guid: 7edbdad0e226a82479d64fcb179727c0, type: 3}
+  - {fileID: 8300000, guid: b4d76226a2a7eb44aaef2e3a1ec29280, type: 3}
+  corpses: {fileID: 4912630896816292, guid: 1fb1f68581a403349aa06cf3d17286eb, type: 2}

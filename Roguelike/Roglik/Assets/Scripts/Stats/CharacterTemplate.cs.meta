@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 4249309d4ac2ae145ba14650d698ff85
-timeCreated: 1509926260
+timeCreated: 1509932183
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - weapon: {instanceID: 0}
+  - corpses: {fileID: 4912630896816292, guid: 1fb1f68581a403349aa06cf3d17286eb, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

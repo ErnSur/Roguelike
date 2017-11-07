@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CharacterStats : MonoBehaviour {
+public class CharacterStats : MonoBehaviour
+{
+	public CharacterTemplate myTemplate;
 
 #region /// Basic Statistics ///
+	[Header("Basic Statistics")]
     public int maxHealth = 60;
     public int currentHealth;
     public float visionRange = 6;
@@ -22,6 +25,7 @@ public class CharacterStats : MonoBehaviour {
 	}
 #endregion
 #region /// Weapon & Hit Effects ///
+	[Header("Weapon & Hit Effects")]
 	public Weapon weapon;
 	public List<Stone> stones;
 #endregion
@@ -42,6 +46,7 @@ public class CharacterStats : MonoBehaviour {
 	PFnode previousNode;
 #endregion
 #region /// Status Effects ///
+	[Header("Status Effects")]
 	public int poisonDuration = 0;
 	public int poisonDamage = 5;
 	public int fireDuration = 0;
@@ -49,11 +54,51 @@ public class CharacterStats : MonoBehaviour {
 	public int paralyzeDuration;
 #endregion
 #region /// Audio & Visuals ///
-    public AudioClip[] hurtSound;
-    public AudioSource audioSrc;
-    private SpriteRenderer sprite;
-	public Transform corpses;
+    [HideInInspector] public AudioSource audioSrc;
+    [HideInInspector] public SpriteRenderer sprite;
+    private AudioClip[] hurtSound;
 #endregion
+
+	public void Start()
+	{
+		// set stats from template
+		maxHealth = myTemplate.maxHealth;
+		currentHealth = myTemplate.currentHealth; if ( currentHealth == 0 ) { currentHealth = maxHealth; }
+		visionRange = myTemplate.visionRange;
+		attackDamage = myTemplate.attackDamage;
+
+		weapon = myTemplate.weapon;
+		stones = myTemplate.stones;
+
+		hurtSound = myTemplate.hurtSound;
+
+		//initialize gameobject
+		position = transform.position;
+		previousPosition = transform.position;
+		node = PFgrid.grid[(int)position.x,(int)position.y];
+		node.walkable = false;
+        sprite = GetComponent<SpriteRenderer>();
+        audioSrc = GetComponent<AudioSource>();
+	}
+
+	void OnEnable()
+	{
+		TurnSystem.nextTurn += OnNextTurn;
+	}
+
+	void OnDisable()
+	{
+		TurnSystem.nextTurn -= OnNextTurn;
+	}
+
+	public virtual void Die()//Player object cannot be destroyed, light and audio systems are attached
+    {
+        Log.Write(transform.name + " died.");
+		node.walkable = true;
+
+		Instantiate(myTemplate.corpses, transform.position, Quaternion.identity);
+		Destroy(gameObject);
+    }
 
 	public void Heal ( int amount )
 	{
@@ -61,11 +106,24 @@ public class CharacterStats : MonoBehaviour {
 		StartCoroutine("ColorFlicker", Color.green);
 	}
 
-	/// TAKING DAMAGE TYPES /// //add TakeEffectDamage to fixedUpdate and just increese effectduration on npcs?
+
+	public void DealDamage(CharacterStats enemy) //effect eff
+	{
+		int blow = AttackDamage;
+
+		enemy.TakeDamage(blow);
+		Log.Write(this.name + " attacked For: " + blow);
+
+		if (weapon != null && weapon.onHitEffect != null)
+		{
+			weapon.onHitEffect.OnHitEffect(enemy);
+		}
+	}
+
     public void TakeDamage(int damage) // (int damage, upgrade effect)
     {
 		//effect.act();
-        //damage -= armor.GetValue();
+
         audioSrc.clip = hurtSound[Random.Range(0,hurtSound.Length)]; //maybe do it on corutine or dont destroy object, just change its sprite and disable states
         audioSrc.Play();
 
@@ -75,69 +133,26 @@ public class CharacterStats : MonoBehaviour {
         if (currentHealth <= 0)
         {
             Die();
-			//StartCoroutine("Die2");
         }
     }
 
-	public void TakePoisonDamage()
+	public void OnNextTurn()
 	{
 		if(poisonDuration > 0 )
 		{
 			TakeDamage(poisonDamage);
 			//Debug.Log(this.name + " took:" + poisonDamage + " poison damage.");
 			poisonDuration--;
-		}else
-		{
-			TurnSystem.nextTurn -= TakePoisonDamage;
 		}
-	}
-
-	public void TakeFireDamage()
-	{
 		if(fireDuration > 0 )
 		{
 			TakeDamage(fireDamage);
 			//Debug.Log(this.name + " took:" + poisonDamage + " poison damage.");
 			fireDuration--;
-		}else
-		{
-			TurnSystem.nextTurn -= TakeFireDamage;
 		}
 	}
 
-	/// DEAL DAMAGE ///
-	public void DealDamage(CharacterStats enemy) //effect eff
-	{
-		int blow = AttackDamage;
-
-		enemy.TakeDamage(blow);
-		Log.Write(this.name + " attacked For: " + blow);
-
-		if (weapon.onHitEffect != null)
-		{
-			weapon.onHitEffect.OnHitEffect(enemy);
-			Log.Write("Poisoned");
-		}
-		// ADD RAYCASTING HERE TO MODIFY IT WITH RED GEM
-
-		//if (eff != null) {	eff.function(enemy);	}
-	}
-
-    public virtual void Die()//Player object cannot be destroyed, light and audio systems are attached
-    {
-        //die in some way
-        //Debug.Log(transform.name + " died.");
-		node.walkable = true;
-
-		if (poisonDuration > 0) { TurnSystem.nextTurn -= TakePoisonDamage; }
-		if (fireDuration > 0) { TurnSystem.nextTurn -= TakeFireDamage; }
-
-		Instantiate(corpses, transform.position, Quaternion.identity);
-		Destroy(gameObject);
-    }
-
-
-    IEnumerator ColorFlicker(Color toColor)
+	IEnumerator ColorFlicker(Color toColor)
     {
         bool changed = false;
         float t = 0;
@@ -156,31 +171,4 @@ public class CharacterStats : MonoBehaviour {
         }
     }
 
-    public void Start()
-    {
-        currentHealth = maxHealth;
-		position = transform.position;
-		previousPosition = transform.position;
-		node = PFgrid.grid[(int)position.x,(int)position.y];
-		node.walkable = false;
-        sprite = GetComponent<SpriteRenderer>();
-        audioSrc = GetComponent<AudioSource>();
-    }
-
-	void OnEnable()
-	{
-        audioSrc = GetComponent<AudioSource>();
-	}
-
-	void OnDisable()
-	{
-		if ( poisonDuration > 0 )
-		{
-			TurnSystem.nextTurn -= TakePoisonDamage;
-		}
-		if ( fireDuration > 0 )
-		{
-			TurnSystem.nextTurn -= TakeFireDamage;
-		}
-	}
 }

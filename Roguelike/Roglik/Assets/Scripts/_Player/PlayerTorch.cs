@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerTorch : MonoBehaviour {
 
-	public static bool torch = true;
+	public static bool torch = false;
 	public float fadeTime = 0;
 	public float MaxfadeTime = 2;
 	public float torchOffSpeed = 17;

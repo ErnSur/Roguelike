@@ -27,7 +27,6 @@ public class PFgrid : MonoBehaviour {
                 {
                     grid[x, y] = new PFnode(x,y,false);
 					debugCounter++;
-					Log.Write("x: " + x + " y:" + y);
                 }
                 else
                 {
@@ -90,7 +89,7 @@ public class PFgrid : MonoBehaviour {
 
 	void Start()
 	{
-		Log.Write(debugCounter.ToString());
+		//Log.Write(debugCounter.ToString());
 	}
 
     //new functions 1. screen to grid, world to grid, vector3 -> vector2

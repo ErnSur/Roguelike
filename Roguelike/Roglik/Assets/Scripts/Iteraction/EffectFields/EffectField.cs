@@ -36,15 +36,11 @@ public class EffectField : MonoBehaviour {
 		{
 			transform.localScale =  Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime * 4);
 		}
-
-		if(!ps.IsAlive())
-        {
-             Destroy(gameObject);
-        }
 	}
 	void Start()
 	{
 		ps = GetComponent<ParticleSystem>();
 		colliderBox = GetComponent<Collider2D>();
+		//ps.colorOverLifetime.color.a += 1;
 	}
 }

@@ -56,7 +56,7 @@ public class NPCStats2 : MonoBehaviour {
 #endregion
 
 [Header("NPC Template")]
-public NPCAsset myAsset;
+public NPCTemplate myAsset;
 
 	public void Heal ( int amount )
 	{

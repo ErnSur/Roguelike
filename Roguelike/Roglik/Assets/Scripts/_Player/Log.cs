@@ -5,7 +5,7 @@
  public class Log : MonoBehaviour {
 
 	 public GUISkin UISkin;
-     public static int maxLines = 8;
+     public static int maxLines = 6;
      public static Queue<string> queue = new Queue<string>();
      public static string Mytext = "";
 
@@ -22,7 +22,7 @@
         	Mytext = Mytext + st + "\n";
     }
 
-    void OnGUI()
+    void OnGUI() //text is cut off becausse size is not scaling
 	{
 
       GUI.Label(new Rect(10,                             // x, left offset
@@ -34,6 +34,8 @@
 
 	void Start()
 	{
-		Write("\"Floor is wet and I hear someones footsteps\"");
+		queue.Clear();
+		Mytext = "";
+		Write("\"Floor is wet and I hear someones footsteps.\"");
 	}
  }

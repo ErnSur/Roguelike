@@ -20,11 +20,11 @@ public class GreenStone : Stone {
 			case EffectType.POISON:
 				//chance to add poison duration
 				enemy.poisonDuration += 2;
-				TurnSystem.nextTurn += enemy.TakePoisonDamage;
+				//TurnSystem.nextTurn += enemy.TakePoisonDamage;
 				break;
 			case EffectType.FIRE:
 				enemy.fireDuration += 2;
-				TurnSystem.nextTurn += enemy.TakeFireDamage;
+				//TurnSystem.nextTurn += enemy.TakeFireDamage;
 				break;
 			default:
 				break;

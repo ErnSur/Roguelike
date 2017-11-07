@@ -19,8 +19,8 @@ public class PoisonField : EffectField {
 			if(entityStats.poisonDuration == 0 )
 			{
 				entityStats.poisonDuration += 4;
-				entityStats.TakePoisonDamage();
-				TurnSystem.nextTurn += entityStats.TakePoisonDamage;
+				//entityStats.TakePoisonDamage();
+				//TurnSystem.nextTurn += entityStats.TakePoisonDamage;
 			}else
 			{
 				entityStats.poisonDuration += 4;

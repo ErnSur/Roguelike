@@ -19,8 +19,8 @@ public class FireField : EffectField {
 			if(entityStats.fireDuration == 0 )
 			{
 				entityStats.fireDuration += 2;
-				entityStats.TakeFireDamage();
-				TurnSystem.nextTurn += entityStats.TakeFireDamage;
+				//entityStats.TakeFireDamage();
+				//TurnSystem.nextTurn += entityStats.TakeFireDamage;
 			}else
 			{
 				entityStats.fireDuration += 1;

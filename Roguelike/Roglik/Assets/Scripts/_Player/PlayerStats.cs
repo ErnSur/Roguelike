@@ -41,8 +41,11 @@ public class PlayerStats : CharacterStats {
 		GetComponent<PlayerCombat>().enabled = false;
 		PlayerTorch.torch = false;
 
-		if (poisonDuration > 0)
-			TurnSystem.nextTurn -= TakePoisonDamage;
+		sprite.sprite = null;
+		Instantiate(myTemplate.corpses, transform.position, Quaternion.identity);
+
+		//if (poisonDuration > 0)
+			//TurnSystem.nextTurn -= TakePoisonDamage;
 
 		GameOverScreen.instance.ShowScreen();
 	}
