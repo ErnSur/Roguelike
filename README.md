@@ -7,16 +7,17 @@
 * Turn based combat
 * Customanizable spells
 * Upgradeable weapons with different effects
+###### Utylizing scriptableObjects serialization, custom inspectors and tilemaps
 
-<break>
 
 <img align="left" width="50%" height="50%" src="https://github.com/ErnSur/Roguelike/blob/master/Gifs/demo2.gif">
 
 
-# Code:
+AI
 * A* pathfinding algorith
-* moddable FSM AI
-###### Utylizing scriptableObjects serialization, custom inspectors and tilemaps
+* FSM behaviour
+###### Help characters in need and run away form dangerous enemies.
+
 
 # Demo
 
