@@ -18,9 +18,6 @@
 * A* pathfinding algorith
 * FSM behaviour
 ###### Help characters in need and run away form dangerous enemies.
----
-
-# Demo
-
-[](URL_to_wiki)
+## Prototype
+[PLAY HERE](https://simmer.io/@ErnestSurys/~3249bcf0-b325-ed47-e8b8-70a0e3f8aec2), FULLSCREEN recomended.
 ```
