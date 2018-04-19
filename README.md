@@ -1,4 +1,7 @@
-# Roguelike Adventure (Work in progress)
+# Roguelike Adventure (First Unity Project)
+
+### Disclaimer
+## This is one of my first C# projects therefore lacks some good conventions
 
 ![A cute kitten](https://github.com/ErnSur/Roguelike/blob/master/Gifs/demo1.gif)
 
