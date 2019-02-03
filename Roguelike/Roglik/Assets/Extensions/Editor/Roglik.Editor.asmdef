@@ -1,0 +1,17 @@
+{
+    "name": "Roglik.Editor",
+    "references": [
+        "GUID:6a023c291c5a2bc41b8e98b77c35ba49"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

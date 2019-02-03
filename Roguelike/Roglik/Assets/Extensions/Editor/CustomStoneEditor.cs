@@ -1,56 +1,75 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(RedStone))]
-public class CustomStoneEditor : Editor {
-	RedStone stoneScript;
-	int t = 0;
-	//bool[,] cords2d;
+[CustomEditor(typeof(Stone), true, isFallback = true)]
+public class CustomStoneEditor : Editor
+{
+    private Stone _stone;
 
-	void OnEnable()
-	{
-		stoneScript = (RedStone)target;
-	}
+    private void OnEnable()
+    {
+        _stone = target as Stone;
+    }
 
-	public override void OnInspectorGUI()
-	{
-		GUILayout.Label("Player Grid");
-		base.OnInspectorGUI();
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
 
-		if (GUILayout.Button("Increase Grid"))
-		{
-			IncreaseGrid();
-		}
-		if (GUILayout.Button("Decrease Grid"))
-		{
-			DecreaseGrid();
-		}
-		GUILayout.Space(200);
-#region CreateGrid
-		bool[,] cords2d = new bool[stoneScript.range,stoneScript.range];
-		for (int y = 0; y < cords2d.GetLength(1); y++)
-		{
-			for (int x = 0; x < cords2d.GetLength(0); x++)
-			{
-				if(x == stoneScript.playerOnMiniGrid.x && y == stoneScript.playerOnMiniGrid.y){ t++;continue;}
-				stoneScript.cords[t] = EditorGUI.Toggle(new Rect(100+20*x,375-20*y,20,20),stoneScript.cords[t]);
-				//stoneScript.cords[t] = GUI.Toggle(new Rect(100+35*x,375-35*y,40,40),stoneScript.cords[t],t.ToString());
-				t++;
-			}
-		}
-		t=0;
-#endregion
+        DisplayAttackPattern(16, 2);
 
-	}
+        serializedObject.ApplyModifiedProperties();
+    }
 
-	void IncreaseGrid()
-	{
-		if (stoneScript.range < 9)
-			stoneScript.range += 1;
-	}
-	void DecreaseGrid()
-	{
-		if (stoneScript.range > 5)
-			stoneScript.range -= 1;
-	}
+    private void DisplayAttackPattern(float cellSize, float padding)
+    {
+        var cellTrueSize = cellSize + (2 * padding);
+
+        var numberOfRows = _stone.pattern.Height;
+        var numberOfColumns = _stone.pattern.Width;
+
+        var rectHeight = numberOfRows * cellTrueSize;
+        var rectWidth = numberOfColumns * cellTrueSize;
+        
+        GUILayout.BeginVertical(GUILayout.Width(rectWidth), GUILayout.Height(rectHeight));
+
+        for (int y = 0; y < _stone.pattern.Height; y++)
+        {
+            GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true), GUILayout.Height(cellTrueSize));
+            
+            for (int x = 0; x < _stone.pattern.Width; x++)
+            {
+                var propRect = GUILayoutUtility.GetRect(cellTrueSize, cellTrueSize);
+
+                if(_stone.PlayerOnPatternGrid == new Vector2Int(x,y))
+                    continue;
+                
+                var prop = GetProp(x, y);
+                EditorGUI.DrawRect(propRect, prop.boolValue ? new Color(0.8f, 0.3f, 0.2f) : Color.white);
+
+                EditorGUI.PropertyField(propRect, prop, GUIContent.none);
+            }
+
+            GUILayout.EndHorizontal();
+        }
+        GUILayout.EndVertical();
+    }
+
+    private void DrawProp(int x, int y)
+    {
+        using (var check = new EditorGUI.ChangeCheckScope())
+        {
+            var prop = GetProp(x, y);
+            
+            var newValue = GUILayout.Toggle(prop.boolValue, GUIContent.none);
+            
+            if (check.changed)
+                prop.boolValue = newValue;
+        }
+    }
+
+    private SerializedProperty GetProp(int x, int y)
+    {
+        var propPath = $"{nameof(_stone.pattern)}.array.Array.data[{x + y * _stone.pattern.Width}]";
+        return serializedObject.FindProperty(propPath);
+    }
 }

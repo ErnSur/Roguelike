@@ -33,14 +33,14 @@ public class NPCStats2 : MonoBehaviour {
 		set{ previousPosition = position;
 			position = value;
 			previousNode = node;
-			previousNode.walkable = true;
+			previousNode.Walkable = true;
 			node = PFgrid.grid[(int)position.x,(int)position.y];
-			node.walkable = false;
+			node.Walkable = false;
 		}
 	}
-	public PFnode node;
-	PFnode previousNode;
-	public List<PFnode> myPath = new List<PFnode>();
+	public PFNode node;
+	PFNode previousNode;
+	public List<PFNode> myPath = new List<PFNode>();
 #endregion
 #region /// Status Effects ///
 	public int poisonDuration = 0;
@@ -130,7 +130,7 @@ public NPCTemplate myAsset;
     {
         //die in some way
         //Debug.Log(transform.name + " died.");
-		node.walkable = true;
+		node.Walkable = true;
 
 		if (poisonDuration > 0) { TurnSystem.nextTurn -= TakePoisonDamage; }
 		if (fireDuration > 0) { TurnSystem.nextTurn -= TakeFireDamage; }
@@ -166,7 +166,7 @@ public NPCTemplate myAsset;
 		position = transform.position;
 		previousPosition = transform.position;
 		node = PFgrid.grid[(int)position.x,(int)position.y];
-		node.walkable = false;
+		node.Walkable = false;
         sprite = GetComponent<SpriteRenderer>();
         audioSrc = GetComponent<AudioSource>();
     }

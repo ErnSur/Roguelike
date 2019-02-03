@@ -1,80 +1,71 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class PFgrid : MonoBehaviour {
-
-	public int debugCounter = 0;
+public class PFgrid : MonoBehaviour
+{   
+    public static PFNode[,] grid;
 
     public LayerMask wallLayermask;
 
     public int gridSizeX;
     public int gridSizeY;
 
-    public static PFnode[,] grid;
+    private readonly Vector2 _gridCellSizeInUnits = new Vector2(0.5f, 0.5f);
+    
+    private static Camera _cam;
 
-#region Make Grid
     private void Awake()
     {
-        grid = new PFnode[gridSizeX+1, gridSizeY+1];
-        for (int x = 0; x < gridSizeX; x++)
+        _cam = Camera.main;
+        
+        CreateNewGrid();
+        
+        FillGrid();
+    }
+
+    private void FillGrid()
+    {
+        for (var x = 0; x < gridSizeX; x++)
         {
-            for (int y = 0; y < gridSizeY; y++)
+            for (var y = 0; y < gridSizeY; y++)
             {
-                #region creater
-                if(Physics2D.OverlapBox(new Vector2(x, y), new Vector2 (0.5f,0.5f), 0, wallLayermask) != null)
+                if (Physics2D.OverlapBox(new Vector2(x, y), _gridCellSizeInUnits, 0, wallLayermask))
                 {
-                    grid[x, y] = new PFnode(x,y,false);
-					debugCounter++;
+                    grid[x, y] = new PFNode(x, y, false);
                 }
                 else
                 {
-                    grid[x, y] = new PFnode(x, y, true);
+                    grid[x, y] = new PFNode(x, y, true);
                 }
-                #endregion
             }
         }
     }
 
-    public PFnode NodeFromWorldPoint(Vector3 objectsPosition)
+    private void CreateNewGrid()
     {
-        int x = (int) objectsPosition.x;
-        int y = (int) objectsPosition.y;
-
-        return grid[x, y];
+        grid = new PFNode[gridSizeX + 1, gridSizeY + 1];
     }
 
-    public List<PFnode> GetNeighbours(PFnode node)
+    public List<PFNode> GetNeighbours(PFNode node)
     {
-        List<PFnode> neighbours = new List<PFnode>();
+        var neighbours = new List<PFNode>();
 
-        for (int x = -1; x <= 1; x++) // TO REWORK
+        for (var x = -1; x <= 1; x++) // TO REWORK
         {
-            for (int y = -1; y <= 1; y++)
+            for (var y = -1; y <= 1; y++)
             {
-                if (x == 0 && y == 0)
+                switch (x)
                 {
-                    continue;
-                }else if (x == -1 && y == 1)
-                {
-                    continue;
-                }
-                else if (x == 1 && y == 1)
-                {
-                    continue;
-                }
-                else if (x == -1 && y == -1)
-                {
-                    continue;
-                }
-                else if (x == 1 && y == -1)
-                {
-                    continue;
+                    case 0 when y == 0:
+                    case -1 when y == 1:
+                    case 1 when y == 1:
+                    case -1 when y == -1:
+                    case 1 when y == -1:
+                        continue;
                 }
 
-                int checkX = (int) node.x + x;
-                int checkY = (int) node.y + y;
+                var checkX = node.x + x;
+                var checkY = node.y + y;
 
                 if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
                 {
@@ -82,23 +73,21 @@ public class PFgrid : MonoBehaviour {
                 }
             }
         }
-
         return neighbours;
     }
-#endregion
-
-	void Start()
-	{
-		//Log.Write(debugCounter.ToString());
-	}
+    
+    public static PFNode NodeFromWorldPoint(Vector3 worldPosition)
+    {
+        return grid[(int) worldPosition.x, (int) worldPosition.y];
+    }
 
     //new functions 1. screen to grid, world to grid, vector3 -> vector2
-    public static Vector3 ScreenToGridCell (Vector3 ScreenPointerPos)
+    public static Vector3 ScreenToGridCell (Vector3 screenPointerPos)
     {
-        ScreenPointerPos = Camera.main.ScreenToWorldPoint(ScreenPointerPos);
-        ScreenPointerPos = Vector3Int.RoundToInt(ScreenPointerPos);
+        screenPointerPos = _cam.ScreenToWorldPoint(screenPointerPos);
+        screenPointerPos = Vector3Int.RoundToInt(screenPointerPos);
 
-        Vector3 gridPos = new Vector3( (int)ScreenPointerPos.x, (int)ScreenPointerPos.y, 0f);
+        Vector3 gridPos = new Vector3( (int)screenPointerPos.x, (int)screenPointerPos.y, 0f);
         return gridPos;
     }
 

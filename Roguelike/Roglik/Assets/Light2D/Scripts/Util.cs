@@ -22,7 +22,7 @@ namespace Light2D
     public static class Util
     {
 #if UNITY_METRO && !UNITY_EDITOR
-    static Windows.Devices.Input.TouchCapabilities touchCaps = new Windows.Devices.Input.TouchCapabilities();
+    static Windows.Devices.input.TouchCapabilities touchCaps = new Windows.Devices.input.TouchCapabilities();
 #endif
 
         public static bool isTouchscreen

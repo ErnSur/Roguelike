@@ -3,16 +3,20 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: f751535465993b84faea9bc5e332232c, type: 3}
-  m_Name: Red
+  m_Name: 
   m_EditorClassIdentifier: 
-  poisonFieldPrefab: {fileID: 4549039084447682, guid: 99d7f5aace55eb549bcc2288773cce50,
-    type: 2}
-  playerOnMiniGrid: {x: 2, y: 2, z: 0}
-  range: 5
-  cords: 00000000000000000000000000010100000000000000000000
+  <PlayerOnPatternGrid>k__BackingField: {x: 2, y: 2}
+  _spawnedFieldPrefab: {fileID: 0}
+  _stoneType: 0
+  pattern:
+    array: 00000101000100010000010100010100000100010001010000
+    <Width>k__BackingField: 5
+    <Height>k__BackingField: 5

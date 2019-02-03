@@ -33,13 +33,13 @@ public class CharacterStatsOld : MonoBehaviour {
 		set{ previousPosition = position;
 			position = value;
 			previousNode = node;
-			previousNode.walkable = true;
+			previousNode.Walkable = true;
 			node = PFgrid.grid[(int)position.x,(int)position.y];
-			node.walkable = false;
+			node.Walkable = false;
 		}
 	}
-	public PFnode node;
-	PFnode previousNode;
+	public PFNode node;
+	PFNode previousNode;
 #endregion
 #region /// Status Effects ///
 	public int poisonDuration = 0;
@@ -127,7 +127,7 @@ public class CharacterStatsOld : MonoBehaviour {
     {
         //die in some way
         //Debug.Log(transform.name + " died.");
-		node.walkable = true;
+		node.Walkable = true;
 
 		if (poisonDuration > 0) { TurnSystem.nextTurn -= TakePoisonDamage; }
 		if (fireDuration > 0) { TurnSystem.nextTurn -= TakeFireDamage; }
@@ -162,7 +162,7 @@ public class CharacterStatsOld : MonoBehaviour {
 		position = transform.position;
 		previousPosition = transform.position;
 		node = PFgrid.grid[(int)position.x,(int)position.y];
-		node.walkable = false;
+		node.Walkable = false;
         sprite = GetComponent<SpriteRenderer>();
         audioSrc = GetComponent<AudioSource>();
     }

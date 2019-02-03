@@ -2,109 +2,112 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PFaStar : MonoBehaviour {
+public class PFaStar : MonoBehaviour
+{
+    private static List<PFNode> _completePath;
+    private static PFgrid _grid;
+    
+    private static readonly List<PFNode> _openSet = new List<PFNode>();
+    private static readonly List<PFNode> _closedSet = new List<PFNode>();
 
-    static PFgrid grid;
-    public static List<PFnode> completePath;
-
-    #region Astar
     private void Awake()
     {
-        grid = GetComponent<PFgrid>();
+        _grid = GetComponent<PFgrid>();
     }
 
-    public static List<PFnode> FindPath(Vector3 startingCell, Vector3 targetCell)
+    public static List<PFNode> FindPath(Vector3 startingCell, Vector3 targetCell)
     {
-		bool targetIsUnwalkable = false; // Testing system for NPC collision
-        List<PFnode> openSet = new List<PFnode>();
-        List<PFnode> closedSet = new List<PFnode>();
+		bool isDestinationUnwalkable = false; // Testing system for NPC collision
+		
+        _openSet.Clear();
+        _closedSet.Clear();
 
         //assign start and goal
-        PFnode startNode = grid.NodeFromWorldPoint(startingCell);
-        PFnode targetNode = grid.NodeFromWorldPoint(targetCell);
+        var startNode = PFgrid.NodeFromWorldPoint(startingCell);
+        var targetNode = PFgrid.NodeFromWorldPoint(targetCell);
 
-		if(!targetNode.walkable)
+		if(!targetNode.Walkable)
 		{
-			targetIsUnwalkable = true;
-			targetNode.walkable = true;//trick
+			isDestinationUnwalkable = true;
+			targetNode.Walkable = true;//trick
 		}
 
-        openSet.Add(startNode);
+        _openSet.Add(startNode);
 
-        while (openSet.Count > 0)
+        while (_openSet.Count > 0)
         {
-            PFnode winnerNode = openSet[0];
+            var winnerNode = _openSet[0];
 
-            for (int i = 0; i < openSet.Count; i++)
+            foreach (var node in _openSet)
             {
-                if(openSet[i].fCost <= winnerNode.fCost)
+                if (node.FCost > winnerNode.FCost)
+                    continue;
+                
+                if (node.HCost < winnerNode.HCost)
                 {
-                    if (openSet[i].hCost < winnerNode.hCost)
-                    {
-                        winnerNode = openSet[i];
-                    }
+                    winnerNode = node;
                 }
             }
 
-            openSet.Remove(winnerNode);
-            closedSet.Add(winnerNode);
+            _openSet.Remove(winnerNode);
+            _closedSet.Add(winnerNode);
 
             if(winnerNode == targetNode) // DONE!
             {
-                //print("found path");
                 RetracePath(startNode, targetNode);
-				if(targetIsUnwalkable)
+				if(isDestinationUnwalkable)
 				{
-					targetNode.walkable = false;//trick
-					targetIsUnwalkable = false;
+					targetNode.Walkable = false;
+					isDestinationUnwalkable = false;
 				}
-                return completePath;
+                return _completePath;
             }
 
-            foreach(PFnode neighbour in grid.GetNeighbours(winnerNode)) //
+            foreach(var neighbour in _grid.GetNeighbours(winnerNode))
             {
-                if (!neighbour.walkable || closedSet.Contains(neighbour)) // if node is walkable and I didnt checked it before
+                if (!neighbour.Walkable || _closedSet.Contains(neighbour)) // if node is walkable and I didnt checked it before
                 {
                     continue;
                 }
 
-                int newCostToNeighbour = winnerNode.gCost + 1; //or winnerNode.gCost +1; GetDistance(winnerNode, neighbour)
+                int newCostToNeighbour = winnerNode.GCost + 1; //or winnerNode.gCost +1; GetDistance(winnerNode, neighbour)
 
-                if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour)) // if cost of neighbour is higher than new cost or I didnt checked it before add this new cost to it
+                if (newCostToNeighbour < neighbour.GCost || !_openSet.Contains(neighbour)) // if cost of neighbour is higher than new cost or I didnt checked it before add this new cost to it
                 {
-                    neighbour.gCost = newCostToNeighbour;
-                    neighbour.hCost = GetDistance(neighbour, targetNode);
+                    neighbour.GCost = newCostToNeighbour;
+                    neighbour.HCost = GetDistance(neighbour, targetNode);
                     neighbour.cameFrom = winnerNode;
 
-                    if (!openSet.Contains(neighbour))
-                        openSet.Add(neighbour);
+                    if (!_openSet.Contains(neighbour))
+                        _openSet.Add(neighbour);
                 }
 
             }
         }
 
-		if(targetIsUnwalkable)
+		if(isDestinationUnwalkable)
 		{
-			targetNode.walkable = false;//trick
-			targetIsUnwalkable = false;
+			targetNode.Walkable = false;//trick
+			isDestinationUnwalkable = false;
 		}
         return null;
     }
 
-    static int GetDistance(PFnode nodeA, PFnode nodeB) //heuristic guess
+    private static int GetDistance(PFNode nodeA, PFNode nodeB) //heuristic guess
     {
-        int dstX = Mathf.Abs((int)nodeA.x - (int)nodeB.x);
-        int dstY = Mathf.Abs((int)nodeA.y - (int)nodeB.y);
+        var dstX = Mathf.Abs(nodeA.x - nodeB.x);
+        
+        var dstY = Mathf.Abs(nodeA.y - nodeB.y);
 
         if (dstX > dstY)
             return 14 * dstY + 10 * (dstX - dstY);
         return 14 * dstX + 10 * (dstY - dstX);
     }
 
-    static void RetracePath(PFnode startNode, PFnode endNode) //after geting to end node retrace a path that lead there
+    private static void RetracePath(PFNode startNode, PFNode endNode)
     {
-        List<PFnode> path = new List<PFnode>();
-        PFnode currentNode = endNode;
+        var path = new List<PFNode>();
+        var currentNode = endNode;
 
         while (currentNode != startNode)
         {
@@ -113,7 +116,6 @@ public class PFaStar : MonoBehaviour {
         }
         path.Reverse();
 
-        completePath = path;
+        _completePath = path;
     }
-    #endregion
 }

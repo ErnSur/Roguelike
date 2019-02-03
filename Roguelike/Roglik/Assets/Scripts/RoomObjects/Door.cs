@@ -6,7 +6,7 @@ public class Door : MonoBehaviour {
 
 	#region Variables
 	public SpriteRenderer sprite;
-	public PFnode node;
+	public PFNode node;
 	public AudioSource audioSource;
 	Collider2D collision;
 	#endregion
@@ -14,7 +14,7 @@ public class Door : MonoBehaviour {
 	#region MonoMethods
 	void OnMouseUp()
 	{
-		node.walkable = !node.walkable;
+		node.Walkable = !node.Walkable;
 		sprite.flipX = !sprite.flipX;
 		if(sprite.flipX)
 		{

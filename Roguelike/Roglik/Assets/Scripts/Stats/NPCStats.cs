@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class NPCStats : CharacterStats {
 
-    public List<PFnode> myPath = new List<PFnode>();
+    public List<PFNode> myPath = new List<PFNode>();
 }
