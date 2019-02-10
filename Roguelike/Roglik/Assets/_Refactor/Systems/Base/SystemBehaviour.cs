@@ -10,18 +10,6 @@ namespace LDF.Systems
         protected virtual void Init()
         {
         }
-
-        protected T Lazy2<T>(ref T field) where T : Component
-        {
-            if (field != null)
-            {
-                return field;
-            }
-
-            field = GetComponent<T>();
-            
-            return field;
-        }
     }
 
     public abstract class SystemBehaviour<T> : SystemBehaviour

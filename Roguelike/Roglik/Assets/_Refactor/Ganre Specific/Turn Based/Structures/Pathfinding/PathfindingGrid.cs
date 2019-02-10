@@ -3,11 +3,6 @@ using LDF.Structures;
 using LDF.Utils;
 using UnityEngine;
 
-/// Level monobehaviour that has static PathfindingGrid
-/// Serializable grid and node
-/// Write Custom editors to display readonly fields
-/// Add button to this editor to create grid at editor time, it requires to implement default iscsallwalkable delegate
-
 namespace LDF.Systems.Pathfinding
 {
     [System.Serializable]
@@ -74,11 +69,6 @@ namespace LDF.Systems.Pathfinding
             }
 
             return neighbours;
-        }
-
-        public Node NodeFromWorldPoint(Vector3 worldPosition)
-        {
-            return this[(int) worldPosition.x, (int) worldPosition.y];
         }
 
         public delegate bool IsCellWalkable(int x, int y);

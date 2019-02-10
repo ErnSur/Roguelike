@@ -12,7 +12,7 @@ namespace LDF.Utils
         public static Color GetRandomColor(int rndSeed)
         {
             Random.InitState(rndSeed);
-            return new Color(Random.value,Random.value,Random.value);
+            return GetRandomColor();
         }
     }
 }

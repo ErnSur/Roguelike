@@ -6,17 +6,23 @@ namespace LDF.Systems.Pathfinding
     {
         private static PathfindingGrid.IsCellWalkable _isCellWalkable;
         
-        public static PathfindingGrid.IsCellWalkable Default(this PathfindingGrid.IsCellWalkable f, Vector2 raycastBoxSize, LayerMask wallLayermask)
+        public static PathfindingGrid.IsCellWalkable Default(this PathfindingGrid.IsCellWalkable f,
+        Vector2 cellSize, LayerMask wallLayermask, Vector2 offSet)
         {
             return DefaultImplementation;
             
             bool DefaultImplementation(int x, int y)
             {
-                return Physics2D.OverlapBox(new Vector2(x, y), raycastBoxSize, 0, wallLayermask);
+                var rayCastSize = cellSize / 2;
+                var rayCenter = new Vector2(x + offSet.x + rayCastSize.x, y + offSet.y + rayCastSize.y);
+                
+                return !Physics2D.OverlapBox(rayCenter, rayCastSize, 0, wallLayermask);
             }
         }
         
-        public static PathfindingGrid.IsCellWalkable IsCellWalkable(Vector2 raycastBoxSize, LayerMask wallLayermask)
-            => _isCellWalkable.Default(raycastBoxSize, wallLayermask);
+        public static PathfindingGrid.IsCellWalkable IsCellWalkable(Vector2 cellSize, LayerMask wallLayermask, Vector2 offSet)
+            => _isCellWalkable.Default(cellSize, wallLayermask, offSet);
+
+        
     }
 }

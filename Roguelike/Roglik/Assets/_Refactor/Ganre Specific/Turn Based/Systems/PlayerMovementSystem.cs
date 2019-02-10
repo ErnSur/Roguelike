@@ -1,9 +1,10 @@
 using System;
+using LDF.Structures;
 using LDF.Utils;
 using UnityEngine;
 
 namespace LDF.Systems
-{
+{    
     public interface IPlayerMovementSystemInput
     {
         float PlayerSpeed { get; }

@@ -7,13 +7,13 @@ namespace LDF.Systems.Pathfinding
     {
         private static AStar _aStar;
 
-        public static List<Node> FindPath(this PathfindingGrid grid, Vector3 startingCell, Vector3 targetCell)
+        public static List<Node> FindPath(this PathfindingGrid grid, Node startingCell, Node targetCell)
         {
             _aStar = new AStar
                 (
                     grid,
-                    grid.NodeFromWorldPoint(startingCell),
-                    grid.NodeFromWorldPoint(targetCell),
+                    startingCell,
+                    targetCell,
                     GetDistance
                 );
 

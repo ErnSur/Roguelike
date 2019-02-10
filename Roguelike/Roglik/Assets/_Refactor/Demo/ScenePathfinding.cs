@@ -1,13 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
 using LDF.Systems.Pathfinding;
 using LDF.Utils;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using static LDF.Systems.Pathfinding.GlobalFunctions;
 
 public class ScenePathfinding : MonoBehaviour
 {
-    public static PathfindingGrid Grid { get; private set; }
-
+    private static PathfindingGrid _currentLevelGrid;
+    private static Transform _currentLevelGridTransform;
+    private static Vector2Int _currentCellSize;
     [SerializeField]
     private PathfindingGrid _grid;
 
@@ -20,22 +22,38 @@ public class ScenePathfinding : MonoBehaviour
     private void Awake()
     {
         CreatePathfindingGrid();
+        _currentLevelGridTransform = transform;
+        _currentCellSize = _cellSize;
+    }
+
+    public static IEnumerable<Node> GetPath(Vector3 from, Vector3 to)
+    {
+        return _currentLevelGrid.FindPath(GetNodeFromWorldPosition(from), GetNodeFromWorldPosition(to));
+    }
+    
+    public static IEnumerable<Vector3> GetPositionPath(Vector3 from, Vector3 to)
+    {
+        return _currentLevelGrid.FindPath(GetNodeFromWorldPosition(from), GetNodeFromWorldPosition(to)).Select(GetNodeWorldPosition);
     }
 
     private void CreatePathfindingGrid()
     {
         var isNodeWalkableCallback = IsCellWalkable(_cellSize, _wallLayermask, transform.position);
         _grid = new PathfindingGrid(_gridSize.x, _gridSize.y, isNodeWalkableCallback);
-        Grid = _grid;
+        _currentLevelGrid = _grid;
     }
 
-    private Node GetNodeFromWorldPosition(Vector3 position)
+    private static Node GetNodeFromWorldPosition(Vector3 position)
     {
-        var index = position - transform.position;
-        return _grid[(int) index.x, (int) index.y];
+        var index = position - _currentLevelGridTransform.position;
+        return _currentLevelGrid[(int) index.x, (int) index.y];
     }
 
-#if DEBUG
+    private static Vector3 GetNodeWorldPosition(Node node)
+    {
+        return node.Pos.ToVector3() + _currentLevelGridTransform.position + _currentCellSize.ToVector3() / 2;
+    }
+#if !DEBUG
     private void OnDrawGizmos()
     {
         for (int x = 0; x < _grid.LengthX; x++)
@@ -49,9 +67,5 @@ public class ScenePathfinding : MonoBehaviour
         }
     }
 
-    private Vector3 GetNodeWorldPosition(Node node)
-    {
-        return node.Pos.ToVector3() + transform.position + _cellSize.ToVector3() / 2;
-    }
 #endif
 }

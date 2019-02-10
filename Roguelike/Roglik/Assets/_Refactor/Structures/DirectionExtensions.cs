@@ -22,7 +22,7 @@ namespace LDF.Utils
         
         public static Vector3[] AsVector3(this Direction[] directions)
         {
-            return directions.Select(dir => AsVector3((Direction) dir)).ToArray();
+            return directions.Select(AsVector3).ToArray();
         }
         
         public static Vector2Int AsVector2Int(this Direction d)
@@ -39,7 +39,7 @@ namespace LDF.Utils
         
         public static Vector2Int[] AsVector2Int(this Direction[] directions)
         {
-            return directions.Select(dir => dir.AsVector2Int()).ToArray();
+            return directions.Select(AsVector2Int).ToArray();
         }
         
         public static KeyCode AsKeyCode(this Direction d)
@@ -56,12 +56,7 @@ namespace LDF.Utils
         
         public static KeyCode[] AsKeyCode(this Direction[] directions)
         {
-            return directions.Select(dir => dir.AsKeyCode()).ToArray();
-        }
-        
-        public static Direction[] GetValues(this Direction d)
-        {
-            return Get4Directions();
+            return directions.Select(AsKeyCode).ToArray();
         }
 
         public static Direction[] Get4Directions()
