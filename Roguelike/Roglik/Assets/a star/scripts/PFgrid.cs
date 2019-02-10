@@ -29,14 +29,9 @@ public class PFgrid : MonoBehaviour
         {
             for (var y = 0; y < gridSizeY; y++)
             {
-                if (Physics2D.OverlapBox(new Vector2(x, y), _gridCellSizeInUnits, 0, wallLayermask))
-                {
-                    grid[x, y] = new PFNode(x, y, false);
-                }
-                else
-                {
-                    grid[x, y] = new PFNode(x, y, true);
-                }
+                grid[x, y] = Physics2D.OverlapBox(new Vector2(x, y), _gridCellSizeInUnits, 0, wallLayermask)
+                    ? new PFNode(x, y, false)
+                    : new PFNode(x, y, true);
             }
         }
     }
@@ -49,7 +44,7 @@ public class PFgrid : MonoBehaviour
     public List<PFNode> GetNeighbours(PFNode node)
     {
         var neighbours = new List<PFNode>();
-
+        
         for (var x = -1; x <= 1; x++) // TO REWORK
         {
             for (var y = -1; y <= 1; y++)

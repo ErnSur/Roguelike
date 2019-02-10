@@ -4,28 +4,44 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
 3rdParty/
-Builds/
+
+# Builds
+*.apk
+*.unitypackage
+
+# Never ignore Asset meta data
+![Aa]ssets/**/*.meta
+
+# Gradle cache directory
+.gradle/
 
 # ===================================== #
-# Visual Studio / MonoDevelop generated #
+# VS / VSCode / MD / Consulo / Rider    #
 # ===================================== #
 ExportedObj/
-obj/
+.consulo/
+*.vs
+*.vscode
+*.idea
+*.csproj
 *.svd
 *.userprefs
-*.csproj
 *.pidb
 *.suo
 *.sln
 *.user
 *.unityproj
 *.booproj
-
 # ===================================== #
 # Unity generated #
 # ===================================== #
 *.pidb.meta
+*.pdb.meta
+*.mdb.meta
 sysinfo.txt
 
 # ============ #

@@ -1,20 +1,14 @@
 using System;
+using System.Linq;
+using LDF.Structures;
 using LDF.UserInput;
 using UnityEngine;
 
 namespace LDF.Utils
 {
-    public enum Direction
-    {
-        Left,
-        Right,
-        Up,
-        Down
-    }
-
     public static class DirectionExtensions
     {
-        public static Vector3 GetVector3(this Direction d)
+        public static Vector3 AsVector3(this Direction d)
         {
             switch (d)
             {
@@ -26,7 +20,12 @@ namespace LDF.Utils
             }
         }
         
-        public static Vector2Int GetVector2Int(this Direction d)
+        public static Vector3[] AsVector3(this Direction[] directions)
+        {
+            return directions.Select(dir => AsVector3((Direction) dir)).ToArray();
+        }
+        
+        public static Vector2Int AsVector2Int(this Direction d)
         {
             switch (d)
             {
@@ -38,7 +37,12 @@ namespace LDF.Utils
             }
         }
         
-        public static KeyCode GetKeyCode(this Direction d)
+        public static Vector2Int[] AsVector2Int(this Direction[] directions)
+        {
+            return directions.Select(dir => dir.AsVector2Int()).ToArray();
+        }
+        
+        public static KeyCode AsKeyCode(this Direction d)
         {
             switch (d)
             {
@@ -50,11 +54,19 @@ namespace LDF.Utils
             }
         }
         
+        public static KeyCode[] AsKeyCode(this Direction[] directions)
+        {
+            return directions.Select(dir => dir.AsKeyCode()).ToArray();
+        }
+        
         public static Direction[] GetValues(this Direction d)
         {
-            var enumType = d.GetType();
+            return Get4Directions();
+        }
 
-            return (Direction[])Enum.GetValues(enumType);
-        } 
+        public static Direction[] Get4Directions()
+        {
+            return (Direction[]) Enum.GetValues(typeof(Direction));
+        }
     }
 }

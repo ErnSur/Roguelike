@@ -51,7 +51,7 @@ namespace LDF.Systems
                 if (!input.CanMoveInDirection(direction))
                     continue;
 
-                ChangePlayerPosition(direction);
+                ChangePlayerPosition(direction.AsVector2Int());
                 NextTurn(GetLogMessage(direction));
             }
         }
@@ -61,16 +61,16 @@ namespace LDF.Systems
             OnDirectionChange?.Invoke(direction);
         }
 
-        private void ChangePlayerPosition(Direction direction)
+        private void ChangePlayerPosition(Vector2Int direction)
         {
-            input.PlayerGridPos += direction.GetVector2Int();
+            input.PlayerGridPos += direction;
             OnPositionChange?.Invoke();
         }
 
         private bool CanChangeDirection(Direction direction)
         {
             // floating point numbers comparison
-            return Input.GetKey(direction.GetKeyCode())
+            return Input.GetKey(direction.AsKeyCode())
                    && input.PlayerTransform.position == input.PlayerGridPos.ToVector3();
         }
 

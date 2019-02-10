@@ -10,6 +10,18 @@ namespace LDF.Systems
         protected virtual void Init()
         {
         }
+
+        protected T Lazy2<T>(ref T field) where T : Component
+        {
+            if (field != null)
+            {
+                return field;
+            }
+
+            field = GetComponent<T>();
+            
+            return field;
+        }
     }
 
     public abstract class SystemBehaviour<T> : SystemBehaviour
@@ -31,6 +43,21 @@ namespace LDF.Systems
                 throw new NullReferenceException(
                     $"{name} was not Initialized, couldn't find input of type {typeof(T).Name}");
             }
+        }
+    }
+
+    public static class MonoBehaviourExtensions
+    {
+        public static T Lazy<T>(this MonoBehaviour obj, ref T field) where T : Component
+        {
+            if (field != null)
+            {
+                return field;
+            }
+
+            field = obj.GetComponent<T>();
+            
+            return field;
         }
     }
 }
