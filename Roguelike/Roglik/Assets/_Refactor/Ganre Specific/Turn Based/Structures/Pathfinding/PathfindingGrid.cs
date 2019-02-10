@@ -26,6 +26,12 @@ namespace LDF.Systems.Pathfinding
             get => _grid.Get2D(x, y, LengthX);
             private set => _grid.Set2D(x, y, LengthX, value);
         }
+        
+        public Node this[Vector2Int pos]
+        {
+            get => _grid.Get2D(pos.x, pos.y, LengthX);
+            private set => _grid.Set2D(pos.x, pos.y, LengthX, value);
+        }
 
         public PathfindingGrid(int lengthX, int lengthY, IsCellWalkable isCellWalkable)
         {

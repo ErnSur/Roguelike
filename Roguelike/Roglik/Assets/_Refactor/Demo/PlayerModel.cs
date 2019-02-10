@@ -1,16 +1,35 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using LDF.Structures;
 using LDF.Systems;
-using LDF.Systems.Pathfinding;
-using LDF.Utils;
 using UnityEngine;
 
-public class PlayerModel : SystemBehaviour
+public class PlayerModel : SystemBehaviour, IPlayerMovement_SInput
 {
+    private GridTransform_S _gridTransform;
     public Transform target;
-    private List<Vector3> _path;
+
+    public float PlayerSpeed { get; } = 2;
     
+    public Vector2Int PlayerGridPos { get; set; }
     
+    public Vector3 PlayerTransformPosition
+    {
+        get => transform.position;
+        set => transform.position = value;
+    }
+
+    private List<Vector3> _path = new List<Vector3>();
+    public bool CanMoveInDirection(Vector2Int direction)
+    {
+        return ScenePathfinding.IsWalkable(PlayerGridPos + direction);
+    }
+
+    protected override void Init()
+    {
+       PlayerGridPos = GetComponent(ref _gridTransform).Position;
+    }
+
     private void OnGUI()
     {
         if (GUILayout.Button("Find Path To Target"))
@@ -25,7 +44,7 @@ public class PlayerModel : SystemBehaviour
 
     private void OnDrawGizmos()
     {
-        if(_path == null)
+        if(_path?.Count <= 0 || _path == null)
             return;
 
         Gizmos.DrawLine(transform.position,_path[0]);

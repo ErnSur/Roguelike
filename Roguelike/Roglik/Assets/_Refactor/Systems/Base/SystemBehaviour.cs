@@ -10,6 +10,8 @@ namespace LDF.Systems
         protected virtual void Init()
         {
         }
+
+        protected T GetComponent<T>(ref T field) => field = GetComponent<T>();
     }
 
     public abstract class SystemBehaviour<T> : SystemBehaviour
@@ -44,6 +46,11 @@ namespace LDF.Systems
             }
 
             field = obj.GetComponent<T>();
+            
+            if (field == null)
+            {
+                throw new NullReferenceException($"There is no {typeof(T).Name} component on {obj.name} game object.");
+            }
             
             return field;
         }

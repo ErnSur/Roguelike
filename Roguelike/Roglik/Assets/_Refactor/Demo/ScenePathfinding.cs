@@ -10,6 +10,7 @@ public class ScenePathfinding : MonoBehaviour
     private static PathfindingGrid _currentLevelGrid;
     private static Transform _currentLevelGridTransform;
     private static Vector2Int _currentCellSize;
+    
     [SerializeField]
     private PathfindingGrid _grid;
 
@@ -24,6 +25,11 @@ public class ScenePathfinding : MonoBehaviour
         CreatePathfindingGrid();
         _currentLevelGridTransform = transform;
         _currentCellSize = _cellSize;
+    }
+
+    public static bool IsWalkable(Vector2Int pos)
+    {
+        return pos.IsPositive() && _currentLevelGrid[pos].Walkable;
     }
 
     public static IEnumerable<Node> GetPath(Vector3 from, Vector3 to)

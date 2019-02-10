@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace LDF.Systems
 {
@@ -8,6 +9,11 @@ namespace LDF.Systems
 
         private static Turn _currentTurn;
 
+        private void Update()
+        {
+            OnTurnUpdate(_currentTurn);
+        }
+
         protected virtual void OnTurnUpdate(Turn turn)
         {
         }
@@ -15,6 +21,7 @@ namespace LDF.Systems
         protected void NextTurn(string logMessage)
         {
             //LogMessage to GameLog, message log could be class with logType to filter log messages
+            Debug.Log($"<color=green>[Game Log]</color> {logMessage}");
             ChangeTurn();
             OnNextTurn?.Invoke(_currentTurn);
         }
