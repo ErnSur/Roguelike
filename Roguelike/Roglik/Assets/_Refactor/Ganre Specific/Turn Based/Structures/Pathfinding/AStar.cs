@@ -109,6 +109,9 @@ namespace LDF.Systems.Pathfinding
 
         private List<Node> RetracePath()
         {
+            if (_targetNode.CameFrom == null)
+                return null;
+            
             var path = new List<Node>();
             var currentNode = _targetNode;
 

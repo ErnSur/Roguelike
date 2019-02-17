@@ -10,16 +10,12 @@ public class PlayerModel : SystemBehaviour, IPlayerMovement_SInput
     public Transform target;
 
     public float PlayerSpeed { get; } = 2;
-    
+
     public Vector2Int PlayerGridPos { get; set; }
     
-    public Vector3 PlayerTransformPosition
-    {
-        get => transform.position;
-        set => transform.position = value;
-    }
-
     private List<Vector3> _path = new List<Vector3>();
+    public Transform PlayerTransform => transform;
+
     public bool CanMoveInDirection(Vector2Int direction)
     {
         return ScenePathfinding.IsWalkable(PlayerGridPos + direction);
@@ -27,7 +23,7 @@ public class PlayerModel : SystemBehaviour, IPlayerMovement_SInput
 
     protected override void Init()
     {
-       PlayerGridPos = GetComponent(ref _gridTransform).Position;
+       PlayerGridPos = this.Lazy(ref _gridTransform).Position;
     }
 
     private void OnGUI()
@@ -35,10 +31,6 @@ public class PlayerModel : SystemBehaviour, IPlayerMovement_SInput
         if (GUILayout.Button("Find Path To Target"))
         {
             _path = ScenePathfinding.GetPositionPath(transform.position, target.position).ToList();
-            for (var index = 0; index < _path.Count; index++)
-            {
-                Debug.Log($"STEP [{index}]: {_path[index]}");
-            }
         }
     }
 

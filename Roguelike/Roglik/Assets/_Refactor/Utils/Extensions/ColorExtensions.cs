@@ -6,7 +6,8 @@ namespace LDF.Utils
     {
         public static Color GetRandomColor()
         {
-            return new Color(Random.value,Random.value,Random.value);
+            return Random.ColorHSV();
+            //return new Color(Random.value,Random.value,Random.value);
         }
         
         public static Color GetRandomColor(int rndSeed)

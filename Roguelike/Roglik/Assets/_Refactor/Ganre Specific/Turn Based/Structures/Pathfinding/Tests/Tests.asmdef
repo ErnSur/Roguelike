@@ -1,10 +1,12 @@
 {
-    "name": "LDF.EditorExtensions",
+    "name": "Tests",
     "references": [
-        "GUID:e3f42a6a587685448988a92ca3c0d8f2",
-        "GUID:6a7d99a30c062e34398c20ddb9e57b5b"
+        "GUID:e1748a012a4818e468bb121492a4b955",
+        "GUID:e3f42a6a587685448988a92ca3c0d8f2"
     ],
-    "optionalUnityReferences": [],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
     "includePlatforms": [
         "Editor"
     ],

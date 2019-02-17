@@ -11,12 +11,16 @@ namespace LDF.Systems
         {
         }
 
-        protected T GetComponent<T>(ref T field) => field = GetComponent<T>();
+        protected bool GetComponent<T>(out T field)
+        {
+            field = GetComponent<T>();
+            return field != null;
+        }
     }
 
     public abstract class SystemBehaviour<T> : SystemBehaviour
     {
-        protected T input { get; private set; }
+        protected T input;
 
         protected override void Awake()
         {
@@ -26,33 +30,11 @@ namespace LDF.Systems
 
         private void GetSystemInput()
         {
-            input = GetComponent<T>();
-
-            if (input == null)
+            if (GetComponent(out input))
             {
                 throw new NullReferenceException(
                     $"{name} was not Initialized, couldn't find input of type {typeof(T).Name}");
             }
-        }
-    }
-
-    public static class MonoBehaviourExtensions
-    {
-        public static T Lazy<T>(this MonoBehaviour obj, ref T field) where T : Component
-        {
-            if (field != null)
-            {
-                return field;
-            }
-
-            field = obj.GetComponent<T>();
-            
-            if (field == null)
-            {
-                throw new NullReferenceException($"There is no {typeof(T).Name} component on {obj.name} game object.");
-            }
-            
-            return field;
         }
     }
 }

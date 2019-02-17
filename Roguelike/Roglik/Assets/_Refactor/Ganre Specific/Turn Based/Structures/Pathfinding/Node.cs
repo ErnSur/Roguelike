@@ -28,5 +28,10 @@ namespace LDF.Systems.Pathfinding
             this.X = x;
             this.Y = y;
         }
+        
+        public static explicit operator (int x, int y)(Node n)  // explicit byte to digit conversion operator
+        {
+            return (n.X, n.Y);
+        }
     }
 }

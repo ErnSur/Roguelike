@@ -21,18 +21,6 @@ namespace LDF.Systems.Pathfinding
 
         private readonly Vector2Int[] _directions = DirectionExtensions.Get4Directions().AsVector2Int();
 
-        public Node this[int x, int y]
-        {
-            get => _grid.Get2D(x, y, LengthX);
-            private set => _grid.Set2D(x, y, LengthX, value);
-        }
-        
-        public Node this[Vector2Int pos]
-        {
-            get => _grid.Get2D(pos.x, pos.y, LengthX);
-            private set => _grid.Set2D(pos.x, pos.y, LengthX, value);
-        }
-
         public PathfindingGrid(int lengthX, int lengthY, IsCellWalkable isCellWalkable)
         {
             this.LengthX = lengthX;
@@ -75,6 +63,18 @@ namespace LDF.Systems.Pathfinding
             }
 
             return neighbours;
+        }
+        
+        public Node this[int x, int y]
+        {
+            get => _grid.Get2D(x, y, LengthX);
+            private set => _grid.Set2D(x, y, LengthX, value);
+        }
+        
+        public Node this[Vector2Int pos]
+        {
+            get => _grid.Get2D(pos.x, pos.y, LengthX);
+            private set => _grid.Set2D(pos.x, pos.y, LengthX, value);
         }
 
         public delegate bool IsCellWalkable(int x, int y);
