@@ -1,0 +1,3 @@
+[submodule "Roguelike/Roglik/Assets/Plugins/LDFLib"]
+	path = Roguelike/Roglik/Assets/Plugins/LDFLib
+	url = https://github.com/ErnSur/LDFLib.git
