@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using LDF.Systems.Pathfinding;
-using LDF.Utils;
+using LDF.Utility;
 using UnityEngine;
-using static LDF.Systems.Pathfinding.GlobalFunctions;
+using static LDF.Systems.Pathfinding.DefaultImplementations;
 
 public class ScenePathfinding : MonoBehaviour
 {
@@ -59,6 +59,7 @@ public class ScenePathfinding : MonoBehaviour
     {
         return node.Pos.ToVector3() + _currentLevelGridTransform.position + _currentCellSize.ToVector3() / 2;
     }
+    
 #if !DEBUG
     private void OnDrawGizmos()
     {
@@ -72,6 +73,5 @@ public class ScenePathfinding : MonoBehaviour
             }
         }
     }
-
 #endif
 }
