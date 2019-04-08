@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChaseState : State
@@ -32,11 +31,11 @@ public class ChaseState : State
             stats.Position = new Vector3(cell.x, cell.y, 0);
         }
         else if (!stats.myPath[0].Walkable)
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		return stats.myPath.Count == 0;
+        return stats.myPath.Count == 0;
     }
 
     //Raycast FoV

@@ -1,15 +1,15 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolState : State {
-
+public class PatrolState : State
+{
     public Transform[] patrolWaypoints;
     public float speed = 2.5f;
 
     private Transform randomWaypoint;
 
-    void Start () {
+    void Start()
+    {
         FindPatrol();
     }
     public void FindPatrol()

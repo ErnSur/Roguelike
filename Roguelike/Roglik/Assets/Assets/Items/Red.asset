@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: f751535465993b84faea9bc5e332232c, type: 3}
   m_Name: Red
   m_EditorClassIdentifier: 
   <PlayerOnPatternGrid>k__BackingField: {x: 2, y: 2}
-  _spawnedFieldPrefab: {fileID: 0}
+  _spawnedFieldPrefab: {fileID: 1004694013374500, guid: 21e38248269cbef4d84882eacad46002,
+    type: 3}
   _stoneType: 0
   pattern:
     array: 00000101000100010000010100010100000100010001010000
