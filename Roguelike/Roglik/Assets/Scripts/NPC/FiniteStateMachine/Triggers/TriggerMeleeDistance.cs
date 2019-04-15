@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LDF.SOBT;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Trigger/On Melee Distance")]
 public class TriggerMeleeDistance : Trigger

@@ -10,7 +10,7 @@ namespace LDF.Systems.AI
         Vector3[] Waypoints { get; }
         float Speed { get; }
     }
-    
+
     public class AIMovement_S : TurnSystemBehaviour<IAIMovement_SInput>, IMovable
     {
         private Vector3[] _currentPath;
@@ -19,22 +19,32 @@ namespace LDF.Systems.AI
 
         protected override void OnTurnStart(Turn turn)
         {
-            if(turn == Turn.Player)
+            if (turn == Turn.Player)
                 return;
-            
+
             UpdatePathTo(input.Target);
-            _nextPosition = _currentPath[0];
+            
+            _nextPosition = _currentPath?[0] ?? transform.position;
         }
 
         protected override void OnTurnUpdate(Turn turn)
         {
-            if(turn == Turn.Player)
+            if (turn == Turn.Player)
                 return;
-            
-            TakeAction();
+
+            TickMovement();
         }
 
-        private void TakeAction()
+        public void DoTurnStart(Turn turn) => OnTurnStart(turn);
+        public void DoTurnUpdate(Turn turn) => OnTurnUpdate(turn);
+        public void DoEndTurn(string message) => EndTurn(message);
+        public bool DoTickMovement() => MoveInDirection(transform, _nextPosition, input.Speed);
+        public bool ReachedGoal()
+        {
+            return _currentPath?.Length < 2;
+        }
+
+        private void TickMovement()
         {
             if (MoveInDirection(transform, _nextPosition, input.Speed))
             {

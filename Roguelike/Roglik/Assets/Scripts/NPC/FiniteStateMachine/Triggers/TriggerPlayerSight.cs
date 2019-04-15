@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LDF.SOBT;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Trigger/On Player Sight")]
 public class TriggerPlayerSight : Trigger
