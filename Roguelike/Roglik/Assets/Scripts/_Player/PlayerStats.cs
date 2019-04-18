@@ -24,8 +24,8 @@ public class PlayerStats : CharacterStats {
 	public int currentFear;
 	public int maxFear = 100;
 
-	public float percentageHp{ get { return (float)currentHealth / (float)maxHealth; } }
-	public float percentageFear{ get { return (float)currentFear / (float)maxFear; } }
+	public float percentageHp{ get { return (float)currentHealth / maxHealth; } }
+	public float percentageFear{ get { return (float)currentFear / maxFear; } }
 
 	[Header("HP and Fear UI bars")]
     public Image hpBar;

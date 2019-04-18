@@ -43,3 +43,11 @@ The following packages were added:
   com.unity.modules.wind@1.0.0
   com.unity.modules.xr@1.0.0
   com.unity.xr.legacyinputhelpers@1.0.0
+
+=== Sun Mar 31 19:30:11 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.analytics from version 3.2.2 to 3.3.2

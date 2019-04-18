@@ -2,7 +2,11 @@
     "name": "LDF.Demo",
     "references": [
         "GUID:e1748a012a4818e468bb121492a4b955",
-        "GUID:e3f42a6a587685448988a92ca3c0d8f2"
+        "GUID:ef92f470458ad410ca5beee06e504cc1",
+        "GUID:046cb872b2ce94da9a1b6b427a37d552",
+        "GUID:35c513c3d7a6d4c10b4952e9f828a161",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:324d6ce1a453daf4fbe28e44c48d91ac"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

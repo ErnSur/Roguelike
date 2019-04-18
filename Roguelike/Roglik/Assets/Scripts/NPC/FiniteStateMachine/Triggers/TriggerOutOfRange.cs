@@ -1,21 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Trigger/Out Of Range")]
-public class TriggerOutOfRange : Trigger {
-
-    public float range;
-
-
-    public override State TriggerEvent(Vector3 watcher, Vector3 target, bool isStateDone)
+namespace LDF.SOBT
+{
+    [CreateAssetMenu(menuName = "Trigger/Out Of Range")]
+    public class TriggerOutOfRange : Trigger
     {
-        float distance = Vector3.Distance(target, watcher);
+        public float range;
 
-        if (distance > range) // 1f is one cell means melee distance
+        public override bool TriggerEvent(Vector3 watcher, Vector3 target, bool isStateDone)
         {
-            return stateToReturn;
+            float distance = Vector3.Distance(target, watcher);
+
+            if (distance > range) // 1f is one cell means melee distance
+            {
+                return true;
+            }
+            return false;
         }
-        return null;
     }
+
 }

@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using LDF.SOBT;
+using UnityEngine;
 
-public abstract class State : MonoBehaviour {
+
+public abstract class State : MonoBehaviour
+{
     [System.Serializable]
     public struct Triggers
     {
@@ -8,27 +11,30 @@ public abstract class State : MonoBehaviour {
         public Trigger trigger;
     }
 
+    [HideInInspector]
+    public bool isStateDone;
 
-	[HideInInspector]public bool isStateDone;
-    [HideInInspector]public StateController controller;
-    [HideInInspector]public NPCStats stats;
+    [HideInInspector]
+    public StateController controller;
+
+    [HideInInspector]
+    public NPCStats stats;
+
     public Triggers[] triggers;
-
 
     public abstract void Act();
 
     public virtual void UpdateState()
     {
-        for (int i = 0; i < triggers.Length; i++)
+        foreach (Triggers trigger in triggers)
         {
-            triggers[i].trigger.stateToReturn = triggers[i].StateToTrigger;
+            var triggered = trigger.trigger.TriggerEvent(stats.Position, PlayerStats.instance.Position, isStateDone);
 
-            State newState = triggers[i].trigger.TriggerEvent(stats.Position, PlayerStats.instance.Position, isStateDone);
-            if (newState != null)
+            if (triggered)
             {
-                controller.currentState = newState;
+                controller.currentState = trigger.StateToTrigger;
                 this.enabled = false;
-				return;
+                return;
             }
         }
     }

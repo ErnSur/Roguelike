@@ -1,25 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using LDF.Structures;
 using LDF.Systems;
 using UnityEngine;
+using LDF.Utility;
 
 public class PlayerModel : SystemBehaviour, IPlayerMovement_SInput
 {
-    private GridTransform_S _gridTransform;
     public Transform target;
 
-    public float PlayerSpeed { get; } = 2;
+    [field: SerializeField, NameFix]
+    public float PlayerSpeed { get; private set; } = 2;
     
+    [field: SerializeField, NameFix]
     public Vector2Int PlayerGridPos { get; set; }
     
-    public Vector3 PlayerTransformPosition
-    {
-        get => transform.position;
-        set => transform.position = value;
-    }
-
     private List<Vector3> _path = new List<Vector3>();
+    public Transform PlayerTransform => transform;
+
     public bool CanMoveInDirection(Vector2Int direction)
     {
         return ScenePathfinding.IsWalkable(PlayerGridPos + direction);
@@ -27,19 +24,21 @@ public class PlayerModel : SystemBehaviour, IPlayerMovement_SInput
 
     protected override void Init()
     {
-       PlayerGridPos = GetComponent(ref _gridTransform).Position;
+       PlayerGridPos = transform.GridPosition();
     }
 
+    #if DEBUG
     private void OnGUI()
     {
         if (GUILayout.Button("Find Path To Target"))
         {
             _path = ScenePathfinding.GetPositionPath(transform.position, target.position).ToList();
-            for (var index = 0; index < _path.Count; index++)
-            {
-                Debug.Log($"STEP [{index}]: {_path[index]}");
-            }
         }
+    }
+
+    private void OnValidate()
+    {
+        PlayerGridPos = PlayerTransform.GridPosition();
     }
 
     private void OnDrawGizmos()
@@ -54,4 +53,5 @@ public class PlayerModel : SystemBehaviour, IPlayerMovement_SInput
             Gizmos.DrawLine(_path[index-1],_path[index]);
         }
     }
+    #endif
 }
