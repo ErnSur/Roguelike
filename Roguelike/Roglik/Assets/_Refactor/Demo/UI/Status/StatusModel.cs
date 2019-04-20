@@ -1,4 +1,5 @@
 ﻿using System;
+using LDF.Systems;
 using UnityEngine;
 using LDF.UserInterface.MVC;
 
@@ -6,12 +7,9 @@ namespace LDF.Roglik.UI
 {
     public class StatusModel : Model
     {
-        public float PlayerHpPercentage;
-        public Action OnPlayerDamaged;
+        [SerializeField]
+        public PlayerBodyModel _playerBody;
 
-#if UNITY_EDITOR
-        [ContextMenu("Trigger Event")]
-        private void TriggerEvent() => OnPlayerDamaged.Invoke();
-#endif
+        public float PlayerHpPercentage => _playerBody.Health.Percentage;
     }
 }

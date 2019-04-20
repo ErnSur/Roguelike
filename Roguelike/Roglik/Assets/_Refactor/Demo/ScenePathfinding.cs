@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using LDF.Systems.Pathfinding;
 using LDF.Utility;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class ScenePathfinding : MonoBehaviour
 {
     private static PathfindingGrid _currentLevelGrid;
     private static Transform _currentLevelGridTransform;
-    private static Vector2Int _currentCellSize;
+    private static Vector2Int _currentCellSize = Vector2Int.one;
     
     [SerializeField]
     private PathfindingGrid _grid;
@@ -34,14 +35,15 @@ public class ScenePathfinding : MonoBehaviour
 
     public static IEnumerable<Node> GetPath(Vector3 from, Vector3 to)
     {
-        return _currentLevelGrid.FindPath(GetNodeFromWorldPosition(from), GetNodeFromWorldPosition(to));
+        return _currentLevelGrid.FindPathAStar(GetNodeFromWorldPosition(from), GetNodeFromWorldPosition(to));
     }
     
     public static IEnumerable<Vector3> GetPositionPath(Vector3 from, Vector3 to)
     {
-        return _currentLevelGrid.FindPath(GetNodeFromWorldPosition(from), GetNodeFromWorldPosition(to)).Select(GetNodeWorldPosition);
+        return _currentLevelGrid.FindPathAStar(GetNodeFromWorldPosition(from), GetNodeFromWorldPosition(to)).Select(GetNodeWorldPosition);
     }
 
+    [ContextMenu("Create Grid")]
     private void CreatePathfindingGrid()
     {
         var isNodeWalkableCallback = IsCellWalkable(_cellSize, _wallLayermask, transform.position);
@@ -55,22 +57,26 @@ public class ScenePathfinding : MonoBehaviour
         return _currentLevelGrid[(int) index.x, (int) index.y];
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Vector3 GetNodeWorldPosition(Node node)
     {
-        return node.Pos.ToVector3() + _currentLevelGridTransform.position + _currentCellSize.ToVector3() / 2;
+        return GetNodeWorldPosition(node,_currentLevelGridTransform.position,_currentCellSize.ToVector3());
     }
-    
-#if !DEBUG
-    private void OnDrawGizmos()
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static Vector3 GetNodeWorldPosition(Node node, Vector3 gridWorldPos, Vector3 cellSize)
     {
-        for (int x = 0; x < _grid.LengthX; x++)
+        return node.Pos.ToVector3() + gridWorldPos + cellSize / 2;
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        _grid?.OnDrawGizmos(Vector3.one, GetNodePos);
+
+        Vector3 GetNodePos(Node n)
         {
-            for (int y = 0; y < _grid.LengthY; y++)
-            {
-                Gizmos.color = ColorExtensions.GetRandomColor(x + y * _grid.LengthX);
-                if (_grid[x, y].Walkable)
-                    Gizmos.DrawCube(GetNodeWorldPosition(_grid[x, y]), new Vector3(1, 1, 0));
-            }
+            return GetNodeWorldPosition(n, transform.position, Vector3.one);
         }
     }
 #endif

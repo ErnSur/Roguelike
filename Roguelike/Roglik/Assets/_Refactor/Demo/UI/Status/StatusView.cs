@@ -10,16 +10,21 @@ namespace LDF.Roglik.UI
     public class StatusView : View<StatusModel>
     {
         [SerializeField]
-        private Image _healthBar, _fearBar;
+        private RectTransform _healthBar, _fearBar;
 
         private float _hpBarInitWidth, _fearBarInitWidth;
+
+        private void Awake()
+        {
+            _hpBarInitWidth = _healthBar.rect.width;
+            _fearBarInitWidth = _fearBar.rect.width;
+        }
 
         protected override void OnInitialize()
         {
             base.OnInitialize();
 
-            _hpBarInitWidth = _healthBar.rectTransform.rect.width;
-            _fearBarInitWidth = _fearBar.rectTransform.rect.width;
+            UpdateStatusBar(Bar.Health, Model.PlayerHpPercentage);
         }
 
         public void UpdateStatusBar(Bar bar, float fillPercentage)
@@ -30,7 +35,7 @@ namespace LDF.Roglik.UI
 
             var newWidth = fillPercentage * barWidth;
 
-            barImage.rectTransform.sizeDelta = new Vector2(newWidth, barImage.rectTransform.sizeDelta.y);
+            barImage.sizeDelta = new Vector2(newWidth, barImage.sizeDelta.y);
         }
 
         public enum Bar { Health, Fear }
