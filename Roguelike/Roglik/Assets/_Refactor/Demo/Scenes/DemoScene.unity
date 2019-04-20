@@ -592,7 +592,7 @@ SpriteRenderer:
   m_SortingLayerID: -1111015539
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7227737ae12848f40bcf8923ffb75ce7, type: 3}
+  m_Sprite: {fileID: 21300820, guid: fb18645037d19d54ebab78007366d7ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de8488355f043d698e78494be6d3595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 584503871}
+  _player: {fileID: 584503867}
   <Speed>k__BackingField: 2
 --- !u!4 &552523211
 Transform:
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552523209}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 736468b4d0e443f68d06e2010f9f13a9, type: 3}
   m_Name: 
@@ -725,7 +725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbdceed58983874da4b506bdc763037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tree: {fileID: 11400000, guid: 68a898e2a149d9d4687e6be9edc8ffea, type: 2}
+  _serializedTree: {fileID: 11400000, guid: 68a898e2a149d9d4687e6be9edc8ffea, type: 2}
+  _playerBody: {fileID: 584503869}
+  ai: {fileID: 552523212}
 --- !u!1 &584503866
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +738,9 @@ GameObject:
   m_Component:
   - component: {fileID: 584503871}
   - component: {fileID: 584503867}
+  - component: {fileID: 584503870}
   - component: {fileID: 584503868}
+  - component: {fileID: 584503869}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -756,9 +760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8b002063a3fa642891c4ff023ad9e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 374729725}
-  <PlayerSpeed>k__BackingField: 2
   <PlayerGridPos>k__BackingField: {x: 0, y: 1}
+  <PlayerSpeed>k__BackingField: 2
 --- !u!114 &584503868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,6 +774,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02f2f17268a479db74b100317072c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &584503869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584503866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a90213bf5b6c58478b3781721e5b6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &584503870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584503866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a869bd8f39f445bb87bf268db3bbc39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField:
+    b_current: 32.2
+    max: 32.2
 --- !u!4 &584503871
 Transform:
   m_ObjectHideFlags: 0
@@ -797,6 +827,7 @@ GameObject:
   - component: {fileID: 605954884}
   - component: {fileID: 605954883}
   - component: {fileID: 605954882}
+  - component: {fileID: 605954885}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -839,7 +870,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -869,6 +900,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605954885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605954881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 32
+  m_RefResolutionX: 400
+  m_RefResolutionY: 300
+  m_UpscaleRT: 0
+  m_PixelSnapping: 1
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &634083560
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,11 +956,11 @@ RectTransform:
   m_Father: {fileID: 1991456312}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 230.59998}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &634083562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c59c6738c6fdfb4397532b754ef169c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHpPercentage: 44
+  _playerBody: {fileID: 584503870}
 --- !u!114 &634083563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,8 +987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Model>k__BackingField: {fileID: 634083562}
-  _healthBar: {fileID: 2197660266121061039}
-  _fearBar: {fileID: 2197660266905951184}
+  _healthBar: {fileID: 2197660266121061038}
+  _fearBar: {fileID: 2197660266905951199}
 --- !u!114 &634083564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +1003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <View>k__BackingField: {fileID: 634083563}
   <Model>k__BackingField: {fileID: 634083562}
+  _playerBodySystem: {fileID: 584503869}
 --- !u!114 &634083565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,7 +1223,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1418628228}
   m_HandleRect: {fileID: 1418628227}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2082,7 +2134,7 @@ SpriteRenderer:
   m_SortingLayerID: 1560653695
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6ab10ebbf8d845a4580d974299cc659b, type: 3}
+  m_Sprite: {fileID: 21300800, guid: fb18645037d19d54ebab78007366d7ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2202,7 +2254,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 1025
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 3
@@ -2229,12 +2280,13 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
-    textComponent: {fileID: 0}
+    textComponent: {fileID: 1626053585}
     characterCount: 47
     spriteCount: 0
     spaceCount: 9
@@ -2243,12 +2295,9 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
-  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -2388,9 +2437,117 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grid:
-    <LengthX>k__BackingField: 0
-    <LengthY>k__BackingField: 0
-    _grid: []
+    <LengthX>k__BackingField: 6
+    <LengthY>k__BackingField: 6
+    _grid:
+    - <X>k__BackingField: 0
+      <Y>k__BackingField: 0
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 1
+      <Y>k__BackingField: 0
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 2
+      <Y>k__BackingField: 0
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 3
+      <Y>k__BackingField: 0
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 4
+      <Y>k__BackingField: 0
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 5
+      <Y>k__BackingField: 0
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 0
+      <Y>k__BackingField: 1
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 1
+      <Y>k__BackingField: 1
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 2
+      <Y>k__BackingField: 1
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 3
+      <Y>k__BackingField: 1
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 4
+      <Y>k__BackingField: 1
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 5
+      <Y>k__BackingField: 1
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 0
+      <Y>k__BackingField: 2
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 1
+      <Y>k__BackingField: 2
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 2
+      <Y>k__BackingField: 2
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 3
+      <Y>k__BackingField: 2
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 4
+      <Y>k__BackingField: 2
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 5
+      <Y>k__BackingField: 2
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 0
+      <Y>k__BackingField: 3
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 1
+      <Y>k__BackingField: 3
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 2
+      <Y>k__BackingField: 3
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 3
+      <Y>k__BackingField: 3
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 4
+      <Y>k__BackingField: 3
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 5
+      <Y>k__BackingField: 3
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 0
+      <Y>k__BackingField: 4
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 1
+      <Y>k__BackingField: 4
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 2
+      <Y>k__BackingField: 4
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 3
+      <Y>k__BackingField: 4
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 4
+      <Y>k__BackingField: 4
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 5
+      <Y>k__BackingField: 4
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 0
+      <Y>k__BackingField: 5
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 1
+      <Y>k__BackingField: 5
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 2
+      <Y>k__BackingField: 5
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 3
+      <Y>k__BackingField: 5
+      <Walkable>k__BackingField: 1
+    - <X>k__BackingField: 4
+      <Y>k__BackingField: 5
+      <Walkable>k__BackingField: 0
+    - <X>k__BackingField: 5
+      <Y>k__BackingField: 5
+      <Walkable>k__BackingField: 1
   _gridSize: {x: 6, y: 6}
   _cellSize: {x: 1, y: 1}
   _wallLayermask:
@@ -2763,7 +2920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -910, y: 490}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 79, y: 32}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2197660266939420055
