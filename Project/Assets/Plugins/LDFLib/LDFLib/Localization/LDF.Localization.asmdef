@@ -1,0 +1,16 @@
+{
+    "name": "LDF.Localization",
+    "references": [
+        "Unity.TextMeshPro",
+        "LDF.Core"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

@@ -1,0 +1,17 @@
+{
+    "name": "LDF.UI",
+    "references": [
+        "Unity.TextMeshPro",
+        "LDF.Core",
+        "LDF.Localization"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

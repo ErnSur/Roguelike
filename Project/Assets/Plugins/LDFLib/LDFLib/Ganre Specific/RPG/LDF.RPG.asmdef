@@ -1,0 +1,15 @@
+{
+    "name": "LDF.RPG",
+    "references": [
+        "GUID:ef92f470458ad410ca5beee06e504cc1"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

@@ -1,0 +1,50 @@
+## Remove all ignored files from repo
+# git rm -r --cached . 
+# git add .
+
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+VersionHandlerSave.log
+
+# Firebase
+remote_config_data
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+
+# IDE
+/.vs/
+/.idea/
+/.vscode/
+/Assets/Plugins/Editor.meta
+/Assets/Plugins/Editor/JetBrains*
+*.DotSettings.user
+*.userprefs
+*.csproj
+*.sln
+.vsconfig
+
+# Gradle cache directory
+.gradle/
+
+# Builds
+/[Bb]uilds/
+/[Bb]uild/
+*.apk
+*.aab
+*.unitypackage
+
+# Crashlytics generated file
+crashlytics-build.properties
+
+# MacOS
+.DS_Store
+
+# Project specific

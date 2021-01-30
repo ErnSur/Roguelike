@@ -1,0 +1,21 @@
+{
+    "name": "LDF.Core.Tests",
+    "references": [
+        "LDF.Core",
+        "LDF.EventSystem",
+        "LDF.TurnBased"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
