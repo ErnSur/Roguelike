@@ -54,7 +54,7 @@ namespace LDF.UserInterface.SafeArea
 
                 _logoPresenter?.ShowCubeLogo();
             }
-            else if (Screen.orientation == ScreenOrientation.Landscape)
+            else if (Screen.orientation == ScreenOrientation.LandscapeLeft)
             {
                 //hardcoded values for IPhone X
                 safeArea.y = 0;

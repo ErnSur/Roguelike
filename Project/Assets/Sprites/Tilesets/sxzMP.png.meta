@@ -741,7 +741,7 @@ TextureImporter:
       213: 21300490
     second: sxzMP_245
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -762,6 +762,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -771,8 +772,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -800,6 +801,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -839,6 +841,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -6028,6 +6042,253 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      sxzMP_4: 21300008
+      sxzMP_91: 21300182
+      sxzMP_42: 21300084
+      sxzMP_68: 21300136
+      sxzMP_33: 21300066
+      sxzMP_167: 21300334
+      sxzMP_111: 21300222
+      sxzMP_83: 21300166
+      sxzMP_114: 21300228
+      sxzMP_184: 21300368
+      sxzMP_207: 21300414
+      sxzMP_187: 21300374
+      sxzMP_192: 21300384
+      sxzMP_195: 21300390
+      sxzMP_218: 21300436
+      sxzMP_200: 21300400
+      sxzMP_227: 21300454
+      sxzMP_29: 21300058
+      sxzMP_212: 21300424
+      sxzMP_26: 21300052
+      sxzMP_116: 21300232
+      sxzMP_141: 21300282
+      sxzMP_230: 21300460
+      sxzMP_55: 21300110
+      sxzMP_38: 21300076
+      sxzMP_81: 21300162
+      sxzMP_138: 21300276
+      sxzMP_65: 21300130
+      sxzMP_94: 21300188
+      sxzMP_107: 21300214
+      sxzMP_64: 21300128
+      sxzMP_153: 21300306
+      sxzMP_98: 21300196
+      sxzMP_233: 21300466
+      sxzMP_57: 21300114
+      sxzMP_66: 21300132
+      sxzMP_190: 21300380
+      sxzMP_217: 21300434
+      sxzMP_73: 21300146
+      sxzMP_22: 21300044
+      sxzMP_84: 21300168
+      sxzMP_56: 21300112
+      sxzMP_235: 21300470
+      sxzMP_203: 21300406
+      sxzMP_79: 21300158
+      sxzMP_60: 21300120
+      sxzMP_32: 21300064
+      sxzMP_213: 21300426
+      sxzMP_106: 21300212
+      sxzMP_240: 21300480
+      sxzMP_148: 21300296
+      sxzMP_160: 21300320
+      sxzMP_80: 21300160
+      sxzMP_145: 21300290
+      sxzMP_6: 21300012
+      sxzMP_97: 21300194
+      sxzMP_139: 21300278
+      sxzMP_149: 21300298
+      sxzMP_225: 21300450
+      sxzMP_58: 21300116
+      sxzMP_20: 21300040
+      sxzMP_162: 21300324
+      sxzMP_0: 21300000
+      sxzMP_156: 21300312
+      sxzMP_198: 21300396
+      sxzMP_136: 21300272
+      sxzMP_175: 21300350
+      sxzMP_176: 21300352
+      sxzMP_19: 21300038
+      sxzMP_47: 21300094
+      sxzMP_118: 21300236
+      sxzMP_166: 21300332
+      sxzMP_96: 21300192
+      sxzMP_172: 21300344
+      sxzMP_52: 21300104
+      sxzMP_2: 21300004
+      sxzMP_170: 21300340
+      sxzMP_24: 21300048
+      sxzMP_129: 21300258
+      sxzMP_35: 21300070
+      sxzMP_63: 21300126
+      sxzMP_34: 21300068
+      sxzMP_242: 21300484
+      sxzMP_208: 21300416
+      sxzMP_222: 21300444
+      sxzMP_5: 21300010
+      sxzMP_199: 21300398
+      sxzMP_17: 21300034
+      sxzMP_40: 21300080
+      sxzMP_147: 21300294
+      sxzMP_21: 21300042
+      sxzMP_215: 21300430
+      sxzMP_239: 21300478
+      sxzMP_237: 21300474
+      sxzMP_231: 21300462
+      sxzMP_189: 21300378
+      sxzMP_93: 21300186
+      sxzMP_82: 21300164
+      sxzMP_12: 21300024
+      sxzMP_131: 21300262
+      sxzMP_45: 21300090
+      sxzMP_119: 21300238
+      sxzMP_102: 21300204
+      sxzMP_135: 21300270
+      sxzMP_92: 21300184
+      sxzMP_158: 21300316
+      sxzMP_85: 21300170
+      sxzMP_177: 21300354
+      sxzMP_67: 21300134
+      sxzMP_28: 21300056
+      sxzMP_137: 21300274
+      sxzMP_169: 21300338
+      sxzMP_178: 21300356
+      sxzMP_48: 21300096
+      sxzMP_74: 21300148
+      sxzMP_7: 21300014
+      sxzMP_128: 21300256
+      sxzMP_146: 21300292
+      sxzMP_27: 21300054
+      sxzMP_171: 21300342
+      sxzMP_204: 21300408
+      sxzMP_36: 21300072
+      sxzMP_44: 21300088
+      sxzMP_39: 21300078
+      sxzMP_109: 21300218
+      sxzMP_75: 21300150
+      sxzMP_95: 21300190
+      sxzMP_132: 21300264
+      sxzMP_142: 21300284
+      sxzMP_161: 21300322
+      sxzMP_202: 21300404
+      sxzMP_16: 21300032
+      sxzMP_121: 21300242
+      sxzMP_173: 21300346
+      sxzMP_174: 21300348
+      sxzMP_37: 21300074
+      sxzMP_105: 21300210
+      sxzMP_144: 21300288
+      sxzMP_104: 21300208
+      sxzMP_154: 21300308
+      sxzMP_196: 21300392
+      sxzMP_185: 21300370
+      sxzMP_243: 21300486
+      sxzMP_41: 21300082
+      sxzMP_15: 21300030
+      sxzMP_30: 21300060
+      sxzMP_1: 21300002
+      sxzMP_72: 21300144
+      sxzMP_124: 21300248
+      sxzMP_157: 21300314
+      sxzMP_53: 21300106
+      sxzMP_103: 21300206
+      sxzMP_180: 21300360
+      sxzMP_49: 21300098
+      sxzMP_197: 21300394
+      sxzMP_163: 21300326
+      sxzMP_89: 21300178
+      sxzMP_78: 21300156
+      sxzMP_11: 21300022
+      sxzMP_193: 21300386
+      sxzMP_194: 21300388
+      sxzMP_181: 21300362
+      sxzMP_134: 21300268
+      sxzMP_87: 21300174
+      sxzMP_113: 21300226
+      sxzMP_71: 21300142
+      sxzMP_214: 21300428
+      sxzMP_210: 21300420
+      sxzMP_88: 21300176
+      sxzMP_117: 21300234
+      sxzMP_62: 21300124
+      sxzMP_3: 21300006
+      sxzMP_54: 21300108
+      sxzMP_14: 21300028
+      sxzMP_152: 21300304
+      sxzMP_133: 21300266
+      sxzMP_228: 21300456
+      sxzMP_191: 21300382
+      sxzMP_8: 21300016
+      sxzMP_188: 21300376
+      sxzMP_165: 21300330
+      sxzMP_238: 21300476
+      sxzMP_108: 21300216
+      sxzMP_179: 21300358
+      sxzMP_186: 21300372
+      sxzMP_182: 21300364
+      sxzMP_221: 21300442
+      sxzMP_232: 21300464
+      sxzMP_244: 21300488
+      sxzMP_150: 21300300
+      sxzMP_234: 21300468
+      sxzMP_125: 21300250
+      sxzMP_61: 21300122
+      sxzMP_122: 21300244
+      sxzMP_127: 21300254
+      sxzMP_112: 21300224
+      sxzMP_115: 21300230
+      sxzMP_201: 21300402
+      sxzMP_236: 21300472
+      sxzMP_77: 21300154
+      sxzMP_206: 21300412
+      sxzMP_59: 21300118
+      sxzMP_123: 21300246
+      sxzMP_205: 21300410
+      sxzMP_245: 21300490
+      sxzMP_241: 21300482
+      sxzMP_219: 21300438
+      sxzMP_69: 21300138
+      sxzMP_120: 21300240
+      sxzMP_155: 21300310
+      sxzMP_90: 21300180
+      sxzMP_223: 21300446
+      sxzMP_76: 21300152
+      sxzMP_164: 21300328
+      sxzMP_110: 21300220
+      sxzMP_101: 21300202
+      sxzMP_25: 21300050
+      sxzMP_183: 21300366
+      sxzMP_224: 21300448
+      sxzMP_100: 21300200
+      sxzMP_23: 21300046
+      sxzMP_46: 21300092
+      sxzMP_9: 21300018
+      sxzMP_10: 21300020
+      sxzMP_70: 21300140
+      sxzMP_13: 21300026
+      sxzMP_43: 21300086
+      sxzMP_31: 21300062
+      sxzMP_151: 21300302
+      sxzMP_18: 21300036
+      sxzMP_51: 21300102
+      sxzMP_226: 21300452
+      sxzMP_229: 21300458
+      sxzMP_211: 21300422
+      sxzMP_216: 21300432
+      sxzMP_220: 21300440
+      sxzMP_99: 21300198
+      sxzMP_159: 21300318
+      sxzMP_209: 21300418
+      sxzMP_130: 21300260
+      sxzMP_86: 21300172
+      sxzMP_143: 21300286
+      sxzMP_140: 21300280
+      sxzMP_168: 21300336
+      sxzMP_126: 21300252
+      sxzMP_50: 21300100
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

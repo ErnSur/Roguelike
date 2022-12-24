@@ -1287,7 +1287,7 @@ TextureImporter:
       213: 21300854
     second: V6kLB_427
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1307,6 +1307,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1316,8 +1318,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -1338,11 +1340,16 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 256
     resizeAlgorithm: 0
@@ -1353,7 +1360,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 256
     resizeAlgorithm: 0
@@ -1364,7 +1372,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 256
     resizeAlgorithm: 0
@@ -1375,7 +1384,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 256
     resizeAlgorithm: 0
@@ -1386,6 +1396,19 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -10387,6 +10410,435 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      V6kLB_174: 21300348
+      V6kLB_280: 21300560
+      V6kLB_259: 21300518
+      V6kLB_126: 21300252
+      V6kLB_241: 21300482
+      V6kLB_357: 21300714
+      V6kLB_62: 21300124
+      V6kLB_262: 21300524
+      V6kLB_156: 21300312
+      V6kLB_244: 21300488
+      V6kLB_86: 21300172
+      V6kLB_31: 21300062
+      V6kLB_247: 21300494
+      V6kLB_104: 21300208
+      V6kLB_361: 21300722
+      V6kLB_160: 21300320
+      V6kLB_254: 21300508
+      V6kLB_310: 21300620
+      V6kLB_282: 21300564
+      V6kLB_367: 21300734
+      V6kLB_249: 21300498
+      V6kLB_297: 21300594
+      V6kLB_404: 21300808
+      V6kLB_341: 21300682
+      V6kLB_65: 21300130
+      V6kLB_324: 21300648
+      V6kLB_148: 21300296
+      V6kLB_410: 21300820
+      V6kLB_90: 21300180
+      V6kLB_366: 21300732
+      V6kLB_163: 21300326
+      V6kLB_47: 21300094
+      V6kLB_281: 21300562
+      V6kLB_369: 21300738
+      V6kLB_45: 21300090
+      V6kLB_200: 21300400
+      V6kLB_346: 21300692
+      V6kLB_168: 21300336
+      V6kLB_291: 21300582
+      V6kLB_323: 21300646
+      V6kLB_20: 21300040
+      V6kLB_60: 21300120
+      V6kLB_242: 21300484
+      V6kLB_384: 21300768
+      V6kLB_266: 21300532
+      V6kLB_296: 21300592
+      V6kLB_30: 21300060
+      V6kLB_213: 21300426
+      V6kLB_74: 21300148
+      V6kLB_118: 21300236
+      V6kLB_93: 21300186
+      V6kLB_138: 21300276
+      V6kLB_111: 21300222
+      V6kLB_243: 21300486
+      V6kLB_321: 21300642
+      V6kLB_23: 21300046
+      V6kLB_51: 21300102
+      V6kLB_217: 21300434
+      V6kLB_73: 21300146
+      V6kLB_335: 21300670
+      V6kLB_135: 21300270
+      V6kLB_12: 21300024
+      V6kLB_19: 21300038
+      V6kLB_49: 21300098
+      V6kLB_133: 21300266
+      V6kLB_234: 21300468
+      V6kLB_205: 21300410
+      V6kLB_373: 21300746
+      V6kLB_339: 21300678
+      V6kLB_194: 21300388
+      V6kLB_411: 21300822
+      V6kLB_102: 21300204
+      V6kLB_18: 21300036
+      V6kLB_167: 21300334
+      V6kLB_419: 21300838
+      V6kLB_13: 21300026
+      V6kLB_204: 21300408
+      V6kLB_119: 21300238
+      V6kLB_388: 21300776
+      V6kLB_225: 21300450
+      V6kLB_306: 21300612
+      V6kLB_228: 21300456
+      V6kLB_229: 21300458
+      V6kLB_27: 21300054
+      V6kLB_278: 21300556
+      V6kLB_364: 21300728
+      V6kLB_98: 21300196
+      V6kLB_272: 21300544
+      V6kLB_293: 21300586
+      V6kLB_59: 21300118
+      V6kLB_113: 21300226
+      V6kLB_359: 21300718
+      V6kLB_191: 21300382
+      V6kLB_360: 21300720
+      V6kLB_44: 21300088
+      V6kLB_251: 21300502
+      V6kLB_331: 21300662
+      V6kLB_145: 21300290
+      V6kLB_382: 21300764
+      V6kLB_11: 21300022
+      V6kLB_235: 21300470
+      V6kLB_57: 21300114
+      V6kLB_4: 21300008
+      V6kLB_231: 21300462
+      V6kLB_352: 21300704
+      V6kLB_375: 21300750
+      V6kLB_351: 21300702
+      V6kLB_398: 21300796
+      V6kLB_212: 21300424
+      V6kLB_390: 21300780
+      V6kLB_315: 21300630
+      V6kLB_336: 21300672
+      V6kLB_305: 21300610
+      V6kLB_103: 21300206
+      V6kLB_142: 21300284
+      V6kLB_379: 21300758
+      V6kLB_383: 21300766
+      V6kLB_94: 21300188
+      V6kLB_189: 21300378
+      V6kLB_162: 21300324
+      V6kLB_287: 21300574
+      V6kLB_304: 21300608
+      V6kLB_10: 21300020
+      V6kLB_128: 21300256
+      V6kLB_307: 21300614
+      V6kLB_197: 21300394
+      V6kLB_402: 21300804
+      V6kLB_36: 21300072
+      V6kLB_406: 21300812
+      V6kLB_95: 21300190
+      V6kLB_0: 21300000
+      V6kLB_338: 21300676
+      V6kLB_418: 21300836
+      V6kLB_348: 21300696
+      V6kLB_171: 21300342
+      V6kLB_48: 21300096
+      V6kLB_16: 21300032
+      V6kLB_386: 21300772
+      V6kLB_127: 21300254
+      V6kLB_89: 21300178
+      V6kLB_405: 21300810
+      V6kLB_153: 21300306
+      V6kLB_9: 21300018
+      V6kLB_161: 21300322
+      V6kLB_316: 21300632
+      V6kLB_326: 21300652
+      V6kLB_420: 21300840
+      V6kLB_196: 21300392
+      V6kLB_37: 21300074
+      V6kLB_256: 21300512
+      V6kLB_144: 21300288
+      V6kLB_114: 21300228
+      V6kLB_84: 21300168
+      V6kLB_227: 21300454
+      V6kLB_389: 21300778
+      V6kLB_365: 21300730
+      V6kLB_277: 21300554
+      V6kLB_333: 21300666
+      V6kLB_377: 21300754
+      V6kLB_201: 21300402
+      V6kLB_264: 21300528
+      V6kLB_101: 21300202
+      V6kLB_110: 21300220
+      V6kLB_395: 21300790
+      V6kLB_378: 21300756
+      V6kLB_294: 21300588
+      V6kLB_400: 21300800
+      V6kLB_183: 21300366
+      V6kLB_192: 21300384
+      V6kLB_70: 21300140
+      V6kLB_233: 21300466
+      V6kLB_137: 21300274
+      V6kLB_387: 21300774
+      V6kLB_301: 21300602
+      V6kLB_159: 21300318
+      V6kLB_302: 21300604
+      V6kLB_185: 21300370
+      V6kLB_195: 21300390
+      V6kLB_347: 21300694
+      V6kLB_356: 21300712
+      V6kLB_6: 21300012
+      V6kLB_202: 21300404
+      V6kLB_121: 21300242
+      V6kLB_139: 21300278
+      V6kLB_46: 21300092
+      V6kLB_170: 21300340
+      V6kLB_314: 21300628
+      V6kLB_190: 21300380
+      V6kLB_63: 21300126
+      V6kLB_407: 21300814
+      V6kLB_53: 21300106
+      V6kLB_423: 21300846
+      V6kLB_56: 21300112
+      V6kLB_61: 21300122
+      V6kLB_132: 21300264
+      V6kLB_66: 21300132
+      V6kLB_154: 21300308
+      V6kLB_392: 21300784
+      V6kLB_332: 21300664
+      V6kLB_268: 21300536
+      V6kLB_14: 21300028
+      V6kLB_267: 21300534
+      V6kLB_353: 21300706
+      V6kLB_328: 21300656
+      V6kLB_87: 21300174
+      V6kLB_76: 21300152
+      V6kLB_342: 21300684
+      V6kLB_143: 21300286
+      V6kLB_396: 21300792
+      V6kLB_81: 21300162
+      V6kLB_96: 21300192
+      V6kLB_283: 21300566
+      V6kLB_77: 21300154
+      V6kLB_239: 21300478
+      V6kLB_391: 21300782
+      V6kLB_284: 21300568
+      V6kLB_164: 21300328
+      V6kLB_363: 21300726
+      V6kLB_226: 21300452
+      V6kLB_298: 21300596
+      V6kLB_289: 21300578
+      V6kLB_5: 21300010
+      V6kLB_424: 21300848
+      V6kLB_279: 21300558
+      V6kLB_52: 21300104
+      V6kLB_75: 21300150
+      V6kLB_124: 21300248
+      V6kLB_313: 21300626
+      V6kLB_427: 21300854
+      V6kLB_271: 21300542
+      V6kLB_286: 21300572
+      V6kLB_261: 21300522
+      V6kLB_380: 21300760
+      V6kLB_42: 21300084
+      V6kLB_399: 21300798
+      V6kLB_149: 21300298
+      V6kLB_173: 21300346
+      V6kLB_417: 21300834
+      V6kLB_117: 21300234
+      V6kLB_112: 21300224
+      V6kLB_408: 21300816
+      V6kLB_123: 21300246
+      V6kLB_72: 21300144
+      V6kLB_109: 21300218
+      V6kLB_88: 21300176
+      V6kLB_38: 21300076
+      V6kLB_54: 21300108
+      V6kLB_263: 21300526
+      V6kLB_207: 21300414
+      V6kLB_414: 21300828
+      V6kLB_421: 21300842
+      V6kLB_285: 21300570
+      V6kLB_21: 21300042
+      V6kLB_215: 21300430
+      V6kLB_187: 21300374
+      V6kLB_371: 21300742
+      V6kLB_158: 21300316
+      V6kLB_179: 21300358
+      V6kLB_91: 21300182
+      V6kLB_255: 21300510
+      V6kLB_303: 21300606
+      V6kLB_376: 21300752
+      V6kLB_221: 21300442
+      V6kLB_270: 21300540
+      V6kLB_299: 21300598
+      V6kLB_385: 21300770
+      V6kLB_312: 21300624
+      V6kLB_78: 21300156
+      V6kLB_122: 21300244
+      V6kLB_147: 21300294
+      V6kLB_169: 21300338
+      V6kLB_184: 21300368
+      V6kLB_292: 21300584
+      V6kLB_28: 21300056
+      V6kLB_325: 21300650
+      V6kLB_309: 21300618
+      V6kLB_218: 21300436
+      V6kLB_413: 21300826
+      V6kLB_166: 21300332
+      V6kLB_317: 21300634
+      V6kLB_150: 21300300
+      V6kLB_108: 21300216
+      V6kLB_34: 21300068
+      V6kLB_40: 21300080
+      V6kLB_55: 21300110
+      V6kLB_67: 21300134
+      V6kLB_80: 21300160
+      V6kLB_252: 21300504
+      V6kLB_253: 21300506
+      V6kLB_374: 21300748
+      V6kLB_319: 21300638
+      V6kLB_7: 21300014
+      V6kLB_350: 21300700
+      V6kLB_15: 21300030
+      V6kLB_178: 21300356
+      V6kLB_381: 21300762
+      V6kLB_397: 21300794
+      V6kLB_206: 21300412
+      V6kLB_343: 21300686
+      V6kLB_288: 21300576
+      V6kLB_354: 21300708
+      V6kLB_177: 21300354
+      V6kLB_71: 21300142
+      V6kLB_129: 21300258
+      V6kLB_250: 21300500
+      V6kLB_181: 21300362
+      V6kLB_214: 21300428
+      V6kLB_230: 21300460
+      V6kLB_140: 21300280
+      V6kLB_403: 21300806
+      V6kLB_116: 21300232
+      V6kLB_188: 21300376
+      V6kLB_368: 21300736
+      V6kLB_24: 21300048
+      V6kLB_409: 21300818
+      V6kLB_210: 21300420
+      V6kLB_344: 21300688
+      V6kLB_334: 21300668
+      V6kLB_349: 21300698
+      V6kLB_273: 21300546
+      V6kLB_131: 21300262
+      V6kLB_26: 21300052
+      V6kLB_220: 21300440
+      V6kLB_115: 21300230
+      V6kLB_64: 21300128
+      V6kLB_295: 21300590
+      V6kLB_146: 21300292
+      V6kLB_176: 21300352
+      V6kLB_290: 21300580
+      V6kLB_265: 21300530
+      V6kLB_130: 21300260
+      V6kLB_92: 21300184
+      V6kLB_401: 21300802
+      V6kLB_203: 21300406
+      V6kLB_224: 21300448
+      V6kLB_58: 21300116
+      V6kLB_308: 21300616
+      V6kLB_258: 21300516
+      V6kLB_236: 21300472
+      V6kLB_151: 21300302
+      V6kLB_105: 21300210
+      V6kLB_240: 21300480
+      V6kLB_8: 21300016
+      V6kLB_330: 21300660
+      V6kLB_125: 21300250
+      V6kLB_83: 21300166
+      V6kLB_246: 21300492
+      V6kLB_372: 21300744
+      V6kLB_320: 21300640
+      V6kLB_182: 21300364
+      V6kLB_199: 21300398
+      V6kLB_394: 21300788
+      V6kLB_412: 21300824
+      V6kLB_318: 21300636
+      V6kLB_165: 21300330
+      V6kLB_223: 21300446
+      V6kLB_248: 21300496
+      V6kLB_422: 21300844
+      V6kLB_269: 21300538
+      V6kLB_69: 21300138
+      V6kLB_327: 21300654
+      V6kLB_32: 21300064
+      V6kLB_355: 21300710
+      V6kLB_416: 21300832
+      V6kLB_415: 21300830
+      V6kLB_134: 21300268
+      V6kLB_106: 21300212
+      V6kLB_1: 21300002
+      V6kLB_97: 21300194
+      V6kLB_276: 21300552
+      V6kLB_50: 21300100
+      V6kLB_238: 21300476
+      V6kLB_43: 21300086
+      V6kLB_175: 21300350
+      V6kLB_219: 21300438
+      V6kLB_155: 21300310
+      V6kLB_222: 21300444
+      V6kLB_152: 21300304
+      V6kLB_157: 21300314
+      V6kLB_198: 21300396
+      V6kLB_274: 21300548
+      V6kLB_25: 21300050
+      V6kLB_120: 21300240
+      V6kLB_237: 21300474
+      V6kLB_370: 21300740
+      V6kLB_425: 21300850
+      V6kLB_358: 21300716
+      V6kLB_141: 21300282
+      V6kLB_393: 21300786
+      V6kLB_33: 21300066
+      V6kLB_41: 21300082
+      V6kLB_329: 21300658
+      V6kLB_107: 21300214
+      V6kLB_300: 21300600
+      V6kLB_337: 21300674
+      V6kLB_340: 21300680
+      V6kLB_275: 21300550
+      V6kLB_29: 21300058
+      V6kLB_39: 21300078
+      V6kLB_2: 21300004
+      V6kLB_311: 21300622
+      V6kLB_68: 21300136
+      V6kLB_245: 21300490
+      V6kLB_345: 21300690
+      V6kLB_35: 21300070
+      V6kLB_99: 21300198
+      V6kLB_208: 21300416
+      V6kLB_180: 21300360
+      V6kLB_186: 21300372
+      V6kLB_232: 21300464
+      V6kLB_82: 21300164
+      V6kLB_322: 21300644
+      V6kLB_216: 21300432
+      V6kLB_136: 21300272
+      V6kLB_209: 21300418
+      V6kLB_79: 21300158
+      V6kLB_100: 21300200
+      V6kLB_362: 21300724
+      V6kLB_3: 21300006
+      V6kLB_193: 21300386
+      V6kLB_17: 21300034
+      V6kLB_257: 21300514
+      V6kLB_211: 21300422
+      V6kLB_426: 21300852
+      V6kLB_85: 21300170
+      V6kLB_172: 21300344
+      V6kLB_260: 21300520
+      V6kLB_22: 21300044
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

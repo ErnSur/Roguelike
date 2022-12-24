@@ -684,7 +684,7 @@ TextureImporter:
       213: 21300452
     second: postaci3_226
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -705,6 +705,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -714,8 +715,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -743,6 +744,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -782,6 +784,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -5572,6 +5586,234 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      postaci3_214: 21300428
+      postaci3_142: 21300284
+      postaci3_73: 21300146
+      postaci3_125: 21300250
+      postaci3_35: 21300070
+      postaci3_96: 21300192
+      postaci3_69: 21300138
+      postaci3_53: 21300106
+      postaci3_176: 21300352
+      postaci3_91: 21300182
+      postaci3_181: 21300362
+      postaci3_153: 21300306
+      postaci3_18: 21300036
+      postaci3_20: 21300040
+      postaci3_144: 21300288
+      postaci3_117: 21300234
+      postaci3_203: 21300406
+      postaci3_199: 21300398
+      postaci3_134: 21300268
+      postaci3_47: 21300094
+      postaci3_128: 21300256
+      postaci3_140: 21300280
+      postaci3_29: 21300058
+      postaci3_147: 21300294
+      postaci3_28: 21300056
+      postaci3_71: 21300142
+      postaci3_154: 21300308
+      postaci3_0: 21300000
+      postaci3_68: 21300136
+      postaci3_50: 21300100
+      postaci3_166: 21300332
+      postaci3_121: 21300242
+      postaci3_164: 21300328
+      postaci3_46: 21300092
+      postaci3_200: 21300400
+      postaci3_103: 21300206
+      postaci3_162: 21300324
+      postaci3_75: 21300150
+      postaci3_17: 21300034
+      postaci3_85: 21300170
+      postaci3_58: 21300116
+      postaci3_81: 21300162
+      postaci3_170: 21300340
+      postaci3_187: 21300374
+      postaci3_148: 21300296
+      postaci3_115: 21300230
+      postaci3_7: 21300014
+      postaci3_160: 21300320
+      postaci3_39: 21300078
+      postaci3_198: 21300396
+      postaci3_89: 21300178
+      postaci3_90: 21300180
+      postaci3_83: 21300166
+      postaci3_221: 21300442
+      postaci3_15: 21300030
+      postaci3_97: 21300194
+      postaci3_155: 21300310
+      postaci3_167: 21300334
+      postaci3_94: 21300188
+      postaci3_207: 21300414
+      postaci3_211: 21300422
+      postaci3_57: 21300114
+      postaci3_141: 21300282
+      postaci3_122: 21300244
+      postaci3_150: 21300300
+      postaci3_56: 21300112
+      postaci3_195: 21300390
+      postaci3_51: 21300102
+      postaci3_70: 21300140
+      postaci3_224: 21300448
+      postaci3_1: 21300002
+      postaci3_220: 21300440
+      postaci3_42: 21300084
+      postaci3_86: 21300172
+      postaci3_139: 21300278
+      postaci3_149: 21300298
+      postaci3_65: 21300130
+      postaci3_193: 21300386
+      postaci3_131: 21300262
+      postaci3_216: 21300432
+      postaci3_114: 21300228
+      postaci3_152: 21300304
+      postaci3_100: 21300200
+      postaci3_161: 21300322
+      postaci3_223: 21300446
+      postaci3_171: 21300342
+      postaci3_77: 21300154
+      postaci3_156: 21300312
+      postaci3_32: 21300064
+      postaci3_23: 21300046
+      postaci3_204: 21300408
+      postaci3_194: 21300388
+      postaci3_112: 21300224
+      postaci3_201: 21300402
+      postaci3_4: 21300008
+      postaci3_106: 21300212
+      postaci3_158: 21300316
+      postaci3_104: 21300208
+      postaci3_67: 21300134
+      postaci3_6: 21300012
+      postaci3_133: 21300266
+      postaci3_188: 21300376
+      postaci3_14: 21300028
+      postaci3_157: 21300314
+      postaci3_184: 21300368
+      postaci3_118: 21300236
+      postaci3_208: 21300416
+      postaci3_183: 21300366
+      postaci3_38: 21300076
+      postaci3_59: 21300118
+      postaci3_2: 21300004
+      postaci3_145: 21300290
+      postaci3_136: 21300272
+      postaci3_72: 21300144
+      postaci3_109: 21300218
+      postaci3_107: 21300214
+      postaci3_99: 21300198
+      postaci3_45: 21300090
+      postaci3_219: 21300438
+      postaci3_64: 21300128
+      postaci3_37: 21300074
+      postaci3_49: 21300098
+      postaci3_44: 21300088
+      postaci3_76: 21300152
+      postaci3_137: 21300274
+      postaci3_177: 21300354
+      postaci3_95: 21300190
+      postaci3_13: 21300026
+      postaci3_172: 21300344
+      postaci3_113: 21300226
+      postaci3_185: 21300370
+      postaci3_192: 21300384
+      postaci3_129: 21300258
+      postaci3_175: 21300350
+      postaci3_93: 21300186
+      postaci3_108: 21300216
+      postaci3_66: 21300132
+      postaci3_87: 21300174
+      postaci3_163: 21300326
+      postaci3_197: 21300394
+      postaci3_179: 21300358
+      postaci3_21: 21300042
+      postaci3_111: 21300222
+      postaci3_24: 21300048
+      postaci3_205: 21300410
+      postaci3_78: 21300156
+      postaci3_9: 21300018
+      postaci3_30: 21300060
+      postaci3_190: 21300380
+      postaci3_3: 21300006
+      postaci3_8: 21300016
+      postaci3_74: 21300148
+      postaci3_206: 21300412
+      postaci3_54: 21300108
+      postaci3_92: 21300184
+      postaci3_41: 21300082
+      postaci3_105: 21300210
+      postaci3_196: 21300392
+      postaci3_119: 21300238
+      postaci3_226: 21300452
+      postaci3_173: 21300346
+      postaci3_123: 21300246
+      postaci3_127: 21300254
+      postaci3_40: 21300080
+      postaci3_110: 21300220
+      postaci3_98: 21300196
+      postaci3_55: 21300110
+      postaci3_222: 21300444
+      postaci3_62: 21300124
+      postaci3_168: 21300336
+      postaci3_138: 21300276
+      postaci3_151: 21300302
+      postaci3_82: 21300164
+      postaci3_132: 21300264
+      postaci3_225: 21300450
+      postaci3_202: 21300404
+      postaci3_215: 21300430
+      postaci3_84: 21300168
+      postaci3_26: 21300052
+      postaci3_159: 21300318
+      postaci3_126: 21300252
+      postaci3_5: 21300010
+      postaci3_191: 21300382
+      postaci3_217: 21300434
+      postaci3_88: 21300176
+      postaci3_189: 21300378
+      postaci3_213: 21300426
+      postaci3_130: 21300260
+      postaci3_31: 21300062
+      postaci3_209: 21300418
+      postaci3_43: 21300086
+      postaci3_63: 21300126
+      postaci3_48: 21300096
+      postaci3_61: 21300122
+      postaci3_174: 21300348
+      postaci3_10: 21300020
+      postaci3_16: 21300032
+      postaci3_27: 21300054
+      postaci3_52: 21300104
+      postaci3_120: 21300240
+      postaci3_80: 21300160
+      postaci3_178: 21300356
+      postaci3_36: 21300072
+      postaci3_34: 21300068
+      postaci3_180: 21300360
+      postaci3_135: 21300270
+      postaci3_60: 21300120
+      postaci3_101: 21300202
+      postaci3_25: 21300050
+      postaci3_116: 21300232
+      postaci3_186: 21300372
+      postaci3_124: 21300248
+      postaci3_169: 21300338
+      postaci3_11: 21300022
+      postaci3_33: 21300066
+      postaci3_143: 21300286
+      postaci3_182: 21300364
+      postaci3_165: 21300330
+      postaci3_79: 21300158
+      postaci3_102: 21300204
+      postaci3_22: 21300044
+      postaci3_218: 21300436
+      postaci3_12: 21300024
+      postaci3_19: 21300038
+      postaci3_212: 21300424
+      postaci3_210: 21300420
+      postaci3_146: 21300292
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

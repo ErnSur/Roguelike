@@ -702,7 +702,7 @@ TextureImporter:
       213: 21300464
     second: Walls and Floors_232
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -723,6 +723,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -732,8 +733,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -761,6 +762,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -800,6 +802,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -5716,6 +5730,240 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Walls and Floors_88: 21300176
+      Walls and Floors_228: 21300456
+      Walls and Floors_84: 21300168
+      Walls and Floors_169: 21300338
+      Walls and Floors_121: 21300242
+      Walls and Floors_20: 21300040
+      Walls and Floors_74: 21300148
+      Walls and Floors_111: 21300222
+      Walls and Floors_194: 21300388
+      Walls and Floors_150: 21300300
+      Walls and Floors_56: 21300112
+      Walls and Floors_54: 21300108
+      Walls and Floors_0: 21300000
+      Walls and Floors_172: 21300344
+      Walls and Floors_31: 21300062
+      Walls and Floors_100: 21300200
+      Walls and Floors_102: 21300204
+      Walls and Floors_26: 21300052
+      Walls and Floors_226: 21300452
+      Walls and Floors_155: 21300310
+      Walls and Floors_138: 21300276
+      Walls and Floors_160: 21300320
+      Walls and Floors_61: 21300122
+      Walls and Floors_41: 21300082
+      Walls and Floors_5: 21300010
+      Walls and Floors_229: 21300458
+      Walls and Floors_10: 21300020
+      Walls and Floors_87: 21300174
+      Walls and Floors_210: 21300420
+      Walls and Floors_130: 21300260
+      Walls and Floors_11: 21300022
+      Walls and Floors_178: 21300356
+      Walls and Floors_48: 21300096
+      Walls and Floors_50: 21300100
+      Walls and Floors_39: 21300078
+      Walls and Floors_112: 21300224
+      Walls and Floors_51: 21300102
+      Walls and Floors_75: 21300150
+      Walls and Floors_44: 21300088
+      Walls and Floors_176: 21300352
+      Walls and Floors_68: 21300136
+      Walls and Floors_158: 21300316
+      Walls and Floors_185: 21300370
+      Walls and Floors_167: 21300334
+      Walls and Floors_79: 21300158
+      Walls and Floors_225: 21300450
+      Walls and Floors_94: 21300188
+      Walls and Floors_113: 21300226
+      Walls and Floors_128: 21300256
+      Walls and Floors_148: 21300296
+      Walls and Floors_55: 21300110
+      Walls and Floors_3: 21300006
+      Walls and Floors_184: 21300368
+      Walls and Floors_142: 21300284
+      Walls and Floors_53: 21300106
+      Walls and Floors_23: 21300046
+      Walls and Floors_42: 21300084
+      Walls and Floors_127: 21300254
+      Walls and Floors_157: 21300314
+      Walls and Floors_215: 21300430
+      Walls and Floors_30: 21300060
+      Walls and Floors_209: 21300418
+      Walls and Floors_137: 21300274
+      Walls and Floors_168: 21300336
+      Walls and Floors_177: 21300354
+      Walls and Floors_66: 21300132
+      Walls and Floors_49: 21300098
+      Walls and Floors_92: 21300184
+      Walls and Floors_38: 21300076
+      Walls and Floors_203: 21300406
+      Walls and Floors_99: 21300198
+      Walls and Floors_181: 21300362
+      Walls and Floors_63: 21300126
+      Walls and Floors_135: 21300270
+      Walls and Floors_90: 21300180
+      Walls and Floors_122: 21300244
+      Walls and Floors_95: 21300190
+      Walls and Floors_204: 21300408
+      Walls and Floors_4: 21300008
+      Walls and Floors_96: 21300192
+      Walls and Floors_73: 21300146
+      Walls and Floors_153: 21300306
+      Walls and Floors_165: 21300330
+      Walls and Floors_214: 21300428
+      Walls and Floors_198: 21300396
+      Walls and Floors_118: 21300236
+      Walls and Floors_211: 21300422
+      Walls and Floors_107: 21300214
+      Walls and Floors_1: 21300002
+      Walls and Floors_45: 21300090
+      Walls and Floors_154: 21300308
+      Walls and Floors_37: 21300074
+      Walls and Floors_145: 21300290
+      Walls and Floors_104: 21300208
+      Walls and Floors_183: 21300366
+      Walls and Floors_196: 21300392
+      Walls and Floors_14: 21300028
+      Walls and Floors_78: 21300156
+      Walls and Floors_43: 21300086
+      Walls and Floors_207: 21300414
+      Walls and Floors_16: 21300032
+      Walls and Floors_220: 21300440
+      Walls and Floors_80: 21300160
+      Walls and Floors_18: 21300036
+      Walls and Floors_58: 21300116
+      Walls and Floors_221: 21300442
+      Walls and Floors_218: 21300436
+      Walls and Floors_143: 21300286
+      Walls and Floors_230: 21300460
+      Walls and Floors_106: 21300212
+      Walls and Floors_9: 21300018
+      Walls and Floors_108: 21300216
+      Walls and Floors_136: 21300272
+      Walls and Floors_76: 21300152
+      Walls and Floors_82: 21300164
+      Walls and Floors_146: 21300292
+      Walls and Floors_197: 21300394
+      Walls and Floors_69: 21300138
+      Walls and Floors_71: 21300142
+      Walls and Floors_116: 21300232
+      Walls and Floors_151: 21300302
+      Walls and Floors_163: 21300326
+      Walls and Floors_205: 21300410
+      Walls and Floors_119: 21300238
+      Walls and Floors_85: 21300170
+      Walls and Floors_193: 21300386
+      Walls and Floors_231: 21300462
+      Walls and Floors_110: 21300220
+      Walls and Floors_93: 21300186
+      Walls and Floors_77: 21300154
+      Walls and Floors_134: 21300268
+      Walls and Floors_164: 21300328
+      Walls and Floors_15: 21300030
+      Walls and Floors_6: 21300012
+      Walls and Floors_34: 21300068
+      Walls and Floors_159: 21300318
+      Walls and Floors_64: 21300128
+      Walls and Floors_162: 21300324
+      Walls and Floors_161: 21300322
+      Walls and Floors_70: 21300140
+      Walls and Floors_62: 21300124
+      Walls and Floors_175: 21300350
+      Walls and Floors_208: 21300416
+      Walls and Floors_190: 21300380
+      Walls and Floors_213: 21300426
+      Walls and Floors_200: 21300400
+      Walls and Floors_117: 21300234
+      Walls and Floors_232: 21300464
+      Walls and Floors_173: 21300346
+      Walls and Floors_12: 21300024
+      Walls and Floors_52: 21300104
+      Walls and Floors_188: 21300376
+      Walls and Floors_60: 21300120
+      Walls and Floors_131: 21300262
+      Walls and Floors_132: 21300264
+      Walls and Floors_22: 21300044
+      Walls and Floors_2: 21300004
+      Walls and Floors_170: 21300340
+      Walls and Floors_101: 21300202
+      Walls and Floors_129: 21300258
+      Walls and Floors_40: 21300080
+      Walls and Floors_186: 21300372
+      Walls and Floors_125: 21300250
+      Walls and Floors_24: 21300048
+      Walls and Floors_152: 21300304
+      Walls and Floors_166: 21300332
+      Walls and Floors_147: 21300294
+      Walls and Floors_195: 21300390
+      Walls and Floors_124: 21300248
+      Walls and Floors_47: 21300094
+      Walls and Floors_97: 21300194
+      Walls and Floors_65: 21300130
+      Walls and Floors_133: 21300266
+      Walls and Floors_179: 21300358
+      Walls and Floors_36: 21300072
+      Walls and Floors_171: 21300342
+      Walls and Floors_139: 21300278
+      Walls and Floors_86: 21300172
+      Walls and Floors_114: 21300228
+      Walls and Floors_13: 21300026
+      Walls and Floors_25: 21300050
+      Walls and Floors_67: 21300134
+      Walls and Floors_59: 21300118
+      Walls and Floors_212: 21300424
+      Walls and Floors_189: 21300378
+      Walls and Floors_32: 21300064
+      Walls and Floors_141: 21300282
+      Walls and Floors_202: 21300404
+      Walls and Floors_21: 21300042
+      Walls and Floors_219: 21300438
+      Walls and Floors_156: 21300312
+      Walls and Floors_191: 21300382
+      Walls and Floors_201: 21300402
+      Walls and Floors_103: 21300206
+      Walls and Floors_224: 21300448
+      Walls and Floors_28: 21300056
+      Walls and Floors_222: 21300444
+      Walls and Floors_72: 21300144
+      Walls and Floors_57: 21300114
+      Walls and Floors_140: 21300280
+      Walls and Floors_126: 21300252
+      Walls and Floors_182: 21300364
+      Walls and Floors_83: 21300166
+      Walls and Floors_8: 21300016
+      Walls and Floors_206: 21300412
+      Walls and Floors_192: 21300384
+      Walls and Floors_29: 21300058
+      Walls and Floors_33: 21300066
+      Walls and Floors_144: 21300288
+      Walls and Floors_149: 21300298
+      Walls and Floors_115: 21300230
+      Walls and Floors_223: 21300446
+      Walls and Floors_17: 21300034
+      Walls and Floors_187: 21300374
+      Walls and Floors_19: 21300038
+      Walls and Floors_89: 21300178
+      Walls and Floors_46: 21300092
+      Walls and Floors_91: 21300182
+      Walls and Floors_81: 21300162
+      Walls and Floors_98: 21300196
+      Walls and Floors_120: 21300240
+      Walls and Floors_123: 21300246
+      Walls and Floors_35: 21300070
+      Walls and Floors_7: 21300014
+      Walls and Floors_105: 21300210
+      Walls and Floors_216: 21300432
+      Walls and Floors_217: 21300434
+      Walls and Floors_180: 21300360
+      Walls and Floors_199: 21300398
+      Walls and Floors_227: 21300454
+      Walls and Floors_109: 21300218
+      Walls and Floors_174: 21300348
+      Walls and Floors_27: 21300054
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

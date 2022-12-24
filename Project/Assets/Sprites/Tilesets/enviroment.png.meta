@@ -246,7 +246,7 @@ TextureImporter:
       213: 21300160
     second: enviroment_80
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -267,6 +267,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -276,8 +277,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -305,6 +306,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -344,6 +346,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2068,6 +2082,88 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      enviroment_70: 21300140
+      enviroment_75: 21300150
+      enviroment_4: 21300008
+      enviroment_19: 21300038
+      enviroment_40: 21300080
+      enviroment_58: 21300116
+      enviroment_28: 21300056
+      enviroment_76: 21300152
+      enviroment_29: 21300058
+      enviroment_79: 21300158
+      enviroment_31: 21300062
+      enviroment_26: 21300052
+      enviroment_61: 21300122
+      enviroment_66: 21300132
+      enviroment_55: 21300110
+      enviroment_54: 21300108
+      enviroment_47: 21300094
+      enviroment_62: 21300124
+      enviroment_42: 21300084
+      enviroment_39: 21300078
+      enviroment_16: 21300032
+      enviroment_46: 21300092
+      enviroment_74: 21300148
+      enviroment_43: 21300086
+      enviroment_2: 21300004
+      enviroment_21: 21300042
+      enviroment_23: 21300046
+      enviroment_35: 21300070
+      enviroment_24: 21300048
+      enviroment_48: 21300096
+      enviroment_10: 21300020
+      enviroment_0: 21300000
+      enviroment_50: 21300100
+      enviroment_12: 21300024
+      enviroment_38: 21300076
+      enviroment_32: 21300064
+      enviroment_60: 21300120
+      enviroment_7: 21300014
+      enviroment_64: 21300128
+      enviroment_6: 21300012
+      enviroment_44: 21300088
+      enviroment_8: 21300016
+      enviroment_33: 21300066
+      enviroment_36: 21300072
+      enviroment_20: 21300040
+      enviroment_5: 21300010
+      enviroment_49: 21300098
+      enviroment_34: 21300068
+      enviroment_1: 21300002
+      enviroment_41: 21300082
+      enviroment_65: 21300130
+      enviroment_69: 21300138
+      enviroment_56: 21300112
+      enviroment_78: 21300156
+      enviroment_67: 21300134
+      enviroment_22: 21300044
+      enviroment_68: 21300136
+      enviroment_71: 21300142
+      enviroment_59: 21300118
+      enviroment_72: 21300144
+      enviroment_51: 21300102
+      enviroment_77: 21300154
+      enviroment_57: 21300114
+      enviroment_25: 21300050
+      enviroment_9: 21300018
+      enviroment_11: 21300022
+      enviroment_18: 21300036
+      enviroment_45: 21300090
+      enviroment_63: 21300126
+      enviroment_73: 21300146
+      enviroment_14: 21300028
+      enviroment_15: 21300030
+      enviroment_17: 21300034
+      enviroment_53: 21300106
+      enviroment_3: 21300006
+      enviroment_30: 21300060
+      enviroment_80: 21300160
+      enviroment_13: 21300026
+      enviroment_27: 21300054
+      enviroment_37: 21300074
+      enviroment_52: 21300104
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

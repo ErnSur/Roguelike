@@ -291,7 +291,7 @@ TextureImporter:
       213: 21300190
     second: items_95
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -312,6 +312,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -321,8 +322,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -350,6 +351,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -389,6 +391,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2428,6 +2442,103 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      items_2: 21300004
+      items_42: 21300084
+      items_39: 21300078
+      items_43: 21300086
+      items_74: 21300148
+      items_52: 21300104
+      items_91: 21300182
+      items_61: 21300122
+      items_3: 21300006
+      items_50: 21300100
+      items_71: 21300142
+      items_84: 21300168
+      items_73: 21300146
+      items_1: 21300002
+      items_40: 21300080
+      items_29: 21300058
+      items_51: 21300102
+      items_65: 21300130
+      items_87: 21300174
+      items_63: 21300126
+      items_79: 21300158
+      items_34: 21300068
+      items_82: 21300164
+      items_30: 21300060
+      items_19: 21300038
+      items_4: 21300008
+      items_20: 21300040
+      items_67: 21300134
+      items_55: 21300110
+      items_32: 21300064
+      items_0: 21300000
+      items_5: 21300010
+      items_36: 21300072
+      items_24: 21300048
+      items_69: 21300138
+      items_37: 21300074
+      items_17: 21300034
+      items_47: 21300094
+      items_70: 21300140
+      items_95: 21300190
+      items_80: 21300160
+      items_66: 21300132
+      items_35: 21300070
+      items_68: 21300136
+      items_13: 21300026
+      items_45: 21300090
+      items_26: 21300052
+      items_15: 21300030
+      items_23: 21300046
+      items_58: 21300116
+      items_60: 21300120
+      items_62: 21300124
+      items_81: 21300162
+      items_94: 21300188
+      items_86: 21300172
+      items_54: 21300108
+      items_83: 21300166
+      items_27: 21300054
+      items_22: 21300044
+      items_33: 21300066
+      items_53: 21300106
+      items_57: 21300114
+      items_16: 21300032
+      items_7: 21300014
+      items_11: 21300022
+      items_48: 21300096
+      items_46: 21300092
+      items_6: 21300012
+      items_64: 21300128
+      items_75: 21300150
+      items_12: 21300024
+      items_89: 21300178
+      items_59: 21300118
+      items_9: 21300018
+      items_49: 21300098
+      items_85: 21300170
+      items_21: 21300042
+      items_10: 21300020
+      items_41: 21300082
+      items_8: 21300016
+      items_14: 21300028
+      items_38: 21300076
+      items_76: 21300152
+      items_18: 21300036
+      items_31: 21300062
+      items_93: 21300186
+      items_88: 21300176
+      items_72: 21300144
+      items_90: 21300180
+      items_77: 21300154
+      items_56: 21300112
+      items_28: 21300056
+      items_78: 21300156
+      items_92: 21300184
+      items_25: 21300050
+      items_44: 21300088
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

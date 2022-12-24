@@ -183,7 +183,7 @@ TextureImporter:
       213: 21300118
     second: bg_rog1_59
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -204,6 +204,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -213,8 +214,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -242,6 +243,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -281,6 +283,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1564,6 +1578,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      bg_rog1_51: 21300102
+      bg_rog1_31: 21300062
+      bg_rog1_15: 21300030
+      bg_rog1_46: 21300092
+      bg_rog1_54: 21300108
+      bg_rog1_59: 21300118
+      bg_rog1_10: 21300020
+      bg_rog1_34: 21300068
+      bg_rog1_57: 21300114
+      bg_rog1_0: 21300000
+      bg_rog1_18: 21300036
+      bg_rog1_42: 21300084
+      bg_rog1_45: 21300090
+      bg_rog1_29: 21300058
+      bg_rog1_44: 21300088
+      bg_rog1_40: 21300080
+      bg_rog1_49: 21300098
+      bg_rog1_55: 21300110
+      bg_rog1_2: 21300004
+      bg_rog1_47: 21300094
+      bg_rog1_36: 21300072
+      bg_rog1_26: 21300052
+      bg_rog1_30: 21300060
+      bg_rog1_7: 21300014
+      bg_rog1_27: 21300054
+      bg_rog1_24: 21300048
+      bg_rog1_6: 21300012
+      bg_rog1_23: 21300046
+      bg_rog1_58: 21300116
+      bg_rog1_32: 21300064
+      bg_rog1_8: 21300016
+      bg_rog1_13: 21300026
+      bg_rog1_4: 21300008
+      bg_rog1_25: 21300050
+      bg_rog1_16: 21300032
+      bg_rog1_5: 21300010
+      bg_rog1_20: 21300040
+      bg_rog1_14: 21300028
+      bg_rog1_12: 21300024
+      bg_rog1_21: 21300042
+      bg_rog1_19: 21300038
+      bg_rog1_39: 21300078
+      bg_rog1_11: 21300022
+      bg_rog1_41: 21300082
+      bg_rog1_53: 21300106
+      bg_rog1_17: 21300034
+      bg_rog1_52: 21300104
+      bg_rog1_48: 21300096
+      bg_rog1_37: 21300074
+      bg_rog1_50: 21300100
+      bg_rog1_22: 21300044
+      bg_rog1_1: 21300002
+      bg_rog1_3: 21300006
+      bg_rog1_43: 21300086
+      bg_rog1_35: 21300070
+      bg_rog1_28: 21300056
+      bg_rog1_56: 21300112
+      bg_rog1_33: 21300066
+      bg_rog1_38: 21300076
+      bg_rog1_9: 21300018
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
